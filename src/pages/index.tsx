@@ -14,11 +14,13 @@ import {
   Title,
 } from "@nimbus-ds/components";
 import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
+import { useProductContext } from "./_app";
 
 export default function Home() {
-  const [productsQty, setProductsQty] = useState(6);
+  const { products, addProducts } = useProductContext();
+  const productsQty = products.length;
 
-  const add5Products = () => setProductsQty(productsQty + 5);
+  const add5Products = () => addProducts(5);
 
   return (
     <>
@@ -69,7 +71,7 @@ export default function Home() {
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Header title="Contador de productos" />
+                <Card.Header title="Contador de productos de Tienda demo" />
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4" mb="2">
                     <Text>

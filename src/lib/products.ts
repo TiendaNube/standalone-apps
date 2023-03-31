@@ -8,11 +8,14 @@ export interface ProductProps {
   price: string;
 }
 
-export const generateProducts = (count: number): ProductProps[] => {
+export const generateProducts = (count: number, maxId?: number): ProductProps[] => {
   const products: ProductProps[] = [];
-  for (let i = 1; i <= count; i += 1) {
+  const startId = maxId ? maxId + 1 : 1;
+
+  for (let i = 0; i < count; i++) {
+    const id = startId + i;
     products.push({
-      id: i,
+      id,
       image: faker.image.abstract(72, 72, true),
       name: faker.commerce.productName(),
       stock: faker.random.numeric(),

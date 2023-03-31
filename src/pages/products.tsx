@@ -6,16 +6,14 @@ import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
 import { Box, Chip, IconButton, Table, Thumbnail } from "@nimbus-ds/components";
 import { DataTable } from "@nimbus-ds/data-table";
-import { GetServerSideProps, NextPage } from "next";
-import { generateProducts, ProductProps } from "@/lib";
+import { NextPage } from "next";
+import { ProductProps } from "@/lib";
 import { ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
+import { useProductContext } from "./_app";
 
-interface ProductsProps {
-  products: ProductProps[];
-}
-
-const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
-  const [rows, setRows] = useState<ProductProps[]>(products);
+const Products: NextPage = () => {
+  const { products } = useProductContext();
+  const [displayedRows, setDisplayedRows] = useState<ProductProps[]>([]);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
   const [headerCheckboxStatus, setHeaderCheckboxStatus] = useState(false);
   const [headerIndeterminateStatus, setHeaderIndeterminateStatus] =
@@ -28,7 +26,11 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
   const [sortColumn, setSortColumn] = useState<"id" | "name">("id");
 
   useEffect(() => {
-    if (checkedRows.length === rows.length) {
+    setCheckedRows([]); // Clear checkedRows whenever products value changes
+  }, [products]);
+
+  useEffect(() => {
+    if (checkedRows.length === products.length) {
       setHeaderCheckboxStatus(true);
       setHeaderIndeterminateStatus(false);
     } else if (checkedRows.length > 0) {
@@ -38,7 +40,7 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
       setHeaderCheckboxStatus(false);
       setHeaderIndeterminateStatus(false);
     }
-  }, [checkedRows.length, rows.length]);
+  }, [checkedRows.length, products.length]);
 
   const handleRowClick = (id: number) => {
     if (checkedRows.includes(id)) {
@@ -52,7 +54,7 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
     if (headerCheckboxStatus) {
       setCheckedRows([]);
     } else {
-      const rowIds = rows.map((row) => row.id);
+      const rowIds = products.map((row) => row.id);
       setCheckedRows(rowIds);
     }
   };
@@ -72,29 +74,31 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
     }
   };
 
-  const sortCompareFunction = (rowA: ProductProps, rowB: ProductProps) => {
-    if (sortColumn === "id") {
-      return sortDirection === "ascending"
-        ? rowA.id - rowB.id
-        : rowB.id - rowA.id;
-    }
-    if (sortColumn === "name") {
-      return sortDirection === "ascending"
-        ? rowA.name.localeCompare(rowB.name)
-        : rowB.name.localeCompare(rowA.name);
-    }
-    return 0;
-  };
+  useEffect(() => {
+    const sortCompareFunction = (rowA: ProductProps, rowB: ProductProps) => {
+      if (sortColumn === "id") {
+        return sortDirection === "ascending"
+          ? rowA.id - rowB.id
+          : rowB.id - rowA.id;
+      }
+      if (sortColumn === "name") {
+        return sortDirection === "ascending"
+          ? rowA.name.localeCompare(rowB.name)
+          : rowB.name.localeCompare(rowA.name);
+      }
+      return 0;
+    };
+    const getDisplayedRows = (): ProductProps[] => {
+      const sortedRows = products.slice().sort(sortCompareFunction);
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      return sortedRows.slice(startIndex, endIndex);
+    };
 
-  const getDisplayedRows = (): ProductProps[] => {
-    const sortedRows = rows.slice().sort(sortCompareFunction);
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    return sortedRows.slice(startIndex, endIndex);
-  };
+    setDisplayedRows(getDisplayedRows());
+  }, [products, currentPage, sortColumn, sortDirection, pageSize]);
 
-  const displayedRows = getDisplayedRows();
-  const totalRows = rows.length;
+  const totalRows = products.length;
   const firstRow = (currentPage - 1) * pageSize + 1;
   const lastRow = Math.min(currentPage * pageSize, totalRows);
 
@@ -170,7 +174,7 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page maxWidth="1200px">
-        <Page.Header title="Productos de mi tienda" />
+        <Page.Header title="Productos de Tienda Demo" />
         <Page.Body>
           <Layout columns="1">
             <Layout.Section>
@@ -185,7 +189,6 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
                   return (
                     <DataTable.Row
                       key={id}
-                      onClick={() => handleRowClick(id)}
                       backgroundColor={
                         checkedRows.includes(id)
                           ? {
@@ -235,16 +238,6 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
       </Page>
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const products = generateProducts(30);
-
-  return {
-    props: {
-      products,
-    },
-  };
 };
 
 export default Products;
