@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from "react";
 
-import Head from 'next/head'
+import Head from "next/head";
 
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
@@ -11,12 +11,9 @@ import {
   Box,
   Link,
   Card,
-  Title
+  Title,
 } from "@nimbus-ds/components";
-import {
-  ExternalLinkIcon,
-  PlusCircleIcon
-} from "@nimbus-ds/icons";
+import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
 
 export default function Home() {
   const [productsQty, setProductsQty] = useState(6);
@@ -40,9 +37,8 @@ export default function Home() {
                 <Card.Header title="¡Felicitaciones por crear tu app!" />
                 <Card.Body>
                   <Text>
-                    ¡Hola! Tu app está casi lista. Cuenta con las bases
-                    sólidas que necesitás para comenzar, incluyendo
-                    nuestro&nbsp;
+                    ¡Hola! Tu app está casi lista. Cuenta con las bases sólidas
+                    que necesitás para comenzar, incluyendo nuestro&nbsp;
                     <Link
                       as="a"
                       href="https://nimbus.tiendanube.com/"
@@ -59,20 +55,16 @@ export default function Home() {
                     .
                     <br />
                     <br />
-                    Con Nimbus a tu disposición, vas a poder crear interfaces
-                    de usuario intuitivas y atractivas con gran velocidad,
-                    mientras que la API de Tiendanube te permitirá aprovechar
-                    al máximo las funcionalidades de eCommerce. ¡Feliz
-                    desarrollo!
+                    Con Nimbus a tu disposición, vas a poder crear interfaces de
+                    usuario intuitivas y atractivas con gran velocidad, mientras
+                    que la API de Tiendanube te permitirá aprovechar al máximo
+                    las funcionalidades de eCommerce. ¡Feliz desarrollo!
                   </Text>
                 </Card.Body>
                 <Card.Footer>
                   <Link>
                     Conocé más sobre cómo crear tu app
-                    <Icon
-                      color="currentColor"
-                      source={<ExternalLinkIcon />}
-                    />
+                    <Icon color="currentColor" source={<ExternalLinkIcon />} />
                   </Link>
                 </Card.Footer>
               </Card>

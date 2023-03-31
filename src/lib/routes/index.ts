@@ -18,5 +18,5 @@ export interface Routes {
 }
 
 export const routes = {
-  appRoutes
-}
+  appRoutes,
+};

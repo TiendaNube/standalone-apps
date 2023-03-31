@@ -1,19 +1,8 @@
-import { useEffect, useState } from "react";
-
 import Head from "next/head";
 
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
-import {
-  Button,
-  Icon,
-  Text,
-  Box,
-  Link,
-  Card,
-  Title,
-} from "@nimbus-ds/components";
-import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
+import { Text, Box, Title } from "@nimbus-ds/components";
 import { ExampleCard } from "@/components";
 
 export default function Examples() {
@@ -35,7 +24,10 @@ export default function Examples() {
             <Layout.Section>
               <Box display="flex" flexDirection="column" gap="2">
                 <Title as="h2">Autenticación</Title>
-                <Text>Pantallas de creación de cuenta, validación de datos e ingreso de usuarios.</Text>
+                <Text>
+                  Pantallas de creación de cuenta, validación de datos e ingreso
+                  de usuarios.
+                </Text>
               </Box>
               <Box display="flex" flexWrap="wrap" gap="4">
                 <ExampleCard title="Login" />
@@ -47,7 +39,10 @@ export default function Examples() {
             <Layout.Section>
               <Box display="flex" flexDirection="column" gap="2">
                 <Title as="h2">Tablas de datos</Title>
-                <Text>Pantallas con grandes cantidades de datos organizados de forma tabular.</Text>
+                <Text>
+                  Pantallas con grandes cantidades de datos organizados de forma
+                  tabular.
+                </Text>
               </Box>
               <Box display="flex" flexWrap="wrap" gap="4">
                 <ExampleCard title="Login" />
@@ -59,7 +54,9 @@ export default function Examples() {
             <Layout.Section>
               <Box display="flex" flexDirection="column" gap="2">
                 <Title as="h2">Formularios</Title>
-                <Text>Pantallas con formularios para carga de datos, edición, etc.</Text>
+                <Text>
+                  Pantallas con formularios para carga de datos, edición, etc.
+                </Text>
               </Box>
               <Box display="flex" flexWrap="wrap" gap="4">
                 <ExampleCard title="Login" />

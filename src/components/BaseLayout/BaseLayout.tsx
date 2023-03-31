@@ -9,23 +9,34 @@ import { routes } from "@/lib";
 import { useDarkMode } from "../../pages/_app";
 
 import AppShell from "@nimbus-ds/app-shell";
-import { Link, Icon, Box, Button, Text, IconButton, Thumbnail } from "@nimbus-ds/components";
-import { CogIcon, ExternalLinkIcon, MoonIcon, QuestionCircleIcon, SunIcon } from "@nimbus-ds/icons";
+import {
+  Link,
+  Icon,
+  Box,
+  Button,
+  Text,
+  IconButton,
+  Thumbnail,
+} from "@nimbus-ds/components";
+import {
+  CogIcon,
+  ExternalLinkIcon,
+  MoonIcon,
+  QuestionCircleIcon,
+  SunIcon,
+} from "@nimbus-ds/icons";
 import Menu from "@nimbus-ds/menu";
 import NextLink from "next/link";
 
-const BaseLayout: React.FC<{ children: React.ReactNode }> = ({
-  children
-}) => {
+const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const router = useRouter();
   const handleActive = (href: string) => router.asPath === href;
 
   const { darkMode, toggleDarkMode } = useDarkMode();
   const currentTheme = darkMode ? "dark" : "base";
-  const currentThemeIcon =
-  darkMode ? <SunIcon /> : <MoonIcon />;
-  
-  const [ active, setActive ] = useState(currentTheme === "dark");
+  const currentThemeIcon = darkMode ? <SunIcon /> : <MoonIcon />;
+
+  const [active, setActive] = useState(currentTheme === "dark");
 
   useEffect(() => {
     document.body.className = currentTheme;
@@ -69,19 +80,23 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({
         <Icon color="currentColor" source={<QuestionCircleIcon />} />
         Ayuda para desarrolladores
       </Button>
-      <IconButton source={currentThemeIcon} onClick={toggleDarkMode} size="2rem" />
+      <IconButton
+        source={currentThemeIcon}
+        onClick={toggleDarkMode}
+        size="2rem"
+      />
     </>
   );
-  
+
   return (
     <ThemeProvider theme={currentTheme}>
       <AppShell menu={appMenu}>
-          <AppShell.Header
-            leftSlot={<Text color="neutral-surface">{currentTheme}</Text>}
-            rightSlot={rightStack}
-          />
-          {children}
-        </AppShell>
+        <AppShell.Header
+          leftSlot={<Text color="neutral-surface">{currentTheme}</Text>}
+          rightSlot={rightStack}
+        />
+        {children}
+      </AppShell>
     </ThemeProvider>
   );
 };

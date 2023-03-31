@@ -1,20 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import Head from 'next/head'
+import Head from "next/head";
 
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
-import {
-  Box,
-  Chip,
-  IconButton,
-  Table,
-  Thumbnail
-} from "@nimbus-ds/components";
-import { DataTable } from '@nimbus-ds/data-table';
-import { GetServerSideProps, NextPage } from 'next';
-import { generateProducts, ProductProps } from '@/lib';
-import { ExternalLinkIcon, TrashIcon } from '@nimbus-ds/icons';
+import { Box, Chip, IconButton, Table, Thumbnail } from "@nimbus-ds/components";
+import { DataTable } from "@nimbus-ds/data-table";
+import { GetServerSideProps, NextPage } from "next";
+import { generateProducts, ProductProps } from "@/lib";
+import { ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
 
 interface ProductsProps {
   products: ProductProps[];
@@ -156,7 +150,9 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
         onClick: handleHeaderCheckboxClick,
         indeterminate: headerIndeterminateStatus,
       }}
-      label={`${checkedRows.length} ${checkedRows.length === 1 ? "seleccionado" : "seleccionados"}`}
+      label={`${checkedRows.length} ${
+        checkedRows.length === 1 ? "seleccionado" : "seleccionados"
+      }`}
       action={
         <Box display="flex" gap="1">
           <Chip text="Eliminar" />
@@ -178,61 +174,68 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
         <Page.Body>
           <Layout columns="1">
             <Layout.Section>
-            <DataTable
-              header={tableHeader}
-              footer={tableFooter}
-              bulkActions={hasBulkActions}
-            >
-              {displayedRows.map((row) => {
-                const { id } = row;
+              <DataTable
+                header={tableHeader}
+                footer={tableFooter}
+                bulkActions={hasBulkActions}
+              >
+                {displayedRows.map((row) => {
+                  const { id } = row;
 
-                return (
-                  <DataTable.Row
-                    key={id}
-                    onClick={() => handleRowClick(id)}
-                    backgroundColor={
-                      checkedRows.includes(id)
-                        ? {
-                            rest: "primary-surface",
-                            hover: "primary-surfaceHighlight",
-                          }
-                        : {
-                            rest: "neutral-background",
-                            hover: "neutral-surface",
-                          }
-                    }
-                    checkbox={{
-                      name: `check-${id}`,
-                      checked: checkedRows.includes(id),
-                      onClick: () => handleRowClick(id),
-                    }}
-                  >
-                    <Table.Cell>
-                      <Box display="flex" gap="2">
-                        <Thumbnail src={row.image} width="36px" alt={row.name} />
-                        {row.name}
-                      </Box>
-                    </Table.Cell>
-                    <Table.Cell>{row.stock}</Table.Cell>
-                    <Table.Cell>{row.price}</Table.Cell>
-                    <Table.Cell>-</Table.Cell>
-                    <Table.Cell>
-                      <Box display="flex" gap="2">
-                        <IconButton source={<TrashIcon />} size="2rem" />
-                        <IconButton source={<ExternalLinkIcon />} size="2rem" />
-                      </Box>
-                    </Table.Cell>
-                  </DataTable.Row>
-                );
-              })}
-            </DataTable>
+                  return (
+                    <DataTable.Row
+                      key={id}
+                      onClick={() => handleRowClick(id)}
+                      backgroundColor={
+                        checkedRows.includes(id)
+                          ? {
+                              rest: "primary-surface",
+                              hover: "primary-surfaceHighlight",
+                            }
+                          : {
+                              rest: "neutral-background",
+                              hover: "neutral-surface",
+                            }
+                      }
+                      checkbox={{
+                        name: `check-${id}`,
+                        checked: checkedRows.includes(id),
+                        onClick: () => handleRowClick(id),
+                      }}
+                    >
+                      <Table.Cell>
+                        <Box display="flex" gap="2">
+                          <Thumbnail
+                            src={row.image}
+                            width="36px"
+                            alt={row.name}
+                          />
+                          {row.name}
+                        </Box>
+                      </Table.Cell>
+                      <Table.Cell>{row.stock}</Table.Cell>
+                      <Table.Cell>{row.price}</Table.Cell>
+                      <Table.Cell>-</Table.Cell>
+                      <Table.Cell>
+                        <Box display="flex" gap="2">
+                          <IconButton source={<TrashIcon />} size="2rem" />
+                          <IconButton
+                            source={<ExternalLinkIcon />}
+                            size="2rem"
+                          />
+                        </Box>
+                      </Table.Cell>
+                    </DataTable.Row>
+                  );
+                })}
+              </DataTable>
             </Layout.Section>
           </Layout>
         </Page.Body>
       </Page>
     </>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const products = generateProducts(30);

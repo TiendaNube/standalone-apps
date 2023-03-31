@@ -1,7 +1,13 @@
-import { useState, createContext, useContext, useCallback, useMemo } from "react";
+import {
+  useState,
+  createContext,
+  useContext,
+  useCallback,
+  useMemo,
+} from "react";
 
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 import { BaseLayout } from "@/components";
 
 interface IDarkModeContext {
@@ -24,10 +30,12 @@ export default function App({ Component, pageProps }: AppProps) {
     () => ({ darkMode, toggleDarkMode }),
     [darkMode, toggleDarkMode]
   );
-  
+
   return (
     <DarkModeContext.Provider value={contextValue}>
-      <BaseLayout><Component {...pageProps} /></BaseLayout>
+      <BaseLayout>
+        <Component {...pageProps} />
+      </BaseLayout>
     </DarkModeContext.Provider>
   );
 }
