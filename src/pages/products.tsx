@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 
 import Head from "next/head";
-
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
-import { Box, Chip, IconButton, Table, Thumbnail } from "@nimbus-ds/components";
-import { DataTable } from "@nimbus-ds/data-table";
 import { NextPage } from "next";
 import { ProductProps } from "@/lib";
-import { ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
-import { useProductContext } from "./_app";
+import { useProductContext } from "@/components";
+
+import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
+import { Page } from "@nimbus-ds/page";
+import { Layout } from "@nimbus-ds/layout";
+import { Box, Button, IconButton, Table, Thumbnail } from "@nimbus-ds/components";
+import { DataTable } from "@nimbus-ds/data-table";
 
 const Products: NextPage = () => {
-  const { products } = useProductContext();
+  const { products, removeProduct, selectedProducts, setSelectedProducts, toggleSelectedProduct, removeSelectedProducts } = useProductContext();
   const [displayedRows, setDisplayedRows] = useState<ProductProps[]>([]);
-  const [checkedRows, setCheckedRows] = useState<number[]>([]);
   const [headerCheckboxStatus, setHeaderCheckboxStatus] = useState(false);
   const [headerIndeterminateStatus, setHeaderIndeterminateStatus] =
     useState(false);
@@ -26,36 +25,44 @@ const Products: NextPage = () => {
   const [sortColumn, setSortColumn] = useState<"id" | "name">("id");
 
   useEffect(() => {
-    setCheckedRows([]); // Clear checkedRows whenever products value changes
-  }, [products]);
+    setSelectedProducts(new Set()); // Clear checkedRows whenever products value changes
+  }, [products, setSelectedProducts]);
 
   useEffect(() => {
-    if (checkedRows.length === products.length) {
+    if (selectedProducts.size === products.length) {
       setHeaderCheckboxStatus(true);
       setHeaderIndeterminateStatus(false);
-    } else if (checkedRows.length > 0) {
+    } else if (selectedProducts.size > 0) {
       setHeaderCheckboxStatus(false);
       setHeaderIndeterminateStatus(true);
     } else {
       setHeaderCheckboxStatus(false);
       setHeaderIndeterminateStatus(false);
     }
-  }, [checkedRows.length, products.length]);
+  }, [selectedProducts.size, products.length]);
 
   const handleRowClick = (id: number) => {
-    if (checkedRows.includes(id)) {
-      setCheckedRows(checkedRows.filter((rowId) => rowId !== id));
+    if (selectedProducts.has(id)) {
+      setSelectedProducts((prevSelectedProducts) => {
+        const newSelectedProducts = new Set(prevSelectedProducts);
+        newSelectedProducts.delete(id);
+        return newSelectedProducts;
+      });
     } else {
-      setCheckedRows([...checkedRows, id]);
+      setSelectedProducts((prevSelectedProducts) => {
+        const newSelectedProducts = new Set(prevSelectedProducts);
+        newSelectedProducts.add(id);
+        return newSelectedProducts;
+      });
     }
   };
 
   const handleHeaderCheckboxClick = () => {
     if (headerCheckboxStatus) {
-      setCheckedRows([]);
+      setSelectedProducts(new Set());
     } else {
-      const rowIds = products.map((row) => row.id);
-      setCheckedRows(rowIds);
+      const productIds = products.map((product) => product.id);
+      setSelectedProducts(new Set(productIds));
     }
   };
 
@@ -102,6 +109,10 @@ const Products: NextPage = () => {
   const firstRow = (currentPage - 1) * pageSize + 1;
   const lastRow = Math.min(currentPage * pageSize, totalRows);
 
+  const handleRemoveProduct = (id: number) => {
+    removeProduct(id);
+  };
+
   const tableHeader = (
     <DataTable.Header
       checkbox={{
@@ -111,9 +122,9 @@ const Products: NextPage = () => {
         indeterminate: headerIndeterminateStatus,
       }}
     >
-      {/* <Table.Cell width="120px">
+      <Table.Cell width="auto">
         <Box display="flex" gap="2" alignItems="center">
-          Order no.
+          Producto
           <IconButton
             source={
               sortDirection === "ascending" ? (
@@ -123,11 +134,10 @@ const Products: NextPage = () => {
               )
             }
             size="1rem"
-            onClick={() => handleSort("id")}
+            onClick={() => handleSort("name")}
           />
         </Box>
-      </Table.Cell> */}
-      <Table.Cell width="auto">Producto</Table.Cell>
+      </Table.Cell>
       <Table.Cell width="120px">Stock</Table.Cell>
       <Table.Cell width="120px">Precio</Table.Cell>
       <Table.Cell width="120px">Variantes</Table.Cell>
@@ -146,7 +156,7 @@ const Products: NextPage = () => {
     />
   );
 
-  const hasBulkActions = checkedRows.length > 0 && (
+  const hasBulkActions = selectedProducts.size > 0 && (
     <DataTable.BulkActions
       checkbox={{
         name: "check-all",
@@ -154,12 +164,14 @@ const Products: NextPage = () => {
         onClick: handleHeaderCheckboxClick,
         indeterminate: headerIndeterminateStatus,
       }}
-      label={`${checkedRows.length} ${
-        checkedRows.length === 1 ? "seleccionado" : "seleccionados"
+      label={`${selectedProducts.size} ${
+        selectedProducts.size === 1 ? "seleccionado" : "seleccionados"
       }`}
       action={
         <Box display="flex" gap="1">
-          <Chip text="Eliminar" />
+          <Button appearance="danger" onClick={removeSelectedProducts}>
+            Eliminar
+          </Button>
         </Box>
       }
     />
@@ -190,7 +202,7 @@ const Products: NextPage = () => {
                     <DataTable.Row
                       key={id}
                       backgroundColor={
-                        checkedRows.includes(id)
+                        selectedProducts.has(row.id)
                           ? {
                               rest: "primary-surface",
                               hover: "primary-surfaceHighlight",
@@ -202,7 +214,7 @@ const Products: NextPage = () => {
                       }
                       checkbox={{
                         name: `check-${id}`,
-                        checked: checkedRows.includes(id),
+                        checked: selectedProducts.has(row.id),
                         onClick: () => handleRowClick(id),
                       }}
                     >
@@ -221,7 +233,7 @@ const Products: NextPage = () => {
                       <Table.Cell>-</Table.Cell>
                       <Table.Cell>
                         <Box display="flex" gap="2">
-                          <IconButton source={<TrashIcon />} size="2rem" />
+                          <IconButton onClick={() => handleRemoveProduct(row.id)} source={<TrashIcon />} size="2rem" />
                           <IconButton
                             source={<ExternalLinkIcon />}
                             size="2rem"

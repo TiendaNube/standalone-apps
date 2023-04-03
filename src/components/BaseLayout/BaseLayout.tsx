@@ -6,7 +6,7 @@ import "@nimbus-ds/styles/dist/index.css";
 import "@nimbus-ds/styles/dist/themes/dark.css";
 
 import { routes } from "@/lib";
-import { useDarkMode } from "../../pages/_app";
+import { useDarkMode } from "@/components";
 
 import AppShell from "@nimbus-ds/app-shell";
 import {

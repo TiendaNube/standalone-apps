@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 import Head from "next/head";
+import { useProductContext } from "@/components";
 
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
@@ -14,7 +13,6 @@ import {
   Title,
 } from "@nimbus-ds/components";
 import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
-import { useProductContext } from "./_app";
 
 export default function Home() {
   const { products, addProducts } = useProductContext();
