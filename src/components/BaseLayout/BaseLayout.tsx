@@ -6,9 +6,10 @@ import "@nimbus-ds/styles/dist/index.css";
 import "@nimbus-ds/styles/dist/themes/dark.css";
 
 import { routes } from "@/lib";
-import { useDarkMode } from "@/components";
+import { useDarkMode, ResponsiveComponent } from "@/components";
 
 import AppShell from "@nimbus-ds/app-shell";
+import NavTabs from "@nimbus-ds/nav-tabs";
 import {
   Link,
   Icon,
@@ -17,10 +18,12 @@ import {
   Text,
   IconButton,
   Thumbnail,
+  Sidebar,
 } from "@nimbus-ds/components";
 import {
   CogIcon,
   ExternalLinkIcon,
+  MenuIcon,
   MoonIcon,
   QuestionCircleIcon,
   SunIcon,
@@ -38,10 +41,18 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const [active, setActive] = useState(currentTheme === "dark");
 
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const convertIconTypeToReactNode = (IconComponent: any): React.ReactNode => {
+    return <IconComponent size="medium" />;
+  };
+
   useEffect(() => {
     document.body.className = currentTheme;
     setActive(currentTheme === "dark");
   }, [currentTheme, active]);
+
+  const handleOpenMobileMenu = () => setOpenMenu(!openMenu);
 
   const appMenu = (
     <Menu>
@@ -88,15 +99,37 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     </>
   );
 
+  const mobileContent = (
+    <>
+      {children}
+      <NavTabs>
+        {routes?.appRoutes.map((route) => (
+          <NextLink href={route.slug} key={route.slug}>
+            <NavTabs.Item icon={convertIconTypeToReactNode(route.icon)} active={handleActive(route.slug)} onClick={() => {}} />
+          </NextLink>
+        ))}
+        <NavTabs.Item icon={<MenuIcon size="medium" />} onClick={handleOpenMobileMenu} />
+      </NavTabs>
+      <Sidebar maxWidth="280px" open={openMenu}>{appMenu}</Sidebar>
+    </>
+  );
+
+  const desktopContent = (
+    <AppShell menu={appMenu}>
+      <AppShell.Header
+        leftSlot={<Text color="neutral-surface">{currentTheme}</Text>}
+        rightSlot={rightStack}
+      />
+      {children}
+    </AppShell>
+  )
+
   return (
     <ThemeProvider theme={currentTheme}>
-      <AppShell menu={appMenu}>
-        <AppShell.Header
-          leftSlot={<Text color="neutral-surface">{currentTheme}</Text>}
-          rightSlot={rightStack}
-        />
-        {children}
-      </AppShell>
+      <ResponsiveComponent
+        mobileContent={mobileContent}
+        desktopContent={desktopContent}
+      />
     </ThemeProvider>
   );
 };

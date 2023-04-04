@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { NextPage } from "next";
 import { ProductProps } from "@/lib";
-import { useProductContext } from "@/components";
+import { ResponsiveComponent, useProductContext } from "@/components";
 
 import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
-import { Box, Button, IconButton, Table, Thumbnail } from "@nimbus-ds/components";
+import { Box, Button, IconButton, Table, Thumbnail, Text, Link, Checkbox } from "@nimbus-ds/components";
 import { DataTable } from "@nimbus-ds/data-table";
+import DataList from "@nimbus-ds/data-list";
 
 const Products: NextPage = () => {
   const { products, removeProduct, selectedProducts, setSelectedProducts, toggleSelectedProduct, removeSelectedProducts } = useProductContext();
@@ -18,11 +19,17 @@ const Products: NextPage = () => {
   const [headerIndeterminateStatus, setHeaderIndeterminateStatus] =
     useState(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize] = useState<number>(10);
+  const [pageSize] = useState<number>(20);
   const [sortDirection, setSortDirection] = useState<
     "ascending" | "descending"
   >("descending");
   const [sortColumn, setSortColumn] = useState<"id" | "name">("id");
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditMode = () => {
+    setSelectedProducts(new Set());
+    setEditMode(!editMode);
+  };
 
   useEffect(() => {
     setSelectedProducts(new Set()); // Clear checkedRows whenever products value changes
@@ -177,6 +184,117 @@ const Products: NextPage = () => {
     />
   );
 
+  const mobileContent = (
+    <>
+      <Box px="4">
+        <Link as="button" onClick={handleEditMode}>{editMode ? "Cancelar" : "Editar"}</Link>
+      </Box>
+      <DataList>
+        {hasBulkActions}
+        {displayedRows.map((row) => {
+          const { id } = row;
+
+          return (
+            <DataList.Row
+              key={id}
+              backgroundColor={
+                selectedProducts.has(row.id)
+                  ? "primary-surface"
+                  : "neutral-background"
+              }
+              flexDirection="row"
+              gap="2"
+            >
+              {editMode && (
+                <Checkbox
+                  name={`check-${id}`}
+                  checked={selectedProducts.has(row.id)}
+                  onClick={() => handleRowClick(id)}
+                />
+              )}
+              <Box display="flex" gap="2" flex="1 1 auto">
+                <Thumbnail
+                  src={row.image}
+                  width="54px"
+                  alt={row.name}
+                />
+                <Box display="flex" flexDirection="column">
+                  <Text>{row.name}</Text>
+                  <Text>{row.stock} en stock</Text>
+                  <Text>{row.price}</Text>
+                </Box>
+              </Box>
+              <Box display="flex" gap="2">
+                <IconButton onClick={() => handleRemoveProduct(row.id)} source={<TrashIcon />} size="2rem" />
+                <IconButton
+                  source={<ExternalLinkIcon />}
+                  size="2rem"
+                />
+              </Box>
+            </DataList.Row>
+          )
+        })}
+      </DataList>
+    </>
+  );
+
+  const desktopContent = (
+    <DataTable
+      header={tableHeader}
+      footer={tableFooter}
+      bulkActions={hasBulkActions}
+    >
+      {displayedRows.map((row) => {
+        const { id } = row;
+
+        return (
+          <DataTable.Row
+            key={id}
+            backgroundColor={
+              selectedProducts.has(row.id)
+                ? {
+                    rest: "primary-surface",
+                    hover: "primary-surfaceHighlight",
+                  }
+                : {
+                    rest: "neutral-background",
+                    hover: "neutral-surface",
+                  }
+            }
+            checkbox={{
+              name: `check-${id}`,
+              checked: selectedProducts.has(row.id),
+              onClick: () => handleRowClick(id),
+            }}
+          >
+            <Table.Cell>
+              <Box display="flex" gap="2">
+                <Thumbnail
+                  src={row.image}
+                  width="36px"
+                  alt={row.name}
+                />
+                {row.name}
+              </Box>
+            </Table.Cell>
+            <Table.Cell>{row.stock}</Table.Cell>
+            <Table.Cell>{row.price}</Table.Cell>
+            <Table.Cell>-</Table.Cell>
+            <Table.Cell>
+              <Box display="flex" gap="2">
+                <IconButton onClick={() => handleRemoveProduct(row.id)} source={<TrashIcon />} size="2rem" />
+                <IconButton
+                  source={<ExternalLinkIcon />}
+                  size="2rem"
+                />
+              </Box>
+            </Table.Cell>
+          </DataTable.Row>
+        );
+      })}
+    </DataTable>
+  );
+
   return (
     <>
       <Head>
@@ -187,63 +305,13 @@ const Products: NextPage = () => {
       </Head>
       <Page maxWidth="1200px">
         <Page.Header title="Productos de Tienda Demo" />
-        <Page.Body>
+        <Page.Body px={{ xs: "0", md: "6" }}>
           <Layout columns="1">
             <Layout.Section>
-              <DataTable
-                header={tableHeader}
-                footer={tableFooter}
-                bulkActions={hasBulkActions}
-              >
-                {displayedRows.map((row) => {
-                  const { id } = row;
-
-                  return (
-                    <DataTable.Row
-                      key={id}
-                      backgroundColor={
-                        selectedProducts.has(row.id)
-                          ? {
-                              rest: "primary-surface",
-                              hover: "primary-surfaceHighlight",
-                            }
-                          : {
-                              rest: "neutral-background",
-                              hover: "neutral-surface",
-                            }
-                      }
-                      checkbox={{
-                        name: `check-${id}`,
-                        checked: selectedProducts.has(row.id),
-                        onClick: () => handleRowClick(id),
-                      }}
-                    >
-                      <Table.Cell>
-                        <Box display="flex" gap="2">
-                          <Thumbnail
-                            src={row.image}
-                            width="36px"
-                            alt={row.name}
-                          />
-                          {row.name}
-                        </Box>
-                      </Table.Cell>
-                      <Table.Cell>{row.stock}</Table.Cell>
-                      <Table.Cell>{row.price}</Table.Cell>
-                      <Table.Cell>-</Table.Cell>
-                      <Table.Cell>
-                        <Box display="flex" gap="2">
-                          <IconButton onClick={() => handleRemoveProduct(row.id)} source={<TrashIcon />} size="2rem" />
-                          <IconButton
-                            source={<ExternalLinkIcon />}
-                            size="2rem"
-                          />
-                        </Box>
-                      </Table.Cell>
-                    </DataTable.Row>
-                  );
-                })}
-              </DataTable>
+              <ResponsiveComponent
+                mobileContent={mobileContent}
+                desktopContent={desktopContent}
+              />
             </Layout.Section>
           </Layout>
         </Page.Body>
