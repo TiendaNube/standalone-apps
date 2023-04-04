@@ -34,6 +34,7 @@ import NextLink from "next/link";
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const router = useRouter();
   const handleActive = (href: string) => router.asPath === href;
+  const handleExamples = (href: string) => handleActive(href) || router.pathname.startsWith("/examples");
 
   const { darkMode, toggleDarkMode } = useDarkMode();
   const currentTheme = darkMode ? "dark" : "base";
@@ -71,13 +72,50 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Menu.Body>
         <Menu.Section>
           {routes?.appRoutes.map((route) => (
-            <NextLink href={route.slug} key={route.slug}>
-              <Menu.Button
-                startIcon={route.icon}
-                active={handleActive(route.slug)}
-                label={route.title}
-              />
-            </NextLink>
+            route.title !== "Galería de ejemplos" ? (
+              <NextLink href={route.slug} key={route.slug}>
+                <Menu.Button
+                  startIcon={route.icon}
+                  active={handleActive(route.slug)}
+                  label={route.title}
+                />
+              </NextLink>
+            ) : (
+              <Box
+                backgroundColor={handleExamples(route.slug) ? "primary-surface" : "neutral-background"}
+                borderRadius=".5rem"
+                key={route.slug}
+              >
+                <NextLink href={route.slug} key={route.slug}>
+                  <Menu.Button
+                    label={route.title}
+                    startIcon={route.icon}
+                    active={handleExamples(route.slug)}
+                    id="control-examples-accordion"
+                    aria-expanded={handleExamples(route.slug)}
+                    aria-controls="content-examples-accordion"
+                  />
+                </NextLink>
+                {handleExamples(route.slug) && (
+                  <Box
+                    id="content-examples-accordion"
+                    aria-hidden={!handleExamples(route.slug)}
+                    height={handleExamples(route.slug) ? "auto" : "0"}
+                    overflow="hidden"
+                    pl="6"
+                    pt="1"
+                    pb="1"
+                    pr="1"
+                  >
+                    {routes?.exampleRoutes.map((subroute) => (
+                      <NextLink href={subroute.slug} key={subroute.slug}>
+                        <Menu.Button label={subroute.title} active={handleActive(subroute.slug)} />
+                      </NextLink>
+                    ))}
+                  </Box>
+                )}
+              </Box>
+            )
           ))}
         </Menu.Section>
       </Menu.Body>

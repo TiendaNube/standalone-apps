@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
 import { appRoutes } from "./app";
+import { exampleRoutes } from "./examples";
 
 interface Page {
   title: string;
   name: string;
   slug: string;
-  icon: ReactNode;
+  icon?: ReactNode;
 }
 
 interface SectionRoutes {
@@ -19,4 +20,5 @@ export interface Routes {
 
 export const routes = {
   appRoutes,
-};
+  exampleRoutes,
+}
