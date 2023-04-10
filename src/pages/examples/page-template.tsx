@@ -21,7 +21,7 @@ import {
   ChevronRightIcon,
   DownloadIcon,
   PlusCircleIcon,
-  SearchIcon,
+  SlidersIcon,
 } from "@nimbus-ds/icons";
 
 export default function PageTemplateExample() {
@@ -78,10 +78,10 @@ export default function PageTemplateExample() {
           <Box display="flex" flexDirection="column" gap="2">
             <Box display="flex" gap="1">
               <Input.Search placeholder="Buscar" />
-              <Button><Icon color="currentColor" source={<SearchIcon />} /></Button>
+              <Button><Icon color="currentColor" source={<SlidersIcon />} /></Button>
             </Box>
             <Box display="flex" gap="2" alignItems="center">
-              <Text>150 órdenes</Text>
+              <Text>150 ventas</Text>
               <Chip text="Filtro aplicado" removable />
             </Box>
           </Box>

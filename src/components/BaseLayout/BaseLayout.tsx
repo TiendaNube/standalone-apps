@@ -21,6 +21,7 @@ import {
   Sidebar,
 } from "@nimbus-ds/components";
 import {
+  ChevronLeftIcon,
   CogIcon,
   ExternalLinkIcon,
   MenuIcon,
@@ -34,7 +35,10 @@ import NextLink from "next/link";
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const router = useRouter();
   const handleActive = (href: string) => router.asPath === href;
-  const handleExamples = (href: string) => handleActive(href) || router.pathname.startsWith("/examples");
+  const handleExamples = (href: string) =>
+    handleActive(href) || router.pathname.startsWith("/examples");
+
+  const isExample = router.pathname.startsWith("/examples/");
 
   const { darkMode, toggleDarkMode } = useDarkMode();
   const currentTheme = darkMode ? "dark" : "base";
@@ -71,7 +75,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </Menu.Header>
       <Menu.Body>
         <Menu.Section>
-          {routes?.appRoutes.map((route) => (
+          {routes?.appRoutes.map((route) =>
             route.title !== "Galería de ejemplos" ? (
               <NextLink href={route.slug} key={route.slug}>
                 <Menu.Button
@@ -82,7 +86,11 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </NextLink>
             ) : (
               <Box
-                backgroundColor={handleExamples(route.slug) ? "primary-surface" : "neutral-background"}
+                backgroundColor={
+                  handleExamples(route.slug)
+                    ? "primary-surface"
+                    : "neutral-background"
+                }
                 borderRadius=".5rem"
                 key={route.slug}
               >
@@ -109,14 +117,17 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   >
                     {routes?.exampleRoutes.map((subroute) => (
                       <NextLink href={subroute.slug} key={subroute.slug}>
-                        <Menu.Button label={subroute.title} active={handleActive(subroute.slug)} />
+                        <Menu.Button
+                          label={subroute.title}
+                          active={handleActive(subroute.slug)}
+                        />
                       </NextLink>
                     ))}
                   </Box>
                 )}
               </Box>
             )
-          ))}
+          )}
         </Menu.Section>
       </Menu.Body>
       <Menu.Footer label="Configuración" startIcon={CogIcon} />
@@ -143,24 +154,42 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <NavTabs>
         {routes?.appRoutes.map((route) => (
           <NextLink href={route.slug} key={route.slug}>
-            <NavTabs.Item icon={convertIconTypeToReactNode(route.icon)} active={handleActive(route.slug)} onClick={() => {}} />
+            <NavTabs.Item
+              icon={convertIconTypeToReactNode(route.icon)}
+              active={handleActive(route.slug)}
+              onClick={() => {}}
+            />
           </NextLink>
         ))}
-        <NavTabs.Item icon={<MenuIcon size="medium" />} onClick={handleOpenMobileMenu} />
+        <NavTabs.Item
+          icon={<MenuIcon size="medium" />}
+          onClick={handleOpenMobileMenu}
+        />
       </NavTabs>
-      <Sidebar maxWidth="280px" open={openMenu}>{appMenu}</Sidebar>
+      <Sidebar maxWidth="280px" open={openMenu}>
+        {appMenu}
+      </Sidebar>
     </>
   );
 
   const desktopContent = (
     <AppShell menu={appMenu}>
       <AppShell.Header
-        leftSlot={<Text color="neutral-surface">{currentTheme}</Text>}
+        leftSlot={
+          isExample ? (
+            <Button as={NextLink} href="/examples" appearance="transparent">
+              <Icon source={<ChevronLeftIcon />} color="currentColor" />
+              Volver
+            </Button>
+          ) : (
+            <Text color="neutral-surface">{currentTheme}</Text>
+          )
+        }
         rightSlot={rightStack}
       />
       {children}
     </AppShell>
-  )
+  );
 
   return (
     <ThemeProvider theme={currentTheme}>

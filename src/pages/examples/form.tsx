@@ -2,9 +2,31 @@ import Head from "next/head";
 
 import { Page } from "@nimbus-ds/page";
 import { Layout } from "@nimbus-ds/layout";
-import { Box, Button, Card, Checkbox, Chip, FileUploader, Icon, Input, Label, Link, Select, Tag, Text, Title, Tooltip } from "@nimbus-ds/components";
+import {
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Chip,
+  FileUploader,
+  Icon,
+  Input,
+  Label,
+  Link,
+  Select,
+  Tag,
+  Text,
+  Title,
+  Tooltip,
+} from "@nimbus-ds/components";
 import FormField from "@nimbus-ds/formfield";
-import { DragIcon, EditIcon, ExternalLinkIcon, InfoCircleIcon, PictureIcon } from "@nimbus-ds/icons";
+import {
+  DragIcon,
+  EditIcon,
+  ExternalLinkIcon,
+  InfoCircleIcon,
+  PictureIcon,
+} from "@nimbus-ds/icons";
 import InteractiveList from "@nimbus-ds/interactive-list";
 
 export default function FormExample() {
@@ -17,9 +39,7 @@ export default function FormExample() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page maxWidth="800px">
-        <Page.Header
-          title="Formulario"
-        />
+        <Page.Header title="Formulario" />
         <Page.Body>
           <Layout columns="1">
             <Layout.Section>
@@ -27,8 +47,15 @@ export default function FormExample() {
                 <Card.Header title="Inputs de texto" />
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
-                    <FormField.Input label="Label para un input simple" placeholder="Ejemplo: Nombre de un producto" />
-                    <FormField.Textarea id="multiline-input" label="Label para un input de texto multilínea" lines={5} />
+                    <FormField.Input
+                      label="Label para un input simple"
+                      placeholder="Ejemplo: Nombre de un producto"
+                    />
+                    <FormField.Textarea
+                      id="multiline-input"
+                      label="Label para un input de texto multilínea"
+                      lines={5}
+                    />
                   </Box>
                 </Card.Body>
               </Card>
@@ -37,17 +64,53 @@ export default function FormExample() {
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
                     <Box display="flex" flexWrap="wrap" gap="4">
-                      <Box display="inline-flex" flex={{ xs: "1 1 calc(50% - 8px)", md: "1 1 calc(25% - 16px)" }}>
-                        <FileUploader placeholder="Texto de ayuda" aspectRatio="16/9" />
+                      <Box
+                        display="inline-flex"
+                        flex={{
+                          xs: "1 1 calc(50% - 8px)",
+                          md: "1 1 calc(25% - 16px)",
+                        }}
+                      >
+                        <FileUploader
+                          placeholder="Texto de ayuda"
+                          aspectRatio="16/9"
+                        />
                       </Box>
-                      <Box display="inline-flex" flex={{ xs: "1 1 calc(50% - 8px)", md: "1 1 calc(25% - 16px)" }}>
-                        <FileUploader placeholder="Texto de ayuda" aspectRatio="16/9" />
+                      <Box
+                        display="inline-flex"
+                        flex={{
+                          xs: "1 1 calc(50% - 8px)",
+                          md: "1 1 calc(25% - 16px)",
+                        }}
+                      >
+                        <FileUploader
+                          placeholder="Texto de ayuda"
+                          aspectRatio="16/9"
+                        />
                       </Box>
-                      <Box display="inline-flex" flex={{ xs: "1 1 calc(50% - 8px)", md: "1 1 calc(25% - 16px)" }}>
-                        <FileUploader placeholder="Texto de ayuda" aspectRatio="16/9" />
+                      <Box
+                        display="inline-flex"
+                        flex={{
+                          xs: "1 1 calc(50% - 8px)",
+                          md: "1 1 calc(25% - 16px)",
+                        }}
+                      >
+                        <FileUploader
+                          placeholder="Texto de ayuda"
+                          aspectRatio="16/9"
+                        />
                       </Box>
-                      <Box display="inline-flex" flex={{ xs: "1 1 calc(50% - 8px)", md: "1 1 calc(25% - 16px)" }}>
-                        <FileUploader placeholder="Texto de ayuda" aspectRatio="16/9" />
+                      <Box
+                        display="inline-flex"
+                        flex={{
+                          xs: "1 1 calc(50% - 8px)",
+                          md: "1 1 calc(25% - 16px)",
+                        }}
+                      >
+                        <FileUploader
+                          placeholder="Texto de ayuda"
+                          aspectRatio="16/9"
+                        />
                       </Box>
                     </Box>
                     <Box display="flex" gap="2" flexWrap="wrap">
@@ -76,7 +139,12 @@ export default function FormExample() {
               <Card>
                 <Card.Header title="Input de URL" />
                 <Card.Body>
-                  <FormField.Input label="Label para un input de URL" placeholder="Placeholder" append={<Text color="neutral-textDisabled">https://</Text>} appendPosition="start" />
+                  <FormField.Input
+                    label="Label para un input de URL"
+                    placeholder="Placeholder"
+                    append={<Text color="neutral-textDisabled">https://</Text>}
+                    appendPosition="start"
+                  />
                 </Card.Body>
               </Card>
               <Card>
@@ -84,8 +152,18 @@ export default function FormExample() {
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
                     <Box display="grid" gridTemplateColumns="1fr 1fr" gap="4">
-                      <FormField.Input label="Precio" placeholder="Placeholder" append={<Text color="neutral-textDisabled">R$</Text>} appendPosition="start" />
-                      <FormField.Input label="Precio promocional" placeholder="Placeholder" append={<Text color="neutral-textDisabled">R$</Text>} appendPosition="start" />
+                      <FormField.Input
+                        label="Precio"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">R$</Text>}
+                        appendPosition="start"
+                      />
+                      <FormField.Input
+                        label="Precio promocional"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">R$</Text>}
+                        appendPosition="start"
+                      />
                     </Box>
                     <Checkbox name="opcional" label="Checkbox opcional" />
                   </Box>
@@ -99,12 +177,20 @@ export default function FormExample() {
                 </Card.Header>
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
-                    <Box display="grid" gridTemplateColumns="1fr 1fr" gap="4" px="4">
+                    <Box
+                      display="grid"
+                      gridTemplateColumns="1fr 1fr"
+                      gap="4"
+                      px="4"
+                    >
                       <Box display="flex" flexDirection="column" gap="2">
                         <Label htmlFor="barcode">
                           Código de barra
                           <Tooltip content="Tooltip con información opcional">
-                            <Icon source={<InfoCircleIcon size={12} />} color="primary-interactive" />
+                            <Icon
+                              source={<InfoCircleIcon size={12} />}
+                              color="primary-interactive"
+                            />
                           </Tooltip>
                         </Label>
                         <Input id="barcode" />
@@ -113,15 +199,24 @@ export default function FormExample() {
                         <Label htmlFor="sku">
                           SKU
                           <Tooltip content="Tooltip con información opcional">
-                            <Icon source={<InfoCircleIcon size={12} />} color="primary-interactive" />
+                            <Icon
+                              source={<InfoCircleIcon size={12} />}
+                              color="primary-interactive"
+                            />
                           </Tooltip>
                         </Label>
                         <Input id="sku" />
                       </Box>
                     </Box>
                     <InteractiveList>
-                      <InteractiveList.RadioItem title="Ilimitado" radio={{ name: "stock" }} />
-                      <InteractiveList.RadioItem title="Limitado" radio={{ name: "stock" }} />
+                      <InteractiveList.RadioItem
+                        title="Ilimitado"
+                        radio={{ name: "stock" }}
+                      />
+                      <InteractiveList.RadioItem
+                        title="Limitado"
+                        radio={{ name: "stock" }}
+                      />
                     </InteractiveList>
                   </Box>
                 </Card.Body>
@@ -130,11 +225,38 @@ export default function FormExample() {
                 <Card.Header title="Inputs de peso y dimensiones" />
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
-                    <Box display="grid" gridTemplateColumns={{ xs: "1fr 1fr", md: "1fr 1fr 1fr 1fr" }} gap="4">
-                      <FormField.Input label="Peso" placeholder="Placeholder" append={<Text color="neutral-textDisabled">kg</Text>} appendPosition="end" />
-                      <FormField.Input label="Largo" placeholder="Placeholder" append={<Text color="neutral-textDisabled">cm</Text>} appendPosition="end" />
-                      <FormField.Input label="Ancho" placeholder="Placeholder" append={<Text color="neutral-textDisabled">cm</Text>} appendPosition="end" />
-                      <FormField.Input label="Alto" placeholder="Placeholder" append={<Text color="neutral-textDisabled">cm</Text>} appendPosition="end" />
+                    <Box
+                      display="grid"
+                      gridTemplateColumns={{
+                        xs: "1fr 1fr",
+                        md: "1fr 1fr 1fr 1fr",
+                      }}
+                      gap="4"
+                    >
+                      <FormField.Input
+                        label="Peso"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">kg</Text>}
+                        appendPosition="end"
+                      />
+                      <FormField.Input
+                        label="Largo"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">cm</Text>}
+                        appendPosition="end"
+                      />
+                      <FormField.Input
+                        label="Ancho"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">cm</Text>}
+                        appendPosition="end"
+                      />
+                      <FormField.Input
+                        label="Alto"
+                        placeholder="Placeholder"
+                        append={<Text color="neutral-textDisabled">cm</Text>}
+                        appendPosition="end"
+                      />
                     </Box>
                   </Box>
                 </Card.Body>
@@ -150,13 +272,21 @@ export default function FormExample() {
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4">
                     <Box display="grid" gridTemplateColumns="1fr 1fr" gap="4">
-                      <FormField.Select label="Opción múltiple 1" id="select-1" name="select-1">
+                      <FormField.Select
+                        label="Opción múltiple 1"
+                        id="select-1"
+                        name="select-1"
+                      >
                         <Select.Option label="Opción 1" value="opcion-1" />
                         <Select.Option label="Opción 2" value="opcion-2" />
                         <Select.Option label="Opción 3" value="opcion-3" />
                         <Select.Option label="Opción 4" value="opcion-4" />
                       </FormField.Select>
-                      <FormField.Select label="Opción múltiple 2" id="select-2" name="select-2">
+                      <FormField.Select
+                        label="Opción múltiple 2"
+                        id="select-2"
+                        name="select-2"
+                      >
                         <Select.Option label="Opción 1" value="opcion-1" />
                         <Select.Option label="Opción 2" value="opcion-2" />
                         <Select.Option label="Opción 3" value="opcion-3" />
@@ -187,8 +317,16 @@ export default function FormExample() {
                 </Card.Footer>
               </Card>
               <Box display="flex" flexDirection="column" gap="2">
-                <Checkbox label="Opción general 1" id="general-checkbox-1" name="general-checkbox-1" />
-                <Checkbox label="Opción general 2" id="general-checkbox-2" name="general-checkbox-2" />
+                <Checkbox
+                  label="Opción general 1"
+                  id="general-checkbox-1"
+                  name="general-checkbox-1"
+                />
+                <Checkbox
+                  label="Opción general 2"
+                  id="general-checkbox-2"
+                  name="general-checkbox-2"
+                />
               </Box>
               <Box display="flex" justifyContent="flex-end" gap="2">
                 <Button>Cancelar</Button>

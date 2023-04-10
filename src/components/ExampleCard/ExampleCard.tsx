@@ -1,8 +1,11 @@
 import { Box, Text } from "@nimbus-ds/components";
+import Link from "next/link";
 
-const ExampleCard: React.FC<{ title: string }> = ({ title }) => {
+const ExampleCard: React.FC<{ title: string, href: string }> = ({ title, href }) => {
   return (
     <Box
+      as={Link}
+      href={href}
       boxShadow={{ xs: "card", hover: "popover" }}
       borderRadius=".5rem"
       display="flex"
