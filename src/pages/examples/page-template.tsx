@@ -1,8 +1,6 @@
 import Head from "next/head";
 
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
-import { MenuButton } from "@nimbus-ds/menubutton";
+import { Page, Layout, MenuButton } from "@nimbus-ds/patterns";
 import {
   Alert,
   Box,

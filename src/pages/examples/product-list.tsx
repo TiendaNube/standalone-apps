@@ -1,7 +1,6 @@
 import Head from "next/head";
 
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
+import { Page, Layout, DataTable } from "@nimbus-ds/patterns";
 import {
   Box,
   Button,
@@ -24,7 +23,6 @@ import {
   PlusCircleIcon,
   SlidersIcon,
 } from "@nimbus-ds/icons";
-import DataTable from "@nimbus-ds/data-table";
 import { ResponsiveComponent } from "@/components";
 
 export default function ProductListExample() {

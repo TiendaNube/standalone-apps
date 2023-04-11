@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { useProductContext } from "@/components";
 
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
+import { Page, Layout } from "@nimbus-ds/patterns";
 import {
   Button,
   Icon,

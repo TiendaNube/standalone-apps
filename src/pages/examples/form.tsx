@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
+import { Page, Layout, FormField } from "@nimbus-ds/patterns";
+import { InteractiveList } from "@nimbus-ds/interactive-list";
 import {
   Box,
   Button,
@@ -19,7 +19,6 @@ import {
   Title,
   Tooltip,
 } from "@nimbus-ds/components";
-import FormField from "@nimbus-ds/formfield";
 import {
   DragIcon,
   EditIcon,
@@ -27,7 +26,6 @@ import {
   InfoCircleIcon,
   PictureIcon,
 } from "@nimbus-ds/icons";
-import InteractiveList from "@nimbus-ds/interactive-list";
 
 export default function FormExample() {
   return (

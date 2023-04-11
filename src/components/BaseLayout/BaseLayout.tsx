@@ -8,8 +8,7 @@ import "@nimbus-ds/styles/dist/themes/dark.css";
 import { routes } from "@/lib";
 import { useDarkMode, ResponsiveComponent } from "@/components";
 
-import AppShell from "@nimbus-ds/app-shell";
-import NavTabs from "@nimbus-ds/nav-tabs";
+import { AppShell, NavTabs, Menu } from "@nimbus-ds/patterns";
 import {
   Link,
   Icon,
@@ -29,7 +28,6 @@ import {
   QuestionCircleIcon,
   SunIcon,
 } from "@nimbus-ds/icons";
-import Menu from "@nimbus-ds/menu";
 import NextLink from "next/link";
 
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

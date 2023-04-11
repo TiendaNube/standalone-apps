@@ -1,7 +1,6 @@
 import Head from "next/head";
 
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
+import { Page, Layout } from "@nimbus-ds/patterns";
 
 export default function LoginExample() {
   return (

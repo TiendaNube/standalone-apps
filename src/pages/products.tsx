@@ -6,11 +6,8 @@ import { ProductProps } from "@/lib";
 import { ResponsiveComponent, useProductContext } from "@/components";
 
 import { ChevronDownIcon, ChevronUpIcon, ExternalLinkIcon, TrashIcon } from "@nimbus-ds/icons";
-import { Page } from "@nimbus-ds/page";
-import { Layout } from "@nimbus-ds/layout";
+import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import { Box, Button, IconButton, Table, Thumbnail, Text, Link, Checkbox } from "@nimbus-ds/components";
-import { DataTable } from "@nimbus-ds/data-table";
-import DataList from "@nimbus-ds/data-list";
 
 const Products: NextPage = () => {
   const { products, removeProduct, selectedProducts, setSelectedProducts, toggleSelectedProduct, removeSelectedProducts } = useProductContext();
@@ -305,6 +302,7 @@ const Products: NextPage = () => {
       </Head>
       <Page maxWidth="1200px">
         <Page.Header title="Productos de Tienda Demo" />
+        {/* @ts-ignore */}
         <Page.Body px={{ xs: "0", md: "6" }}>
           <Layout columns="1">
             <Layout.Section>

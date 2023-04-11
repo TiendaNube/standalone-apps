@@ -6,7 +6,7 @@ const ExampleCard: React.FC<{ title: string, href: string }> = ({ title, href })
     <Box
       as={Link}
       href={href}
-      boxShadow={{ xs: "card", hover: "popover" }}
+      boxShadow={{ xs: "level-1", hover: "level-3" }}
       borderRadius=".5rem"
       display="flex"
       flexDirection="column"
@@ -26,7 +26,7 @@ const ExampleCard: React.FC<{ title: string, href: string }> = ({ title, href })
         height="80px"
         backgroundColor="neutral-surfaceHighlight"
       />
-      <Box p="4" backgroundColor="neutral-background">
+      <Box p="4" backgroundColor="neutral-background" flex="1 1 auto">
         <Text fontWeight="bold">{title}</Text>
       </Box>
     </Box>
