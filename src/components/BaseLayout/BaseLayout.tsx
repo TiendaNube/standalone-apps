@@ -75,13 +75,14 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Menu.Section>
           {routes?.appRoutes.map((route) =>
             route.title !== "Galería de ejemplos" ? (
-              <NextLink href={route.slug} key={route.slug}>
-                <Menu.Button
-                  startIcon={route.icon}
-                  active={handleActive(route.slug)}
-                  label={route.title}
-                />
-              </NextLink>
+              <Menu.Button
+                as={NextLink}
+                href={route.slug}
+                key={route.slug}
+                startIcon={route.icon}
+                active={handleActive(route.slug)}
+                label={route.title}
+              />
             ) : (
               <Box
                 backgroundColor={
@@ -92,16 +93,17 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 borderRadius=".5rem"
                 key={route.slug}
               >
-                <NextLink href={route.slug} key={route.slug}>
-                  <Menu.Button
-                    label={route.title}
-                    startIcon={route.icon}
-                    active={handleExamples(route.slug)}
-                    id="control-examples-accordion"
-                    aria-expanded={handleExamples(route.slug)}
-                    aria-controls="content-examples-accordion"
-                  />
-                </NextLink>
+                <Menu.Button
+                  as={NextLink}
+                  href={route.slug}
+                  key={route.slug}
+                  label={route.title}
+                  startIcon={route.icon}
+                  active={handleExamples(route.slug)}
+                  id="control-examples-accordion"
+                  aria-expanded={handleExamples(route.slug)}
+                  aria-controls="content-examples-accordion"
+                />
                 {handleExamples(route.slug) && (
                   <Box
                     id="content-examples-accordion"
@@ -114,12 +116,13 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     pr="1"
                   >
                     {routes?.exampleRoutes.map((subroute) => (
-                      <NextLink href={subroute.slug} key={subroute.slug}>
-                        <Menu.Button
-                          label={subroute.title}
-                          active={handleActive(subroute.slug)}
-                        />
-                      </NextLink>
+                      <Menu.Button
+                        as={NextLink}
+                        href={subroute.slug}
+                        key={subroute.slug}
+                        label={subroute.title}
+                        active={handleActive(subroute.slug)}
+                      />
                     ))}
                   </Box>
                 )}

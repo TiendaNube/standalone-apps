@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import Head from "next/head";
 
-import { Page, Layout } from "@nimbus-ds/patterns";
-import { InteractiveList } from "@nimbus-ds/interactive-list";
+import { Page, Layout, InteractiveList } from "@nimbus-ds/patterns";
 import {
   Card,
   Text,

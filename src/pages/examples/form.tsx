@@ -1,7 +1,6 @@
 import Head from "next/head";
 
-import { Page, Layout, FormField } from "@nimbus-ds/patterns";
-import { InteractiveList } from "@nimbus-ds/interactive-list";
+import { Page, Layout, FormField, InteractiveList } from "@nimbus-ds/patterns";
 import {
   Box,
   Button,
