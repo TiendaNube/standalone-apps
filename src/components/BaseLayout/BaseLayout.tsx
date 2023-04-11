@@ -150,7 +150,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 
   const mobileContent = (
-    <>
+    <Box pb="16">
       {children}
       <NavTabs>
         {routes?.appRoutes.map((route) => (
@@ -170,7 +170,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Sidebar maxWidth="280px" open={openMenu}>
         {appMenu}
       </Sidebar>
-    </>
+    </Box>
   );
 
   const desktopContent = (

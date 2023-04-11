@@ -14,11 +14,15 @@ export default function LoginExample() {
       </Head>
       <Box
         backgroundColor="neutral-surface"
-        height="100%"
+        height={{
+          xs: "calc(100vh - 61px)",
+          md: "100%",
+        }}
         width="100%"
         display="flex"
         alignItems="center"
         justifyContent="center"
+        p="4"
       >
         <Box maxWidth="500px" flex="1">
           <Card>

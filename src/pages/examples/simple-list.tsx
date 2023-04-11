@@ -1,14 +1,17 @@
+import { useState } from "react";
+
 import Head from "next/head";
 
-import { Page, Layout, DataTable } from "@nimbus-ds/patterns";
+import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import {
   Box,
   Button,
+  Checkbox,
   Chip,
   Icon,
   IconButton,
   Input,
-  Popover,
+  Link,
   Table,
   Tag,
   Text,
@@ -25,6 +28,12 @@ import {
 import { ResponsiveComponent } from "@/components";
 
 export default function SimpleListExample() {
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditMode = () => {
+    setEditMode(!editMode);
+  };
+
   const buttonStack = (
     <>
       <IconButton source={<ChevronLeftIcon />} size="2rem" />
@@ -71,7 +80,49 @@ export default function SimpleListExample() {
     />
   );
 
-  const mobileContent = (1);
+  const mobileContent = (
+    <>
+      <Box px="4">
+        <Link as="button" onClick={handleEditMode}>{editMode ? "Cancelar" : "Editar"}</Link>
+      </Box>
+      <DataList>
+        {Array.from({ length: 20 }, (_, index) => (
+          <DataList.Row
+            key={index}
+            flexDirection="row"
+            gap="2"
+          >
+            {editMode && (
+              <Checkbox
+                name={`check-${index}`}
+                checked={false}
+              />
+            )}
+            <Box display="flex" flexDirection="column" flex="1 1 auto">
+              <Box display="flex" justifyContent="space-between" mb="2">
+                <Text color="primary-interactive">Nombre del dato principal</Text>
+              </Box>
+              <Box display="flex" justifyContent="space-between">
+                <Text>Nombre del dato 1</Text>
+                <Text>Nombre del dato 2</Text>
+              </Box>
+              <Box display="flex" justifyContent="space-between">
+                <Text>Nombre del dato 3</Text>
+                <Text>Nombre del dato 4</Text>
+              </Box>
+              <Box display="flex" justifyContent="space-between" alignItems="center" mt="2">
+                <Tag>Nombre del estado</Tag>
+                <IconButton
+                  source={<EllipsisIcon />}
+                  size="2rem"
+                />
+              </Box>
+            </Box>
+          </DataList.Row>
+        ))}
+      </DataList>
+    </>
+  );
 
   const desktopContent = (
     <DataTable
@@ -134,7 +185,8 @@ export default function SimpleListExample() {
             </Box>
           </Box>
         </Page.Header>
-        <Page.Body>
+        {/* @ts-ignore */}
+        <Page.Body px={{ xs: "0", md: "6" }}>
           <Layout columns="1">
             <ResponsiveComponent
               desktopContent={desktopContent}

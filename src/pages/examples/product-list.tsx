@@ -1,14 +1,17 @@
+import { useState } from "react";
+
 import Head from "next/head";
 
-import { Page, Layout, DataTable } from "@nimbus-ds/patterns";
+import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import {
   Box,
   Button,
+  Checkbox,
   Chip,
   Icon,
   IconButton,
   Input,
-  Popover,
+  Link,
   Table,
   Tag,
   Text,
@@ -20,12 +23,19 @@ import {
   ChevronRightIcon,
   DownloadIcon,
   EllipsisIcon,
+  EyeOffIcon,
   PlusCircleIcon,
   SlidersIcon,
 } from "@nimbus-ds/icons";
 import { ResponsiveComponent } from "@/components";
 
 export default function ProductListExample() {
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditMode = () => {
+    setEditMode(!editMode);
+  };
+
   const buttonStack = (
     <>
       <IconButton source={<ChevronLeftIcon />} size="2rem" />
@@ -72,7 +82,38 @@ export default function ProductListExample() {
     />
   );
 
-  const mobileContent = (1);
+  const mobileContent = (
+    <>
+      <Box px="4">
+        <Link as="button" onClick={handleEditMode}>{editMode ? "Cancelar" : "Editar"}</Link>
+      </Box>
+      <DataList>
+        {Array.from({ length: 20 }, (_, index) => (
+          <DataList.Row
+            key={index}
+            flexDirection="row"
+            gap="2"
+          >
+            {editMode && (
+              <Checkbox
+                name={`check-${index}`}
+                checked={false}
+              />
+            )}
+            <Thumbnail aspectRatio="1/1" width="64px" alt="Nombre del producto" />
+            <Box display="flex" flexDirection="column" gap="1">
+              <Text color="primary-interactive">Nombre del producto</Text>
+              <Tag appearance="warning">
+                <Icon source={<EyeOffIcon />} color="currentColor" />
+                Estado
+              </Tag>
+              <Text>Stock</Text>
+            </Box>
+          </DataList.Row>
+        ))}
+      </DataList>
+    </>
+  );
 
   const desktopContent = (
     <DataTable
@@ -153,7 +194,8 @@ export default function ProductListExample() {
             </Box>
           </Box>
         </Page.Header>
-        <Page.Body>
+        {/* @ts-ignore */}
+        <Page.Body px={{ xs: "0", md: "6" }}>
           <Layout columns="1">
             <ResponsiveComponent
               desktopContent={desktopContent}
