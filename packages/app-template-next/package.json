@@ -1,0 +1,28 @@
+{
+  "name": "nimbus-app-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@nimbus-ds/components": "^4.1.0",
+    "@nimbus-ds/icons": "^1.1.0",
+    "@nimbus-ds/patterns": "^1.1.0-rc.1",
+    "@nimbus-ds/styles": "^8.0.0",
+    "@nimbus-ds/tokens": "^7.0.0",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.31",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.0.2"
+  }
+}
