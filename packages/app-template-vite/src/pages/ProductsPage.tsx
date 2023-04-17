@@ -120,7 +120,7 @@ const ExamplesPage: React.FC = () => {
       checkbox={{
         name: "check-all-rows",
         checked: headerCheckboxStatus,
-        onClick: handleHeaderCheckboxClick,
+        onChange: handleHeaderCheckboxClick,
         indeterminate: headerIndeterminateStatus,
       }}
     >
@@ -163,7 +163,7 @@ const ExamplesPage: React.FC = () => {
       checkbox={{
         name: "check-all",
         checked: headerCheckboxStatus,
-        onClick: handleHeaderCheckboxClick,
+        onChange: handleHeaderCheckboxClick,
         indeterminate: headerIndeterminateStatus,
       }}
       label={`${selectedProducts.size} ${
@@ -204,7 +204,7 @@ const ExamplesPage: React.FC = () => {
                 <Checkbox
                   name={`check-${id}`}
                   checked={selectedProducts.has(row.id)}
-                  onClick={() => handleRowClick(id)}
+                  onChange={() => handleRowClick(id)}
                 />
               )}
               <Box display="flex" gap="2" flex="1 1 auto">
@@ -259,7 +259,7 @@ const ExamplesPage: React.FC = () => {
             checkbox={{
               name: `check-${id}`,
               checked: selectedProducts.has(row.id),
-              onClick: () => handleRowClick(id),
+              onChange: () => handleRowClick(id),
             }}
           >
             <Table.Cell>
