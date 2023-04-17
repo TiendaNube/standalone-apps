@@ -12,6 +12,7 @@ import {
   Popover,
   Tag,
   Text,
+  Link,
 } from "@nimbus-ds/components";
 import {
   ChevronDownIcon,
@@ -70,7 +71,9 @@ const PageTemplateExamplePage: React.FC = () => {
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
             <Input.Search placeholder="Buscar" />
-            <Button><Icon color="currentColor" source={<SlidersIcon />} /></Button>
+            <Button>
+              <Icon color="currentColor" source={<SlidersIcon />} />
+            </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
             <Text>150 ventas</Text>
@@ -93,22 +96,22 @@ const PageTemplateExamplePage: React.FC = () => {
           >
             <Text>Reemplazame con tu contenido</Text>
           </Box>
-          <HelpLink
-            link={{
-              children: (
-                <>
-                  Click me
-                  <Icon source={<ExternalLinkIcon />} color="currentColor" />
-                </>
-              ),
-              href: "https://nimbus.tiendanube.com",
-              target: "_blank"
-            }}
-          />
+          <HelpLink>
+            <Link
+              as="a"
+              href="https://nimbus.tiendanube.com"
+              target="_blank"
+              appearance="primary"
+              textDecoration="none"
+            >
+              Click me
+              <Icon source={<ExternalLinkIcon />} color="currentColor" />
+            </Link>
+          </HelpLink>
         </Layout>
       </Page.Body>
     </Page>
   );
-}
+};
 
 export default PageTemplateExamplePage;
