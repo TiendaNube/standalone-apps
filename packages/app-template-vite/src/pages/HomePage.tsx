@@ -22,8 +22,7 @@ const HomePage: React.FC = () => {
               <Card.Header title="¡Felicitaciones por crear tu app!" />
               <Card.Body>
                 <Text>
-                  ¡Hola! Tu app está casi lista. Cuenta con las bases sólidas
-                  que necesitás para comenzar, incluyendo nuestro&nbsp;
+                  Esta app de ejemplo incluye nuestro&nbsp;
                   <Link
                     as="a"
                     href="https://nimbus.tiendanube.com/"
@@ -37,13 +36,8 @@ const HomePage: React.FC = () => {
                   <Link appearance="primary" textDecoration="none">
                     API de Tiendanube
                   </Link>
-                  .
-                  <br />
-                  <br />
-                  Con Nimbus a tu disposición, vas a poder crear interfaces de
-                  usuario intuitivas y atractivas con gran velocidad, mientras
-                  que la API de Tiendanube te permitirá aprovechar al máximo
-                  las funcionalidades de eCommerce. ¡Feliz desarrollo!
+                  &nbsp;para facilitar el desarrollo de nuevas aplicaciones
+                  para nuestro ecosistema.
                 </Text>
               </Card.Body>
               <Card.Footer>
