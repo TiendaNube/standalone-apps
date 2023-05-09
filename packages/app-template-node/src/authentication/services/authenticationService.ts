@@ -1,6 +1,7 @@
 const jsonServer = require("json-server");
 const axios = require("axios");
 const database = jsonServer.router("db.json");
+import { StatusCode } from "./../../utils/statusCode.enum";
 
 class AuthenticationService {
   public async find(request: any, response: any) {
@@ -11,22 +12,21 @@ class AuthenticationService {
 
         if(!accessTokenResponse.error){
           database.db.set("credentials", accessTokenResponse).write();
-          this.sendApiResponse(response, 200, accessTokenResponse);
+          this.sendApiResponse(response, StatusCode.OK, accessTokenResponse);
         }
 
-        this.sendApiResponse(response, 400, { message: accessTokenResponse.error_description });
+        this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: accessTokenResponse.error_description });
       }
       const credentials = this.getCredentials();
 
       if(!credentials) {
-        this.sendApiResponse(response, 200, credentials);
+        this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: "Authorization code not found" });
       }
 
-      this.sendApiResponse(response, 400, { message: "Authorization code not found" });
-      
+      this.sendApiResponse(response, StatusCode.OK, credentials);
     }
     catch(error: any) {
-      this.sendApiResponse(response, error.status, { message: error.message });
+      this.sendApiResponse(response, StatusCode.INTERNAL_SERVER_ERROR, { message: error.message });
     }
   }
 
