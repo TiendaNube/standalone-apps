@@ -5,20 +5,25 @@ const database = jsonServer.router("db.json");
 class AuthenticationService {
   public async find(request: any, response: any) {
     try {
-      if(!request.query.code) {
-        throw new Error("Authorization code not found");
+      if(request.query.code) {
+        const body = this.getBody(request.query.code);
+        const accessTokenResponse = await this.getAccessToken(body);
+
+        if(!accessTokenResponse.error){
+          database.db.set("credentials", accessTokenResponse).write();
+          this.sendApiResponse(response, 200, accessTokenResponse);
+        }
+
+        this.sendApiResponse(response, 400, { message: accessTokenResponse.error_description });
       }
-
-      const body = this.getBody(request.query.code);
-
-      const accessTokenResponse = await this.getAccessToken(body);
-
-      database.db.set("credentials", accessTokenResponse).write();
-
-      response.status(200).json(accessTokenResponse);
+      else {
+        const credentials = database.db.get("credentials").value();
+        credentials ? this.sendApiResponse(response, 200, credentials) : this.sendApiResponse(response, 400, { message: "Authorization code not found" });
+      }
+      
     }
     catch(error: any) {
-      response.status(500).json({ message: error.message });
+      this.sendApiResponse(response, error.status, { message: error.message });
     }
   }
 
@@ -30,6 +35,10 @@ class AuthenticationService {
       grant_type: "authorization_code",
       code: code,
     }
+  }
+
+  private sendApiResponse(response:any, statusCode: number, message: {}) {
+    return response.status(statusCode).json(message);
   }
 
   private async getAccessToken(body: any) {
