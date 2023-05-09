@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "json-server --watch server/db.json",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -16,6 +17,8 @@
     "@nimbus-ds/styles": "^8.0.0",
     "@nimbus-ds/tokens": "^7.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.4.0",
+    "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0"

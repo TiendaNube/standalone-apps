@@ -8,6 +8,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ["@nimbus-ds/patterns", "@nimbus-ds/components"],
   },
+  server:{
+    port:8000,
+  },
   define: {
     global: {},
   },

@@ -2,7 +2,6 @@ const express = require("express");
 require("dotenv").config();
 const routes = require("./routes");
 const port = process.env.PORT || 7200;
-
 const app = express();
 
 app.use(routes);

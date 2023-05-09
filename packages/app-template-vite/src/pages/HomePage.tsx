@@ -2,18 +2,27 @@ import React from "react";
 
 import { useProductContext } from "../components";
 
-import { Card, Icon, Box, Title, Button, Link, Text } from "@nimbus-ds/components";
+import {
+  Card,
+  Icon,
+  Box,
+  Title,
+  Button,
+  Link,
+  Text,
+  Spinner,
+} from "@nimbus-ds/components";
 import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
 import { Page, Layout } from "@nimbus-ds/patterns";
 
 const HomePage: React.FC = () => {
   const { products, addProducts } = useProductContext();
   const productsQty = products.length;
-
   const add5Products = () => addProducts(5);
 
   return (
     <Page maxWidth="800px">
+      <Spinner />
       <Page.Header title="Demo app" />
       <Page.Body>
         <Layout columns="1">
@@ -36,8 +45,8 @@ const HomePage: React.FC = () => {
                   <Link appearance="primary" textDecoration="none">
                     API de Tiendanube
                   </Link>
-                  &nbsp;para facilitar el desarrollo de nuevas aplicaciones
-                  para nuestro ecosistema.
+                  &nbsp;para facilitar el desarrollo de nuevas aplicaciones para
+                  nuestro ecosistema.
                 </Text>
               </Card.Body>
               <Card.Footer>
@@ -57,9 +66,7 @@ const HomePage: React.FC = () => {
                     eliminarlos en cualquier momento.
                   </Text>
                   <Box display="flex" flexDirection="column" gap="2">
-                    <Text color="neutral-textDisabled">
-                      Total de productos
-                    </Text>
+                    <Text color="neutral-textDisabled">Total de productos</Text>
                     <Title as="h6" fontSize="h1" color="primary-textLow">
                       {productsQty}
                     </Title>

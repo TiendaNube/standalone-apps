@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "JSON SERVER",
+      "author": "foo",
+      "id": 1
+    },
+    {
+      "title": "REACT",
+      "author": "facebook",
+      "id": 2
+    },
+    {
+      "title": "BOOTSTRAP",
+      "author": "css master",
+      "id": 3
+    },
+    {
+      "title": "MEDIUM",
+      "author": "medium",
+      "id": 4
+    }
+  ]
+}
