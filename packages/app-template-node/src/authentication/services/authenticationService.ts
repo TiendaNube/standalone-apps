@@ -12,21 +12,21 @@ class AuthenticationService {
 
         if(!accessTokenResponse.error){
           database.db.set("credentials", accessTokenResponse).write();
-          this.sendApiResponse(response, StatusCode.OK, accessTokenResponse);
+          return this.sendApiResponse(response, StatusCode.OK, accessTokenResponse);
         }
 
-        this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: accessTokenResponse.error_description });
+        return this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: accessTokenResponse.error_description });
       }
       const credentials = this.getCredentials();
 
       if(!credentials) {
-        this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: "Authorization code not found" });
+        return this.sendApiResponse(response, StatusCode.BAD_REQUEST, { message: "Authorization code not found" });
       }
 
-      this.sendApiResponse(response, StatusCode.OK, credentials);
+      return this.sendApiResponse(response, StatusCode.OK, credentials);
     }
     catch(error: any) {
-      this.sendApiResponse(response, StatusCode.INTERNAL_SERVER_ERROR, { message: error.message });
+      return this.sendApiResponse(response, StatusCode.INTERNAL_SERVER_ERROR, { message: error.message });
     }
   }
 
