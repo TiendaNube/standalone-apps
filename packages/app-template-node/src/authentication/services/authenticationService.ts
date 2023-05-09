@@ -16,10 +16,13 @@ class AuthenticationService {
 
         this.sendApiResponse(response, 400, { message: accessTokenResponse.error_description });
       }
-      else {
-        const credentials = database.db.get("credentials").value();
-        credentials ? this.sendApiResponse(response, 200, credentials) : this.sendApiResponse(response, 400, { message: "Authorization code not found" });
+      const credentials = this.getCredentials();
+
+      if(!credentials) {
+        this.sendApiResponse(response, 200, credentials);
       }
+
+      this.sendApiResponse(response, 400, { message: "Authorization code not found" });
       
     }
     catch(error: any) {
@@ -35,6 +38,10 @@ class AuthenticationService {
       grant_type: "authorization_code",
       code: code,
     }
+  }
+
+  private getCredentials() {
+    return database.db.get("credentials").value();
   }
 
   private sendApiResponse(response:any, statusCode: number, message: {}) {
