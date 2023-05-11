@@ -22,8 +22,5 @@ export default function generateProduct(): Product {
           cost: faker.finance.amount(1, 100, 2),
         },
       ],
-      categories: [
-        +faker.random.numeric(),
-      ],
     };
 };
