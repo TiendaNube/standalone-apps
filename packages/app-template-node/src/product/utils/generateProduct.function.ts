@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import Product from "./product.interface";
+import IProduct from "./product.interface";
 
-export default function generateProduct(): Product {
+export default function generateProduct(): IProduct {
     return {
       images: [
         {

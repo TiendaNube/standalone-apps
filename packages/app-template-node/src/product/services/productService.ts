@@ -1,8 +1,9 @@
 const axios = require("axios");
 import getCredentials from "../../utils/getCredentials.function";
+import IHeaders from "../../utils/headers.interface";
 import sendApiResponse from "../../utils/sendApiResponse.function";
 import generateProduct from "../utils/generateProduct.function";
-import Product from "../utils/product.interface";
+import IProduct from "../utils/product.interface";
 import { StatusCode } from "./../../utils/statusCode.enum";
 class ProductService {
   public async insertFiveProducts(request:any, response:any) {
@@ -13,12 +14,14 @@ class ProductService {
         return sendApiResponse(response, StatusCode.BAD_REQUEST, { message: "Authorization code not found" });
       }
 
-      let products: Product[] = [];
+      let products: IProduct[] = [];
+      const headers = this.getHeader(credentials.access_token);
       for(let index = 0; index < 4; index += 1) {
-        const product = generateProduct();
+        const randomProduct: IProduct = generateProduct();
 
-        products.push
-          (await this.insertProducts(credentials.user_id, this.getHeader(credentials.access_token), product));
+        const product = await this.insertProduct(credentials.user_id, headers, randomProduct);
+
+        products.push(product);
       }
 
       return sendApiResponse(response, StatusCode.CREATED, products);
@@ -27,19 +30,20 @@ class ProductService {
     }
   }
 
-  private getHeader(accessToken: string) {
+  private getHeader(accessToken: string): IHeaders {
     return {
       "Content-Type": "application/json",
       "Authentication": `bearer ${accessToken}`,
-      "User-Agent": `My App (${process.env.USER_EMAIL})`,
+      "User-Agent": `${process.env.APP_NAME} (${process.env.USER_EMAIL})`,
     }
   }
 
-  private async insertProducts(storeId: number, header: any, body: any) {
+  private async insertProduct(storeId: number, headers:IHeaders 
+  , body: IProduct) {
     const url = `${process.env.TIENDANUBE_API}${storeId}/products`;
 
     return axios.post(url, body, {
-      headers: header,
+      headers,
     })
     .then((response: any) => {
       return response.data;
