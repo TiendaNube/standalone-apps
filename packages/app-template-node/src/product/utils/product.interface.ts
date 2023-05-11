@@ -7,6 +7,5 @@ export default interface Product {
     stock: string;
     weight: string;
     cost: string;
-  }] ;
-  categories: [number];
+  }];
 }
