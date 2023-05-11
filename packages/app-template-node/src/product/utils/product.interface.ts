@@ -1,5 +1,3 @@
-import { faker } from "@faker-js/faker";
-
 export default interface Product {
   images: [{ src: string }];
   name: { en: string, pt: string, es: string};
