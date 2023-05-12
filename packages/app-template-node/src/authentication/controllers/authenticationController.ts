@@ -1,8 +1,10 @@
+import { Request, Response } from "express";
 const authenticationService = require("../services/authenticationService");
 
 class AuthenticationController {
-  async find(req: any, res: any) {
-    await authenticationService.find(req, res);
+  async find(req: Request, res: Response) {
+    const { statusCode, data } = await authenticationService.find(req.query.code);
+    return res.status(statusCode).json(data)
   }
 }
 
