@@ -1,8 +1,8 @@
+import ICredentials from "./credentials.interface";
 const jsonServer = require("json-server");
-const axios = require("axios");
 const database = jsonServer.router("db.json");
 
-function getCredentials() {
+function getCredentials(): ICredentials {
   return database.db.get("credentials").value();
 }
 
