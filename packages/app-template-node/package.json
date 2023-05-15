@@ -4,8 +4,7 @@
   "description": "A template for Node.js applications",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
-    "test": "jest"
+    "start:dev": "nodemon"
   },
   "private": true,
   "dependencies": {
