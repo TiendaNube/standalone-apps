@@ -12,14 +12,14 @@ class AuthenticationService {
       if(!code) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: "The authorization code not found",
+          data: "The authorization code not found",
         }
       }
 
       if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: "Its necessary set request variables at .env-example file and rename to .env file",
+          data: "Its necessary set request variables at .env-example file and rename to .env file",
         }
       } 
 
@@ -36,7 +36,7 @@ class AuthenticationService {
       if(!authenticateResponse.data.access_token && authenticateResponse.data.error_description) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: authenticateResponse.data.error_description,
+          data: authenticateResponse.data.error_description,
         }
       }
 
