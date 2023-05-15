@@ -5,9 +5,9 @@ import IHeaders from "../../utils/headers.interface";
 import generateProduct from "../utils/generateProduct.function";
 import IProduct from "../utils/product.interface";
 import IProductResponse from "../utils/productResponse.interface";
-import { StatusCode } from "./../../utils/statusCode.enum";
-class ProductService {
-  public async insertFiveProducts(): Promise<IProductResponse> {
+import { StatusCode } from "../../utils/statusCode.enum";
+class InsertFiveProductsService {
+  public async store(): Promise<IProductResponse> {
     try {
       const credentials: ICredentials = getCredentials();
 
@@ -82,4 +82,4 @@ class ProductService {
 
 }
 
-module.exports = new ProductService();
+module.exports = new InsertFiveProductsService();

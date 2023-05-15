@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-const productService = require("../services/productService");
+const insertFiveProductsService = require("../services/productService");
 
 class ProductController {
   async store(req: Request, res: Response) {
-    const { statusCode, data } = await productService.insertFiveProducts();
+    const { statusCode, data } = await insertFiveProductsService.store();
 
     return res.status(statusCode).json(data);
   }
