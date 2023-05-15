@@ -6,6 +6,7 @@ import generateProduct from "../utils/generateProduct.function";
 import IProduct from "../utils/product.interface";
 import IProductResponse from "../utils/productResponse.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
+import getHeaders from "../utils/getHeaders.function";
 class InsertFiveProductsService {
   public async store(): Promise<IProductResponse> {
     try {
@@ -13,7 +14,7 @@ class InsertFiveProductsService {
 
       if(credentials.access_token && credentials.user_id) {
         let products:number[] = [];
-        const headers = this.getHeader(credentials.access_token);
+        const headers = getHeaders(credentials.access_token);
         for(let index = 0; index < 5; index += 1) {
           const randomProduct: IProduct = generateProduct();
         
@@ -50,14 +51,6 @@ class InsertFiveProductsService {
         statusCode,
         data,
       };
-    }
-  }
-
-  private getHeader(accessToken: string): IHeaders {
-    return {
-      "Content-Type": "application/json",
-      "Authentication": `bearer ${accessToken}`,
-      "User-Agent": `${process.env.APP_NAME} (${process.env.USER_EMAIL})`,
     }
   }
 
