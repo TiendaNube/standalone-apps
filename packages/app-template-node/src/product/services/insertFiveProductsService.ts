@@ -7,8 +7,9 @@ import IProduct from "../utils/product.interface";
 import IProductResponse from "../utils/productResponse.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
 import getHeaders from "../utils/getHeaders.function";
+import IResponse from "../../utils/response.interface";
 class InsertFiveProductsService {
-  public async store(): Promise<IProductResponse> {
+  public async store(): Promise<IProductResponse | IResponse> {
     try {
       const credentials: ICredentials = getCredentials();
 

@@ -2,10 +2,11 @@ const axios = require("axios");
 import ICredentials from "../../utils/credentials.interface";
 import getCredentials from "../../utils/getCredentials.function";
 import IHeaders from "../../utils/headers.interface";
+import IResponse from "../../utils/response.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
 import getHeaders from "../utils/getHeaders.function";
 class GetTotalProductsService {
-  public async findAll() {
+  public async findAll(): Promise<IResponse> {
     try {
       const credentials: ICredentials = getCredentials();
       

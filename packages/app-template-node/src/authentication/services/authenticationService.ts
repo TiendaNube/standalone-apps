@@ -3,11 +3,11 @@ const axios = require("axios");
 const database = jsonServer.router("db.json");
 import IAuthenticationResponse from "../../utils/authenticationResponse.interface";
 import { BodyAuthenticationType } from "../../utils/body.type";
-import IErrorResponse from "../../utils/errorResponse.interface";
+import IResponse from "../../utils/response.interface";
 import { StatusCode } from "./../../utils/statusCode.enum";
 
 class AuthenticationService {
-  public async find(code: string): Promise<IAuthenticationResponse | IErrorResponse> {
+  public async find(code: string): Promise<IAuthenticationResponse | IResponse> {
     try {
       if(!code) {
         return {
