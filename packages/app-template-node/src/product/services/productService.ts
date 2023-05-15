@@ -1,32 +1,55 @@
 const axios = require("axios");
+import ICredentials from "../../utils/credentials.interface";
 import getCredentials from "../../utils/getCredentials.function";
 import IHeaders from "../../utils/headers.interface";
-import sendApiResponse from "../../utils/sendApiResponse.function";
 import generateProduct from "../utils/generateProduct.function";
 import IProduct from "../utils/product.interface";
+import IProductResponse from "../utils/productResponse.interface";
 import { StatusCode } from "./../../utils/statusCode.enum";
 class ProductService {
-  public async insertFiveProducts(request:any, response:any) {
+  public async insertFiveProducts(): Promise<IProductResponse> {
     try {
-      const credentials = getCredentials();
+      const credentials: ICredentials = getCredentials();
 
-      if(!credentials.access_token) {
-        return sendApiResponse(response, StatusCode.BAD_REQUEST, { message: "Authorization code not found" });
+      if(credentials.access_token && credentials.user_id) {
+        let products:number[] = [];
+        const headers = this.getHeader(credentials.access_token);
+        for(let index = 0; index < 5; index += 1) {
+          const randomProduct: IProduct = generateProduct();
+        
+          const product = await this.insertProduct(credentials.user_id, headers, randomProduct);
+  
+          products.push(product);
+        }
+        return {
+          statusCode: StatusCode.CREATED,
+          data: products,
+        }
       }
 
-      let products: IProduct[] = [];
-      const headers = this.getHeader(credentials.access_token);
-      for(let index = 0; index < 4; index += 1) {
-        const randomProduct: IProduct = generateProduct();
-
-        const product = await this.insertProduct(credentials.user_id, headers, randomProduct);
-
-        products.push(product);
+      return {
+        statusCode: StatusCode.NOT_FOUND,
+        data: "The authorization_code or access_token not found",
       }
 
-      return sendApiResponse(response, StatusCode.CREATED, products);
+
     } catch (error: any) {
-      return sendApiResponse(response, error.response.status, { message: error.message });
+      let statusCode;
+      let data;
+
+      if (error instanceof Error) {
+        const errorObject = JSON.parse(error.message);
+        statusCode = errorObject.statusCode;
+        data = errorObject.data;
+      } else {
+        statusCode = StatusCode.INTERNAL_SERVER_ERROR;
+        data = "Unknown error";
+      }
+
+      return {
+        statusCode,
+        data,
+      };
     }
   }
 
@@ -39,17 +62,21 @@ class ProductService {
   }
 
   private async insertProduct(storeId: number, headers:IHeaders 
-  , body: IProduct) {
+  , body: IProduct){
     const url = `${process.env.TIENDANUBE_API}${storeId}/products`;
 
     return axios.post(url, body, {
       headers,
     })
     .then((response: any) => {
-      return response.data;
+      return response.data.id
     })
     .catch((error: any) => {
-      throw new Error(error);
+      const errorObject = {
+        statusCode: error.response.status,
+        data: error.response.data.description,
+      }
+      throw new Error(JSON.stringify(errorObject));
     });
   }
 
