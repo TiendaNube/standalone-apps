@@ -1,9 +1,0 @@
-{
-  "users": [
-    {
-      "client_id": "app_id",
-      "client_secret": "client_secret",
-      "authorization_code": "authorization_code"
-    }
-  ]
-}
