@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link as RouterLink } from "react-router-dom";
-
-import { ThemeProvider } from "@nimbus-ds/styles";
-
 import { routes } from "../../lib";
-import { useDarkMode, ResponsiveComponent, AppMenu } from "../";
+import { useDarkMode, ResponsiveComponent, AppMenu } from "..";
 import { handleActive, isExample } from "../../utils";
 
 import { AppShell, NavTabs } from "@nimbus-ds/patterns";
-import {
-  Link,
-  Icon,
-  Box,
-  Button,
-  Text,
-  IconButton,
-  Sidebar,
-} from "@nimbus-ds/components";
+import { Icon, Box, Button, IconButton, Sidebar } from "@nimbus-ds/components";
 import {
   ChevronLeftIcon,
   MenuIcon,
@@ -105,12 +94,12 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <Box backgroundColor="neutral-background">
       <ResponsiveComponent
         mobileContent={mobileContent}
         desktopContent={desktopContent}
       />
-    </ThemeProvider>
+    </Box>
   );
 };
 

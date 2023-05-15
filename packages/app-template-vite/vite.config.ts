@@ -16,6 +16,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      "@": path.resolve(
+        __dirname,
+        "src"
+      ),
       "@nimbus-ds/patterns": path.resolve(
         __dirname,
         "../../node_modules/@nimbus-ds/patterns/dist/index.js"
