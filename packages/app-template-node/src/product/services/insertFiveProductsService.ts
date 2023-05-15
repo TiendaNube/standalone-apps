@@ -55,7 +55,7 @@ class InsertFiveProductsService {
     }
   }
 
-  private async insertProduct(storeId: number, headers:IHeaders 
+  private async insertProduct(storeId: number, headers: IHeaders 
   , body: IProduct){
     const url = `${process.env.TIENDANUBE_API}${storeId}/products`;
 

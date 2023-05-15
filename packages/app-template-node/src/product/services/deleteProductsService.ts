@@ -45,7 +45,7 @@ class DeleteProductsService {
     }
   }
 
-  private async deleteProductById(productId: number, storeId: number, headers:IHeaders 
+  private async deleteProductById(productId: number, storeId: number, headers: IHeaders 
   ){
     const url = `${process.env.TIENDANUBE_API}${storeId}/products/${productId}`;
 
