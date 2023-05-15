@@ -4,7 +4,7 @@
   "description": "An example of a Node.js application that authenticates the app in a store and accesses the Tiendanube product API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon",
     "test": "jest"
   },
   "private": true,
