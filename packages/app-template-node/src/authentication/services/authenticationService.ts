@@ -7,19 +7,26 @@ import IErrorResponse from "../../utils/errorResponse.interface";
 import { StatusCode } from "./../../utils/statusCode.enum";
 
 class AuthenticationService {
-  public async find(code: string): Promise<IAuthenticationResponse | IErrorResponse> {
+  public async find(code: string): Promise<IAuthenticationResponse> {
     try {
       if(!code) {
+        const credentials = database.db.get("credentials").value();
+        if (credentials.access_token && credentials.user_id) {
+          return {
+            statusCode: StatusCode.OK,
+            data: credentials,
+          }
+        }
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: "The authorization code not found",
+          data: "The authorization code not found",
         }
       }
 
       if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: "Its necessary set request variables at .env-example file and rename to .env file",
+          data: "Its necessary set request variables at .env-example file and rename to .env file",
         }
       } 
 
@@ -36,35 +43,51 @@ class AuthenticationService {
       if(!authenticateResponse.data.access_token && authenticateResponse.data.error_description) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          error: authenticateResponse.data.error_description,
+          data: authenticateResponse.data.error_description,
         }
       }
 
-      database.db.set("credentials", authenticateResponse.data).write();
+      database.db.set("credentials", authenticateResponse).write();
 
-      return authenticateResponse;
-    }
-    catch(error: any) {
       return {
-        statusCode: error.status,
-        data: error,
+        statusCode: StatusCode.OK,
+        data: authenticateResponse,
       }
+    } catch (error: any) {
+      let statusCode;
+      let data;
+
+      if (error instanceof Error) {
+        const errorObject = JSON.parse(error.message);
+        statusCode = errorObject.statusCode;
+        data = errorObject.data;
+      } else {
+        statusCode = StatusCode.INTERNAL_SERVER_ERROR;
+        data = "Unknown error";
+      }
+
+      return {
+        statusCode,
+        data,
+      };
     }
   }
 
 
-  private async authenticateApp(body: any): Promise<IAuthenticationResponse> {
-    const response = await axios.post(process.env.AUTHENTICATION_API, body, {
+  private async authenticateApp(body: any): Promise<any> {
+    return await axios.post(process.env.AUTHENTICATION_API, body, {
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*", 
       },
+    }).then((response: any) => {
+      return response.data;
+    }).catch((error: any) => {
+      const errorObject = {
+        statusCode: error.response.status,
+        data: error.response.data.description,
+      }
+      throw new Error(JSON.stringify(errorObject));
     });
-
-    return {
-      statusCode: response.status,
-      data: response.data,
-    };
   }
 }
 
