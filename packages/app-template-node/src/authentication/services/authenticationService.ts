@@ -11,7 +11,7 @@ class AuthenticationService {
     try {
       if(!code) {
         const credentials = database.db.get("credentials").value();
-        if (credentials.access_token && credentials.user_id) {
+        if (credentials) {
           return {
             statusCode: StatusCode.OK,
             data: credentials,
@@ -40,36 +40,24 @@ class AuthenticationService {
       const authenticateResponse = await this.authenticateApp(body);
 
       // This condition will be true when the code has been used or is invalid.
-      if(authenticateResponse.error && authenticateResponse.error_description) {
+      if(authenticateResponse.data.error && authenticateResponse.data.error_description) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          data: authenticateResponse.error_description,
+          data: authenticateResponse.data.error_description,
         }
       }
 
-      database.db.set("credentials", authenticateResponse).write();
+      database.db.set("credentials", authenticateResponse.data).write();
 
       return {
         statusCode: StatusCode.OK,
-        data: authenticateResponse,
+        data: authenticateResponse.data,
       }
     } catch (error: any) {
-      let statusCode;
-      let data;
-
-      if (error instanceof Error) {
-        const errorObject = JSON.parse(error.message);
-        statusCode = errorObject.statusCode;
-        data = errorObject.data;
-      } else {
-        statusCode = StatusCode.INTERNAL_SERVER_ERROR;
-        data = "Unknown error";
-      }
-
       return {
-        statusCode,
-        data,
-      };
+        statusCode: StatusCode.INTERNAL_SERVER_ERROR,
+        data: "Unknown error",
+      }
     }
   }
 
@@ -79,14 +67,6 @@ class AuthenticationService {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response: any) => {
-      return response.data;
-    }).catch((error: any) => {
-      const errorObject = {
-        statusCode: error.response.status,
-        data: error.response.data.description,
-      }
-      throw new Error(JSON.stringify(errorObject));
     });
   }
 }
