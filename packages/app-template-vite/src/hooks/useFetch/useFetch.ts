@@ -10,15 +10,13 @@ const useFetch = () => {
       try {
         axiosResponse = await axios.request(params);
         return {
-          message: "",
           content: axiosResponse?.data,
           statusCode: axiosResponse?.status,
         };
       } catch (error: any) {
         axiosResponse = error.response;
         return Promise.reject({
-          message: axiosResponse.data.message || "error",
-          content: axiosResponse?.data?.content ?? null,
+          message: axiosResponse.data || "error",
           statusCode: axiosResponse?.status,
         });
       }
