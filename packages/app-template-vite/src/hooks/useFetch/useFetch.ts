@@ -16,7 +16,7 @@ const useFetch = () => {
       } catch (error: any) {
         axiosResponse = error.response;
         return Promise.reject({
-          message: axiosResponse.data || "error",
+          message: axiosResponse?.data || "error",
           statusCode: axiosResponse?.status,
         });
       }
