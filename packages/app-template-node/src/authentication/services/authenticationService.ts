@@ -40,10 +40,10 @@ class AuthenticationService {
       const authenticateResponse = await this.authenticateApp(body);
 
       // This condition will be true when the code has been used or is invalid.
-      if(!authenticateResponse.data.access_token && authenticateResponse.data.error_description) {
+      if(authenticateResponse.error && authenticateResponse.error_description) {
         return {
           statusCode: StatusCode.BAD_REQUEST,
-          data: authenticateResponse.data.error_description,
+          data: authenticateResponse.error_description,
         }
       }
 
