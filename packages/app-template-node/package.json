@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon --watch 'src/**/*.ts' --watch 'src/database/config.json' --watch '.env' --exec 'ts-node' src/index.ts"
   },
-  "private": true,
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "axios": "^1.4.0",
