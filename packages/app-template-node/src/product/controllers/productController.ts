@@ -8,4 +8,4 @@ class ProductController {
     return res.status(statusCode).json(data);
   }
 }
-module.exports = new ProductController();
+export default new ProductController();

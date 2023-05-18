@@ -1,9 +1,9 @@
-const { Router } = require("express");
-const authenticationController = require("./authentication/controllers/authenticationController");
-const productController = require("./product/controllers/productController");
+import { Router } from "express";
+import AuthenticationController from "./authentication/controllers/authenticationController";
+import ProductController from "./product/controllers/productController";
 
-const router = Router();
-router.get("/auth", authenticationController.find);
-router.post("/products", productController.store)
+const routes = Router();
+routes.get("/auth", AuthenticationController.find);
+routes.post("/products", ProductController.store)
 
-module.exports = router;
+export default routes;
