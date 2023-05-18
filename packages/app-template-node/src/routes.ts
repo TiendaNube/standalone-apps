@@ -1,7 +1,7 @@
-const { Router } = require("express");
-const authenticationController = require("./authentication/controllers/authenticationController");
+import { Router } from "express";
+import AuthenticationController from "./authentication/controllers/authenticationController";
 
-const router = Router();
-router.get("/auth", authenticationController.find);
+const routes = Router();
+routes.get("/auth", AuthenticationController.find);
 
-module.exports = router;
+export default routes;
