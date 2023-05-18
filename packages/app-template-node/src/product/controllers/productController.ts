@@ -23,7 +23,7 @@ class ProductController {
   }
 
   async delete(req: Request, res: Response): Promise<Response> {
-    const { statusCode, data } = await DeleteProductsService.deleteById(req.params.id);
+    const { statusCode, data } = await DeleteProductsService.deleteById(req.params.id as string);
     return !data ? res.status(statusCode).json(req.params.id) : res.status(statusCode).json(data);
   }
 }
