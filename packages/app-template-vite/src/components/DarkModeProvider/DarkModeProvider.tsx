@@ -1,4 +1,13 @@
-import { useState, createContext, useContext, useCallback, useMemo, useEffect, ReactNode } from "react";
+import { ThemeProvider } from "@nimbus-ds/styles";
+import {
+  useState,
+  createContext,
+  useContext,
+  useCallback,
+  useMemo,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface IDarkModeContext {
   darkMode: boolean;
@@ -45,7 +54,9 @@ export const DarkModeProvider: React.FC<IDarkModeProvider> = ({ children }) => {
 
   return (
     <DarkModeContext.Provider value={contextValue}>
-      {children}
+      <ThemeProvider theme={darkMode ? "dark" : "base"}>
+        {children}
+      </ThemeProvider>
     </DarkModeContext.Provider>
   );
 };

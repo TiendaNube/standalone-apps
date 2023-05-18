@@ -15,8 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
+      "@/*":["./*"],
       "@nimbus-ds/patterns": ["@nimbus-ds/patterns/dist/index.d.ts"],
       "@nimbus-ds/components": ["@nimbus-ds/components/dist/index.d.ts"]
     },
