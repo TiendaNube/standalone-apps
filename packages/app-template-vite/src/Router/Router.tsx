@@ -3,33 +3,33 @@ import { Route, Routes } from "react-router-dom";
 import { BaseLayout } from "@/components";
 import { ErrorPage } from "@/pages";
 
-const Router: React.FC = () => {
-  const Home = React.lazy(() => import("@/pages/HomePage"));
-  const ExamplesPage = React.lazy(() => import("@/pages/ExamplesPage"));
-  const ProductsPage = React.lazy(() => import("@/pages/ProductsPage"));
-  const ConfirmationModalExamplePage = React.lazy(
-    () => import("@/pages/examples/ConfirmationModalExamplePage")
-  );
-  const FormExamplePage = React.lazy(
-    () => import("@/pages/examples/FormExamplePage")
-  );
-  const LoginExamplePage = React.lazy(
-    () => import("@/pages/examples/LoginExamplePage")
-  );
-  const PageTemplateExamplePage = React.lazy(
-    () => import("@/pages/examples/PageTemplateExamplePage")
-  );
-  const SettingsExamplePage = React.lazy(
-    () => import("@/pages/examples/SettingsExamplePage")
-  );
-  const ProductListExamplePage = React.lazy(
-    () => import("@/pages/examples/ProductListExamplePage")
-  );
-  const SimpleListExamplePage = React.lazy(
-    () => import("@/pages/examples/SimpleListExamplePage")
-  );
-  const Loading = React.lazy(() => import("@/pages/LoadingPage"));
+const Home = React.lazy(() => import("@/pages/HomePage"));
+const ExamplesPage = React.lazy(() => import("@/pages/ExamplesPage"));
+const ProductsPage = React.lazy(() => import("@/pages/ProductsPage"));
+const ConfirmationModalExamplePage = React.lazy(
+  () => import("@/pages/examples/ConfirmationModalExamplePage")
+);
+const FormExamplePage = React.lazy(
+  () => import("@/pages/examples/FormExamplePage")
+);
+const LoginExamplePage = React.lazy(
+  () => import("@/pages/examples/LoginExamplePage")
+);
+const PageTemplateExamplePage = React.lazy(
+  () => import("@/pages/examples/PageTemplateExamplePage")
+);
+const SettingsExamplePage = React.lazy(
+  () => import("@/pages/examples/SettingsExamplePage")
+);
+const ProductListExamplePage = React.lazy(
+  () => import("@/pages/examples/ProductListExamplePage")
+);
+const SimpleListExamplePage = React.lazy(
+  () => import("@/pages/examples/SimpleListExamplePage")
+);
+const Loading = React.lazy(() => import("@/pages/LoadingPage"));
 
+const Router: React.FC = () => {
   return (
     <Suspense fallback={<Loading />}>
       <BaseLayout>
