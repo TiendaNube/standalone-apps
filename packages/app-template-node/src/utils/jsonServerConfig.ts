@@ -4,7 +4,7 @@ import low from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import ICredentials from "./credentials.interface";
 
-const jsonServerConfig = jsonServer.router(path.resolve("src/database/config.json"));
+const jsonServerConfig = jsonServer.router(path.resolve("config.json"));
 
 const server = jsonServer.create();
 const middleware = jsonServer.defaults();
@@ -16,7 +16,7 @@ interface IDatabase {
   credentials: ICredentials;
 }
 
-const adapter = new FileSync<IDatabase>(path.resolve("src/database/config.json"));
+const adapter = new FileSync<IDatabase>(path.resolve("config.json"));
 const database = low(adapter);
 
 function getCredentials(): ICredentials {

@@ -12,7 +12,7 @@ dist-ssr
 *.local
 
 # Local Database
-src/database/config.json
+config.json
 
 # Editor directories and files
 .idea
