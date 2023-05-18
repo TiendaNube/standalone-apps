@@ -20,7 +20,8 @@ class AuthenticationService {
           statusCode: StatusCode.BAD_REQUEST,
           data: "The authorization code not found",
         }
-      } 
+      }
+
       const body: BodyAuthenticationType = {
         client_id: process.env.CLIENT_ID as string,
         client_secret: process.env.CLIENT_SECRET as string,
