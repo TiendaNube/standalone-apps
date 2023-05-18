@@ -18,7 +18,6 @@ class InsertFiveProductsService {
 
         const product = await this.insertProduct(credentials.user_id as number, credentials.access_token as string, randomProduct);
 
-
         products.push(product);
       }
       return {
