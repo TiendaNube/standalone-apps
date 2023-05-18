@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "install": "concurrently \"cd packages/back-end/node && yarn\" \"cd packages/app-template-vite && yarn\"",
-    "dev": "concurrently \"cd packages/back-end/node && yarn dev\" \"cd packages/app-template-vite && yarn dev\""
+    "install": "concurrently \"cd packages/app-template-node && yarn\" \"cd packages/app-template-vite && yarn\"",
+    "dev": "concurrently \"cd packages/app-template-node && yarn dev\" \"cd packages/app-template-vite && yarn dev\""
   },
   "dependencies": {
     "concurrently": "^8.0.1"
