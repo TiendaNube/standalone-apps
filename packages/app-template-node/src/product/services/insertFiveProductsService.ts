@@ -46,7 +46,7 @@ class InsertFiveProductsService {
 
   private async insertProduct(storeId: number, accessToken: string
   , body: IProduct){
-    const url = `${process.env.AUTHENTICATION_API}/${storeId}/products`;
+    const url = `${process.env.TIENDANUBE_API}${storeId}/products`;
     const header = getHeaders(accessToken);
 
     return axios.post(url, body, {
