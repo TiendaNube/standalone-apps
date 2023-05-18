@@ -1,25 +1,17 @@
 const axios = require("axios");
 import ICredentials from "../../utils/credentials.interface";
-import getCredentials from "../../utils/getCredentials.function";
 import IHeaders from "../../utils/headers.interface";
+import { getCredentials } from "../../utils/jsonServerConfig";
 import IResponse from "../../utils/response.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
 import getHeaders from "../utils/getHeaders.function";
 
 class DeleteProductsService {
-  public async deleteById(id: number): Promise<IResponse> {
-    const credentials: ICredentials = getCredentials();
-
-    if(!credentials.access_token || !credentials.user_id) {
-      return {
-        statusCode: StatusCode.NOT_FOUND,
-        data: "The authorization_code or access_token not found",
-      }
-    }
-
+  public async deleteById(id: string): Promise<IResponse> {
     try {
-      const headers = getHeaders(credentials.access_token);
-      const response = await this.deleteProductById(id, credentials.user_id, headers);
+      const credentials: ICredentials = getCredentials();
+      const headers = getHeaders(credentials.access_token as string);
+      await this.deleteProductById(+id, credentials.user_id as number, headers);
 
       return {
         statusCode: StatusCode.OK,
@@ -52,9 +44,6 @@ class DeleteProductsService {
     return axios.delete(url, {
       headers,
     })
-    .then((response: any) => {
-      return response.data
-    })
     .catch((error: any) => {
       const errorObject = {
         statusCode: error.response.status,
@@ -66,4 +55,4 @@ class DeleteProductsService {
 
 }
 
-module.exports = new DeleteProductsService();
+export default new DeleteProductsService();
