@@ -12,12 +12,12 @@ class ProductController {
 
   // Get total products at store
   async getTotal(req: Request, res: Response): Promise<Response> {
-    const { statusCode, data } = await getTotalProductsService.findAll();
+    const { statusCode, data } = await GetTotalProductsService.findAll();
     return res.status(statusCode).json(data);
   }
 
   async getAll(req: Request, res: Response): Promise<Response> {
-    const { statusCode, data } = await listAllProductsService.findAll();
+    const { statusCode, data } = await ListAllProductsService.findAll();
     return res.status(statusCode).json(data);
   }
 }
