@@ -1,3 +1,5 @@
 export default interface IHeaders {
-  [key: string]: string
+  "Content-Type": string,
+  "Authentication": string,
+  "User-Agent": string,
 }
