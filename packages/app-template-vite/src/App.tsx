@@ -1,33 +1,32 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import { BaseLayout, DarkModeProvider, ProductProvider } from "./components";
-import { HomePage, ExamplesPage, ProductsPage, ConfirmationModalExamplePage, FormExamplePage, LoginExamplePage, PageTemplateExamplePage, ProductListExamplePage, SettingsExamplePage, SimpleListExamplePage } from "./pages";
+import { Suspense } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { BrowserRouter } from "react-router-dom";
+import { DarkModeProvider, ProductProvider } from "./components";
+import { Loading } from "./pages";
 import { generateProducts } from "./lib";
+import { useFetch } from "./hooks";
+
+import Router from "./Router";
 
 function App() {
   const initialProducts = generateProducts(30);
-
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { refetchOnWindowFocus: false } },
+  });
   return (
-    <DarkModeProvider>
-      <BrowserRouter>
-        <ProductProvider initialProducts={initialProducts}>
-          <BaseLayout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/examples" element={<ExamplesPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/examples/confirmation-modal" element={<ConfirmationModalExamplePage />} />
-              <Route path="/examples/form" element={<FormExamplePage />} />
-              <Route path="/examples/login" element={<LoginExamplePage />} />
-              <Route path="/examples/page-template" element={<PageTemplateExamplePage />} />
-              <Route path="/examples/product-list" element={<ProductListExamplePage />} />
-              <Route path="/examples/settings" element={<SettingsExamplePage />} />
-              <Route path="/examples/simple-list" element={<SimpleListExamplePage />} />
-            </Routes>
-          </BaseLayout>
-        </ProductProvider>
-      </BrowserRouter>
-    </DarkModeProvider>
+    <Suspense fallback={<Loading />}>
+      <QueryClientProvider client={queryClient}>
+        <DarkModeProvider>
+          <BrowserRouter basename="/">
+            <ProductProvider initialProducts={initialProducts}>
+              <Router />
+            </ProductProvider>
+          </BrowserRouter>
+        </DarkModeProvider>
+        <ReactQueryDevtools position="bottom-right" />
+      </QueryClientProvider>
+    </Suspense>
   );
 }
 
