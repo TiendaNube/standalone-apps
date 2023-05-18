@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from "axios";
-
 interface IHeaders {
   [key: string]: string
 };

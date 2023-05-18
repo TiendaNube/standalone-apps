@@ -5,7 +5,6 @@ import routes from "./routes";
 import cors from "cors";
 import errorMiddleware from "./utils/errorMiddleware.function";
 
-
 const port = process.env.PORT || 7200;
 const app = express();
 
