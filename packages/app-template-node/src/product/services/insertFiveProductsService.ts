@@ -1,39 +1,29 @@
 const axios = require("axios");
 import ICredentials from "../../utils/credentials.interface";
-import getCredentials from "../../utils/getCredentials.function";
 import IHeaders from "../../utils/headers.interface";
 import generateProduct from "../utils/generateProduct.function";
 import IProduct from "../utils/product.interface";
 import IProductResponse from "../utils/productResponse.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
+import { getCredentials } from "../../utils/jsonServerConfig";
+
 class InsertFiveProductsService {
   public async store(): Promise<IProductResponse> {
     try {
       const credentials: ICredentials = getCredentials();
+      let products:number[] = [];
+      for(let index = 0; index < 5; index += 1) {
+        const randomProduct: IProduct = generateProduct();
+      
+        const product = await this.insertProduct(credentials.user_id as number, this.getHeader(credentials.access_token as string), randomProduct);
 
-      if(credentials.access_token && credentials.user_id) {
-        let products:number[] = [];
-        const headers = this.getHeader(credentials.access_token);
-        for(let index = 0; index < 5; index += 1) {
-          const randomProduct: IProduct = generateProduct();
-        
-          const product = await this.insertProduct(credentials.user_id, headers, randomProduct);
-  
-          products.push(product);
-        }
-        return {
-          statusCode: StatusCode.CREATED,
-          data: products,
-        }
+        products.push(product);
       }
-
       return {
-        statusCode: StatusCode.NOT_FOUND,
-        data: "The authorization_code or access_token not found",
+        statusCode: StatusCode.CREATED,
+        data: products,
       }
-
-
-    } catch (error: any) {
+  } catch (error: any) {
       let statusCode;
       let data;
 
@@ -61,7 +51,7 @@ class InsertFiveProductsService {
     }
   }
 
-  private async insertProduct(storeId: number, headers:IHeaders 
+  private async insertProduct(storeId: number, headers: IHeaders
   , body: IProduct){
     const url = `${process.env.TIENDANUBE_API}${storeId}/products`;
 
@@ -82,4 +72,4 @@ class InsertFiveProductsService {
 
 }
 
-module.exports = new InsertFiveProductsService();
+export default new InsertFiveProductsService();
