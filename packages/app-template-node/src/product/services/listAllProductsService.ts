@@ -1,7 +1,7 @@
 const axios = require("axios");
 import ICredentials from "../../utils/credentials.interface";
-import getCredentials from "../../utils/getCredentials.function";
 import IHeaders from "../../utils/headers.interface";
+import { getCredentials } from "../../utils/jsonServerConfig";
 import IResponse from "../../utils/response.interface";
 import { StatusCode } from "../../utils/statusCode.enum";
 import getHeaders from "../utils/getHeaders.function";
@@ -10,22 +10,12 @@ class ListAllProductsService
   public async findAll(): Promise<IResponse> {
     try {
       const credentials: ICredentials = getCredentials();
-      
-      if(credentials.access_token && credentials.user_id) {
-          const headers = getHeaders(credentials.access_token);
-          const products = await this.getAllProductsId(credentials.user_id, headers);
-          return {
-            statusCode: StatusCode.OK,
-            data: products,
-          }
-      }
-
+      const headers = getHeaders(credentials.access_token as string);
+      const products = await this.getAllProductsId(credentials.user_id as number, headers);
       return {
-        statusCode: StatusCode.NOT_FOUND,
-        data: "The authorization_code or access_token not found",
+        statusCode: StatusCode.OK,
+        data: products,
       }
-
-
     } catch (error: any) {
       let statusCode;
       let data;
@@ -67,5 +57,5 @@ class ListAllProductsService
 
 }
 
-module.exports = new ListAllProductsService
+export default new ListAllProductsService
 ();
