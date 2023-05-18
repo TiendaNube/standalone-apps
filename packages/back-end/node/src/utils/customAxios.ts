@@ -1,5 +1,8 @@
 import axios, { AxiosInstance } from "axios";
-import IHeaders from "./headers.interface";
+
+interface IHeaders {
+  [key: string]: string
+};
 
 class CustomAxios {
   private instance: AxiosInstance;
