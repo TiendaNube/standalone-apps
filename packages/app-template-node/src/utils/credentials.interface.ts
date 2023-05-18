@@ -3,5 +3,6 @@ export default interface ICredentials {
   token_type?: string;
   scope?: string;
   user_id?: number;
+  error?: string;
   error_description?: string;
 }
