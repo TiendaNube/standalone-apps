@@ -9,15 +9,20 @@ export default function errorMiddleware(req: Request, res: Response, next: NextF
   }
   const credentials = getCredentials();
 
-  if (req.path === "/products") {     
+  if (req.path === "/products") {
+    
+    if (!credentials) {
+      return {
+        statusCode: StatusCode.NOT_FOUND,
+        data: "Not found credentials properties at config.json",
+      }
+    }
     // Get the value of the "Authentication" header
     const authenticationHeader = req.headers["authentication"] as string;
 
-    console.log("AUTHENTICATION HEADER: ", authenticationHeader);
-
     //Check if the value of the "Authentication" header starts with "bearer" and return the access_token
     const accessTokenHeader = authenticationHeader?.startsWith("bearer") ? authenticationHeader.slice(7) : undefined;
-
+    
     if(accessTokenHeader !== credentials.access_token) {
       return res.status(StatusCode.BAD_REQUEST).json("The access_token of the Authentication is invalid");
     }
