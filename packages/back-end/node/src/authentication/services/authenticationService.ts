@@ -1,7 +1,7 @@
 import axios from "axios";
 import IAuthenticationResponse from "../../utils/authenticationResponse.interface";
 import { BodyAuthenticationType } from "../../utils/body.type";
-import { StatusCode } from "./../../utils/statusCode.enum";
+import { StatusCode } from "../../utils/statusCode.enum";
 import { getCredentials, setCredentials } from "../../utils/jsonServerConfig";
 import ICredentials from "../../utils/credentials.interface";
 
