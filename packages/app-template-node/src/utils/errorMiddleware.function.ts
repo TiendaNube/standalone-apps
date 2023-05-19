@@ -8,7 +8,7 @@ export default function errorMiddleware(req: Request, res: Response, next: NextF
   }
   const credentials = getCredentials();
 
-  if (req.path === "/products") {
+  if (req.path === "/products" || req.path === "/products/total") {
     
     if (!credentials) {
       return {
@@ -23,7 +23,7 @@ export default function errorMiddleware(req: Request, res: Response, next: NextF
     const accessTokenHeader = authenticationHeader?.startsWith("bearer") ? authenticationHeader.slice(7) : undefined;
     
     if(accessTokenHeader !== credentials.access_token) {
-      return res.status(StatusCode.BAD_REQUEST).json("The access_token of the Authentication is invalid");
+      return res.status(StatusCode.UNAUTHORIZED).json("The access_token of the Authentication is invalid");
     }
   }
 
