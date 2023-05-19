@@ -6,6 +6,10 @@ This template includes a starter project for building standalone apps using:
  - React for the frontend, with Vite as a framework
  - Node.js for backend, with Typescript
 
+
+## Flowchart for using the app template.
+[App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
+
 ## Partners Portal to create app
 ### First Step
   - If you don't have an account, create one on the Partner Portal. If you already have an account, login to your account.
