@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -13,6 +14,7 @@ export default defineConfig({
   },
   define: {
     global: {},
+    "process.env": dotenv.config({ path: "../../.env.local" }).parsed,
   },
   resolve: {
     alias: {
