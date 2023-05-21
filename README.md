@@ -1,11 +1,10 @@
-# Standalone App Template
+# Node.js with Typescript project
 
 This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It works as a monorepo as it includes all the code necessary to start and maintain the frontend and backend of the application.
 
 This template includes a starter project for building standalone apps using:
  - React for the frontend, with Vite as a framework
  - Node.js for backend, with Typescript
-
 
 ## Flowchart for using the app template.
 [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
@@ -66,3 +65,75 @@ This template includes a starter project for building standalone apps using:
   ```
 
 Happy editing!
+
+# Standalone App Template
+
+This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It works as a monorepo as it includes all the code necessary to start and maintain the frontend and backend of the application.
+
+This template includes a starter project for building standalone apps using:
+ - React for the frontend, with Vite as a framework
+ - Node.js for backend, with Typescript
+
+## Table of Contents
+- [Node.js with Typescript project](#nodejs-with-typescript-project)
+  - [Flowchart for using the app template.](#flowchart-for-using-the-app-template)
+  - [Partners Portal to create app](#partners-portal-to-create-app)
+    - [First Step](#first-step)
+    - [Second Step](#second-step)
+    - [Third Step](#third-step)
+  - [Clone this repository](#clone-this-repository)
+  - [Steps to config project](#steps-to-config-project)
+    - [1th step](#1th-step)
+    - [2th step](#2th-step)
+    - [3th step](#3th-step)
+    - [4th step](#4th-step)
+    - [5th step](#5th-step)
+- [Standalone App Template](#standalone-app-template)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Directory Structure](#directory-structure)
+  - [Additional Documentation](#additional-documentation)
+  - [Examples](#examples)
+  - [Configuration Options](#configuration-options)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact](#contact)
+
+## Installation
+
+Step-by-step instructions on how to install and configure the project. Include dependencies and software requirements, if applicable.
+
+## Usage
+- Need Partner Account at Portal
+- Need created app;
+- Need change redirect url to the port of run your frontend
+- [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
+
+## Directory Structure
+
+Description of the project's directory structure, highlighting the purpose of each important directory.
+
+## Additional Documentation
+
+Mention if there is additional documentation available and provide links to those resources.
+
+## Examples
+
+Usage examples of the project or typical use cases.
+
+## Configuration Options
+
+Description of the available configuration options and how to use them. Provide examples of custom configurations, if applicable.
+
+## Contributing
+
+Explanation on how others can contribute to the project. Provide instructions on setting up a development environment and submitting pull requests.
+
+## License
+
+Declare the project's license.
+
+## Contact
+
+Contact information for users to reach out in case of questions, issues, or feedback.
