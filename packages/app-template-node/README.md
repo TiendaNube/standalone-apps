@@ -44,13 +44,13 @@ This is a powerful tool that enables app authentication and provides functionali
 
 ## Introduction
 
-Welcome to the Nuvemshop Product Management API! This powerful tool provides a comprehensive solution for app authentication and efficient management of products within an installed Nuvemshop store. The main objective of this API is to serve as an example and facilitate understanding of how to authenticate and access the Nuvemshop APIs, specifically focusing on product-related functionalities.
+Welcome to the Nuvemshop Product Management API! This API serves as an example and provides a solution for app authentication and efficient product management within a Nuvemshop store.
 
-With this API, developers can authenticate their applications and securely store the credentials within the config.json file. It enables a wide range of operations, including the random insertion of 5 new products, deletion of existing products, and retrieval of the total count of products in the store. Leveraging seamless integration and robust product management capabilities, this API exemplifies the process of handling and maintaining product data.
+With this API, developers can authenticate their applications and securely store credentials in the config.json file. It enables various operations, such as inserting 5 new products randomly, deleting existing products, and retrieving the total product count. This API exemplifies seamless integration and robust product management capabilities.
 
-By using the Nuvemshop Product Management API, developers gain insights into the inner workings of Nuvemshop/Tiendanube e-commerce solutions. This understanding serves as a foundation for building robust and scalable applications, empowering developers to create powerful e-commerce solutions tailored to the Nuvemshop platform.
+By using the Nuvemshop Product Management API, developers gain insights into Nuvemshop/Tiendanube e-commerce solutions, empowering them to build scalable applications tailored to the Nuvemshop platform.
 
-Explore the features, endpoints, and usage examples provided in this README to harness the full potential of the Nuvemshop Product Management API and unlock new possibilities for managing products in Nuvemshop-powered stores.
+Explore the provided features, endpoints, and usage examples in this README to unlock the full potential of the Nuvemshop Product Management API for effective product management in Nuvemshop-powered stores.
 
 ## Folder Structure
 
