@@ -33,16 +33,16 @@ This template includes a starter project for building standalone apps using:
 - Configure the environment variables by renaming the .env-example file to .env.
 
 ### 6th - Get credentials at Partner Portal
-Go back to the Partners Portal on your app details page (https://partners.nuvemshop.com.br/applications/details/:app-id) and copy the values of the `App Id` and `Client Secret`.
+Go back to the Partners Portal on the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id) and copy the values of the `App Id` and `Client Secret`.
 
 ### 7th - Set environment variables
 - Go back to your code editor and paste the credentials copied in the previous step into the .env file:
-  - PORT= Port where the backend will run
+  - PORT=3400 (Port where the backend will run)
   - CLIENT_ID= App id
   - CLIENT_SECRET= Client Secret
   - USER_EMAIL= Your Partners Portal account email
   - APP_NAME= Your app name
-  - VITE_APP_TEMPLATE_API= http://localhost:PORT
+  - VITE_APP_TEMPLATE_API= http://localhost:3400
 
 ### 8th - Run applications
 - To start both `app-template-vite` and `app-template-node`:
