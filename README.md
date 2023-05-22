@@ -53,8 +53,9 @@ Go back to the Partners Portal on the details page of your app (https://partners
 ### 9th - Change redirect URL at Partner Portal
 - After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:8000`.
 
-### 10th - Install app at store
-After the redirect URL has been changed, install the app in a store using the URL (:store-url/admin/apps/:app-id/authorize) and confirm the installation.
+### 10th - Access store and install app
+- Do you log in at your demo store or not
+- After that install the app add at URL (/admin/apps/:app-id/authorize) and confirm the installation.
 
 ### 11th - Now tests app
-Now, your app is ready to be used.
+- Now, your app is ready to be used.
