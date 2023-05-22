@@ -40,16 +40,16 @@ const ProductListExamplePage: React.FC = () => {
       <IconButton source={<ChevronLeftIcon />} size="2rem" />
       <IconButton source={<ChevronRightIcon />} size="2rem" />
       <Button>
-        Mis aplicaciones
+        Minhas aplicações
         <Icon source={<ChevronDownIcon />} />
       </Button>
       <Button>
-        Acción secundaria
+        Ação secundária
         <Icon source={<DownloadIcon />} />
       </Button>
       <Button appearance="primary">
         <Icon color="neutral-background" source={<PlusCircleIcon />} />
-        Acción primaria
+        Ação primária
       </Button>
     </>
   );
@@ -130,11 +130,11 @@ const ProductListExamplePage: React.FC = () => {
               <Thumbnail
                 aspectRatio="1/1"
                 width="64px"
-                alt="Nombre del producto"
+                alt="Nome do produto"
               />
               <Box display="flex" flexDirection="column" gap="1">
-                <Text color="primary-interactive">Nombre del producto</Text>
-                <Tag appearance="warning">Tag de producto</Tag>
+                <Text color="primary-interactive">Nome do produto</Text>
+                <Tag appearance="warning">Tag de produto</Tag>
               </Box>
             </Box>
           </Table.Cell>

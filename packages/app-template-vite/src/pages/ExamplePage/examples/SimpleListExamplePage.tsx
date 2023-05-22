@@ -38,16 +38,16 @@ const SimpleListExamplePage: React.FC = () => {
       <IconButton source={<ChevronLeftIcon />} size="2rem" />
       <IconButton source={<ChevronRightIcon />} size="2rem" />
       <Button>
-        Mis aplicaciones
+        Minhas aplicações
         <Icon source={<ChevronDownIcon />} />
       </Button>
       <Button>
-        Acción secundaria
+        Ação secundária
         <Icon source={<DownloadIcon />} />
       </Button>
       <Button appearance="primary">
         <Icon color="neutral-background" source={<PlusCircleIcon />} />
-        Acción primaria
+        Ação primária
       </Button>
     </>
   );
@@ -59,12 +59,12 @@ const SimpleListExamplePage: React.FC = () => {
         checked: false,
       }}
     >
-      <Table.Cell width="auto">Dato principal</Table.Cell>
-      <Table.Cell width="150px">Dato 1</Table.Cell>
-      <Table.Cell width="150px">Dato 2</Table.Cell>
-      <Table.Cell width="150px">Dato 3</Table.Cell>
+      <Table.Cell width="auto">Dado principal</Table.Cell>
+      <Table.Cell width="150px">Dado 1</Table.Cell>
+      <Table.Cell width="150px">Dado 2</Table.Cell>
+      <Table.Cell width="150px">Dado 3</Table.Cell>
       <Table.Cell width="150px">Estado</Table.Cell>
-      <Table.Cell width="80px">Acciones</Table.Cell>
+      <Table.Cell width="80px">Ações</Table.Cell>
     </DataTable.Header>
   );
 
@@ -93,16 +93,16 @@ const SimpleListExamplePage: React.FC = () => {
             <Box display="flex" flexDirection="column" flex="1 1 auto">
               <Box display="flex" justifyContent="space-between" mb="2">
                 <Text color="primary-interactive">
-                  Nombre del dato principal
+                  Nome do dado principal
                 </Text>
               </Box>
               <Box display="flex" justifyContent="space-between">
-                <Text>Nombre del dato 1</Text>
-                <Text>Nombre del dato 2</Text>
+                <Text>Nome do dado 1</Text>
+                <Text>Nome do dado 2</Text>
               </Box>
               <Box display="flex" justifyContent="space-between">
-                <Text>Nombre del dato 3</Text>
-                <Text>Nombre del dato 4</Text>
+                <Text>Nome do dado 3</Text>
+                <Text>Nome do dado 4</Text>
               </Box>
               <Box
                 display="flex"
@@ -110,7 +110,7 @@ const SimpleListExamplePage: React.FC = () => {
                 alignItems="center"
                 mt="2"
               >
-                <Tag>Nombre del estado</Tag>
+                <Tag>Nome do estado</Tag>
                 <IconButton source={<EllipsisIcon />} size="2rem" />
               </Box>
             </Box>
@@ -135,13 +135,13 @@ const SimpleListExamplePage: React.FC = () => {
           }}
         >
           <Table.Cell>
-            <Text color="primary-interactive">Nombre del dato principal</Text>
+            <Text color="primary-interactive">Nome do dado principal</Text>
           </Table.Cell>
-          <Table.Cell>Nombre del dato 1</Table.Cell>
-          <Table.Cell>Nombre del dato 2</Table.Cell>
-          <Table.Cell>Nombre del dato 3</Table.Cell>
+          <Table.Cell>Nome do dado 1</Table.Cell>
+          <Table.Cell>Nome do dado 2</Table.Cell>
+          <Table.Cell>Nome do dado 3</Table.Cell>
           <Table.Cell>
-            <Tag>Nombre del estado</Tag>
+            <Tag>Nome do estado</Tag>
           </Table.Cell>
           <Table.Cell>
             <IconButton source={<EllipsisIcon />} size="2rem" />
@@ -162,7 +162,7 @@ const SimpleListExamplePage: React.FC = () => {
             </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
-            <Text>150 ventas</Text>
+            <Text>150 vendas</Text>
             <Chip text="Filtro aplicado" removable />
           </Box>
         </Box>

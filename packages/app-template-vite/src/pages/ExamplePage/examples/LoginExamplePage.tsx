@@ -19,24 +19,24 @@ const LoginExamplePage: React.FC = () => {
     >
       <Box maxWidth="500px" flex="1">
         <Card>
-          <Card.Header title="Título del login" />
+          <Card.Header title="Título do login" />
           <Card.Body>
             <Box display="flex" flexDirection="column" gap="4">
               <Text>
-                ¿No tenés una cuenta?&nbsp;
-                <Link appearance="primary" textDecoration="none">Creá acá una</Link>
+                Não tem uma conta?&nbsp;
+                <Link appearance="primary" textDecoration="none">Crie aqui uma</Link>
               </Text>
-              <Alert appearance="danger" title="Mensaje de error">
-                Texto del error
+              <Alert appearance="danger" title="Mensagem de error">
+                Texto do error
               </Alert>
               <Box display="flex" flexDirection="column" gap="2">
                 <FormField.Input label="Email" />
                 <FormField label="Password">
                   <Input.Password />
                 </FormField>
-                <Link appearance="primary">¿Olvidaste tu contraseña?</Link>
+                <Link appearance="primary">Esqueceu sua senha?</Link>
               </Box>
-              <Checkbox name="keep-login" label="Mantenerme conectado" />
+              <Checkbox name="keep-login" label="Manter-se conectado" />
             </Box>
           </Card.Body>
           <Card.Footer>

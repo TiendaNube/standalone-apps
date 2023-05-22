@@ -17,7 +17,7 @@ export default function generateProduct(): IProduct {
         {
           price: faker.finance.amount(100, 10000, 2),
           stock_management: true,
-          stock: faker.random.numeric(),
+          estoque: faker.random.numeric(),
           weight: faker.random.numeric(),
           cost: faker.finance.amount(1, 100, 2),
         },

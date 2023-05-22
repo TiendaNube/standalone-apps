@@ -38,19 +38,19 @@ const FormExamplePage: React.FC = () => {
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <FormField.Input
-                    label="Label para un input simples"
-                    placeholder="Ejemplo: Nombre de un producto"
+                    label="Label para um input simples"
+                    placeholder="Ejemplo: Nome de um produto"
                   />
                   <FormField.Textarea
                     id="multiline-input"
-                    label="Label para un input de texto multilínea"
+                    label="Label para um input de texto multilinha"
                     lines={5}
                   />
                 </Box>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Header title="Inputs para carga de archivos" />
+              <Card.Header title="Inputs para carregar de arquivos" />
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <Box display="flex" flexWrap="wrap" gap="4">
@@ -62,7 +62,7 @@ const FormExamplePage: React.FC = () => {
                       }}
                     >
                       <FileUploader
-                        placeholder="Texto de ayuda"
+                        placeholder="Texto de ajuda"
                         aspectRatio="16/9"
                       />
                     </Box>
@@ -74,7 +74,7 @@ const FormExamplePage: React.FC = () => {
                       }}
                     >
                       <FileUploader
-                        placeholder="Texto de ayuda"
+                        placeholder="Texto de ajuda"
                         aspectRatio="16/9"
                       />
                     </Box>
@@ -86,7 +86,7 @@ const FormExamplePage: React.FC = () => {
                       }}
                     >
                       <FileUploader
-                        placeholder="Texto de ayuda"
+                        placeholder="Texto de ajuda"
                         aspectRatio="16/9"
                       />
                     </Box>
@@ -98,7 +98,7 @@ const FormExamplePage: React.FC = () => {
                       }}
                     >
                       <FileUploader
-                        placeholder="Texto de ayuda"
+                        placeholder="Texto de ajuda"
                         aspectRatio="16/9"
                       />
                     </Box>
@@ -106,11 +106,11 @@ const FormExamplePage: React.FC = () => {
                   <Box display="flex" gap="2" flexWrap="wrap">
                     <Tag>
                       <Icon source={<DragIcon />} color="currentColor" />
-                      Especificaciones del archivo
+                      Especificações do arquivo
                     </Tag>
                     <Tag>
                       <Icon source={<PictureIcon />} color="currentColor" />
-                      Especificaciones del archivo
+                      Especificações do arquivo
                     </Tag>
                   </Box>
                 </Box>
@@ -118,11 +118,11 @@ const FormExamplePage: React.FC = () => {
               <Card.Footer>
                 <Link appearance="primary" textDecoration="none">
                   <Icon source={<ExternalLinkIcon />} color="currentColor" />
-                  Link primario
+                  Link primário
                 </Link>
                 <Link appearance="primary" textDecoration="none">
                   <Icon source={<ExternalLinkIcon />} color="currentColor" />
-                  Link secundario
+                  Link secundário
                 </Link>
               </Card.Footer>
             </Card>
@@ -130,7 +130,7 @@ const FormExamplePage: React.FC = () => {
               <Card.Header title="Input de URL" />
               <Card.Body>
                 <FormField.Input
-                  label="Label para un input de URL"
+                  label="Label para um input de URL"
                   placeholder="Placeholder"
                   append={<Text color="neutral-textDisabled">https://</Text>}
                   appendPosition="start"
@@ -138,18 +138,18 @@ const FormExamplePage: React.FC = () => {
               </Card.Body>
             </Card>
             <Card>
-              <Card.Header title="Inputs de precio" />
+              <Card.Header title="Inputs de preço" />
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <Box display="grid" gridTemplateColumns="1fr 1fr" gap="4">
                     <FormField.Input
-                      label="Precio"
+                      label="Preço"
                       placeholder="Placeholder"
                       append={<Text color="neutral-textDisabled">R$</Text>}
                       appendPosition="start"
                     />
                     <FormField.Input
-                      label="Precio promocional"
+                      label="Preço promocional"
                       placeholder="Placeholder"
                       append={<Text color="neutral-textDisabled">R$</Text>}
                       appendPosition="start"
@@ -162,7 +162,7 @@ const FormExamplePage: React.FC = () => {
             <Card padding="none">
               <Card.Header>
                 <Box px="4" pt="4">
-                  <Title as="h3">Inputs de stock</Title>
+                  <Title as="h3">Inputs de estoque</Title>
                 </Box>
               </Card.Header>
               <Card.Body>
@@ -201,18 +201,18 @@ const FormExamplePage: React.FC = () => {
                   <InteractiveList>
                     <InteractiveList.RadioItem
                       title="Ilimitado"
-                      radio={{ name: "stock" }}
+                      radio={{ name: "estoque" }}
                     />
                     <InteractiveList.RadioItem
                       title="Limitado"
-                      radio={{ name: "stock" }}
+                      radio={{ name: "estoque" }}
                     />
                   </InteractiveList>
                 </Box>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Header title="Inputs de peso y dimensiones" />
+              <Card.Header title="Inputs de peso e dimensões" />
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <Box
@@ -230,19 +230,19 @@ const FormExamplePage: React.FC = () => {
                       appendPosition="end"
                     />
                     <FormField.Input
-                      label="Largo"
+                      label="Comprimento"
                       placeholder="Placeholder"
                       append={<Text color="neutral-textDisabled">cm</Text>}
                       appendPosition="end"
                     />
                     <FormField.Input
-                      label="Ancho"
+                      label="Largura"
                       placeholder="Placeholder"
                       append={<Text color="neutral-textDisabled">cm</Text>}
                       appendPosition="end"
                     />
                     <FormField.Input
-                      label="Alto"
+                      label="Altura"
                       placeholder="Placeholder"
                       append={<Text color="neutral-textDisabled">cm</Text>}
                       appendPosition="end"
@@ -252,18 +252,18 @@ const FormExamplePage: React.FC = () => {
               </Card.Body>
               <Card.Footer>
                 <Link>
-                  Link externo de ayuda
+                  Link externo de ajuda
                   <Icon source={<ExternalLinkIcon />} color="currentColor" />
                 </Link>
               </Card.Footer>
             </Card>
             <Card>
-              <Card.Header title="Opciones múltiples" />
+              <Card.Header title="Múltiplas escolhas" />
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <Box display="grid" gridTemplateColumns="1fr 1fr" gap="4">
                     <FormField.Select
-                      label="Opción múltiple 1"
+                      label="Múltipla escolha 1"
                       id="select-1"
                       name="select-1"
                     >
@@ -273,7 +273,7 @@ const FormExamplePage: React.FC = () => {
                       <Select.Option label="Opción 4" value="opcion-4" />
                     </FormField.Select>
                     <FormField.Select
-                      label="Opción múltiple 2"
+                      label="Múltipla escolha 2"
                       id="select-2"
                       name="select-2"
                     >
@@ -287,16 +287,16 @@ const FormExamplePage: React.FC = () => {
               </Card.Body>
               <Card.Footer>
                 <Link>
-                  Link externo de ayuda
+                  Link externo de ajuda
                   <Icon source={<ExternalLinkIcon />} color="currentColor" />
                 </Link>
               </Card.Footer>
             </Card>
             <Card>
-              <Card.Header title="Categorías" />
+              <Card.Header title="Categorias" />
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
-                  <Chip removable text="Categoría 1" />
+                  <Chip removable text="Categoria 1" />
                 </Box>
               </Card.Body>
               <Card.Footer>
@@ -308,19 +308,19 @@ const FormExamplePage: React.FC = () => {
             </Card>
             <Box display="flex" flexDirection="column" gap="2">
               <Checkbox
-                label="Opción general 1"
+                label="Opções gerais 1"
                 id="general-checkbox-1"
                 name="general-checkbox-1"
               />
               <Checkbox
-                label="Opción general 2"
+                label="Opções gerais 2"
                 id="general-checkbox-2"
                 name="general-checkbox-2"
               />
             </Box>
             <Box display="flex" justifyContent="flex-end" gap="2">
               <Button>Cancelar</Button>
-              <Button appearance="primary">Guardar</Button>
+              <Button appearance="primary">Salvar</Button>
             </Box>
           </Layout.Section>
         </Layout>
