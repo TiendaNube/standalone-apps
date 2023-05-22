@@ -42,7 +42,7 @@ Go back to the Partners Portal on your app details page (https://partners.nuvems
   - CLIENT_SECRET= Client Secret
   - USER_EMAIL= Your Partners Portal account email
   - APP_NAME= Your app name
-  - VITE_APP_TEMPLATE_API= http://localhost:PORT
+  - VITE_APP_TEMPLATE_API= http://localhost:**PORT**
 
 ### 8th - Run applications
 - To start both `app-template-vite` and `app-template-node`:
