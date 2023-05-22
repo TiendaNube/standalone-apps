@@ -39,17 +39,17 @@ const PageTemplateExamplePage: React.FC = () => {
       <IconButton source={<ChevronRightIcon />} size="2rem" />
       <Popover content={popoverContent} arrow={false} padding="small">
         <Button>
-          Menú contextual
+          Menu contextual
           <Icon source={<ChevronDownIcon />} />
         </Button>
       </Popover>
       <Button>
-        Acción secundaria
+        Ação secundária
         <Icon source={<DownloadIcon />} />
       </Button>
       <Button appearance="primary">
         <Icon color="neutral-background" source={<PlusCircleIcon />} />
-        Acción primaria
+        Ação primária
       </Button>
     </>
   );

@@ -121,7 +121,7 @@ const ProductsPage: React.FC = () => {
   const lastRow = totalRows && Math.min(currentPage * pageSize, totalRows);
   const tableCount =
     lastRow && lastRow > 0
-      ? `Mostrando ${firstRow}-${lastRow} productos de ${totalRows}`
+      ? `Mostrando ${firstRow}-${lastRow} produtos de ${totalRows}`
       : "";
 
   const tableHeader = (
@@ -135,7 +135,7 @@ const ProductsPage: React.FC = () => {
     >
       <Table.Cell width="100%">
         <Box display="flex" gap="2" alignItems="center">
-          Producto
+          Produto
           <IconButton
             source={
               sortDirection === "ascending" ? (
@@ -149,7 +149,7 @@ const ProductsPage: React.FC = () => {
           />
         </Box>
       </Table.Cell>
-      <Table.Cell width="120px">Acciones</Table.Cell>
+      <Table.Cell width="120px">Ações</Table.Cell>
     </DataTable.Header>
   );
 
@@ -177,7 +177,7 @@ const ProductsPage: React.FC = () => {
         indeterminate: headerIndeterminateStatus,
       }}
       label={`${selectedProducts.size} ${
-        selectedProducts.size === 1 ? "seleccionado" : "seleccionados"
+        selectedProducts.size === 1 ? "selecionado" : "selecionados"
       }`}
       action={
         <Box display="flex" gap="1">
@@ -185,7 +185,7 @@ const ProductsPage: React.FC = () => {
             appearance="danger"
             onClick={(e: any) => removeSelectedProducts(e)}
           >
-            Eliminar
+            Deletar
           </Button>
         </Box>
       }
@@ -310,7 +310,7 @@ const ProductsPage: React.FC = () => {
       {IS_LOADING && <Loading />}
       {!IS_LOADING && (
         <Page maxWidth="1200px">
-          <Page.Header title="Productos de Tienda Demo" />
+          <Page.Header title="Produtos da Loja" />
 
           <Page.Body px={{ xs: "none", md: "6" }}>
             <Layout columns="1">

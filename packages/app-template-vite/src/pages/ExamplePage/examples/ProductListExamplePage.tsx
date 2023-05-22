@@ -61,18 +61,18 @@ const ProductListExamplePage: React.FC = () => {
         checked: false,
       }}
     >
-      <Table.Cell width="auto">Producto</Table.Cell>
-      <Table.Cell width="88px">Stock</Table.Cell>
-      <Table.Cell width="88px">Precio</Table.Cell>
+      <Table.Cell width="auto">Produto</Table.Cell>
+      <Table.Cell width="88px">Estoque</Table.Cell>
+      <Table.Cell width="88px">Preço</Table.Cell>
       <Table.Cell width="88px">Promocional</Table.Cell>
       <Table.Cell width="150px">Variantes</Table.Cell>
-      <Table.Cell width="80px">Acciones</Table.Cell>
+      <Table.Cell width="80px">Ações</Table.Cell>
     </DataTable.Header>
   );
 
   const tableFooter = (
     <DataTable.Footer
-      itemCount="Mostrando 1-20 productos de 40"
+      itemCount="Mostrando 1-20 produtos de 40"
       pagination={{
         pageCount: 2,
         activePage: 1,
@@ -95,15 +95,15 @@ const ProductListExamplePage: React.FC = () => {
             <Thumbnail
               aspectRatio="1/1"
               width="64px"
-              alt="Nombre del producto"
+              alt="Nome do produto"
             />
             <Box display="flex" flexDirection="column" gap="1">
-              <Text color="primary-interactive">Nombre del producto</Text>
+              <Text color="primary-interactive">Nome do produto</Text>
               <Tag appearance="warning">
                 <Icon source={<EyeOffIcon />} color="currentColor" />
                 Estado
               </Tag>
-              <Text>Stock</Text>
+              <Text>Estoque</Text>
             </Box>
           </DataList.Row>
         ))}
