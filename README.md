@@ -1,4 +1,4 @@
-# Node.js with Typescript project
+# App Template Standalone
 
 This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It works as a monorepo as it includes all the code necessary to start and maintain the frontend and backend of the application.
 
@@ -9,131 +9,52 @@ This template includes a starter project for building standalone apps using:
 ## Flowchart for using the app template.
 [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
 
-## Partners Portal to create app
-### First Step
-  - If you don't have an account, create one on the Partner Portal. If you already have an account, login to your account.
+## Steps to use app
+### 1th - Create Account
+- If you don't have an account on the Partners Portal, create one.
 
-### Second Step
-  - If you don't have an app, create one
+### 2th - Create app
+- If you don't have an app created on the Partners Portal, create one.
 
-### Third Step
-  - Then you can follow the steps below
-## Clone this repository
+### 3th - Clone repository
+- Clone this repository:
   ```bash
   $ git clone git@github.com:TiendaNube/nimbus-app-template-react.git
   ```
+- Open the project in your code editor (e.g., Visual Studio Code, Eclipse, ...)
 
-## Steps to config project
-### 1th step
-  - Go to the folder where the repository was cloned and open the terminal.
-
-### 2th step
-  - To install all the dependencies for both `app-template-vite` and `app-template-node` package subdirectories.
+### 4th - Install dependencies
+- In the terminal, install the project dependencies using the following command:
   ```bash
   $ yarn install
   ```
 
-### 3th step
-  - To configure the necessary variables for `app-template-node` package subdirectory.
-  ```bash
-  $ cd packages/app-template-node
-  ```
-  - Then rename `.env-example` file to `.env` and return to the Partners Portal on the details page of the created app to copy the values of the App Id and Client Secret and configure:
-    - PORT= Port of your application will be run
-    - CLIENT_ID= App id;
-    - CLIENT_SECRET= Client Secret
-    - USER_EMAIL= The email of your partner account
-    - APP_NAME= Name of app
+### 5th - Rename .env-example to .env
+- Configure the environment variables by renaming the .env-example file to .env.
 
-###  4th step
-  - To configure the necessary variables for `app-template-vite` package subdirectory.
-  ```bash
-  $ cd ../app-template-vite
-  ```
-  - Then go to `.env` file and make sure that the port is the same as the backend's PORT:
-    - VITE_APP_TEMPLATE_API=http://localhost:<backend's PORT> 
+### 6th - Get credentials at Partner Portal
+Go back to the Partners Portal on your app details page (https://partners.nuvemshop.com.br/applications/details/<app-id>) and copy the values of the `App Id` and `Client Secret`.
 
+### 7th - Set environment variables
+- Go back to your code editor and paste the credentials copied in the previous step into the .env file:
+  - PORT= Port where the backend will run
+  - CLIENT_ID= App id
+  - CLIENT_SECRET= Client Secret
+  - USER_EMAIL= Your Partners Portal account email
+  - APP_NAME= Your app name
+  - VITE_APP_TEMPLATE_API= http://localhost:<PORT>
 
-### 5th step
-  - To start the development server:
-  ```bash
-  $ cd ../..
-  ```
-  - Then run `dev` will start both the `app-template-vite` and `app-template-node`:
+### 8th - Run applications
+- To start both app-template-vite and app-template-node:
   ```bash
   $ yarn dev
   ```
 
-Happy editing!
+### 9th - Change redirect URL at Partner Portal
+- After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/<app-id>) and change the 'Redirect URL after installation' to `http://localhost:8000`.
 
-# Standalone App Template
+### 10th - Install app at store
+After the redirect URL has been changed, install the app in a store using the URL (<store-url>/admin/apps/<app-id>/authorize) and confirm the installation.
 
-This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It works as a monorepo as it includes all the code necessary to start and maintain the frontend and backend of the application.
-
-This template includes a starter project for building standalone apps using:
- - React for the frontend, with Vite as a framework
- - Node.js for backend, with Typescript
-
-## Table of Contents
-- [Node.js with Typescript project](#nodejs-with-typescript-project)
-  - [Flowchart for using the app template.](#flowchart-for-using-the-app-template)
-  - [Partners Portal to create app](#partners-portal-to-create-app)
-    - [First Step](#first-step)
-    - [Second Step](#second-step)
-    - [Third Step](#third-step)
-  - [Clone this repository](#clone-this-repository)
-  - [Steps to config project](#steps-to-config-project)
-    - [1th step](#1th-step)
-    - [2th step](#2th-step)
-    - [3th step](#3th-step)
-    - [4th step](#4th-step)
-    - [5th step](#5th-step)
-- [Standalone App Template](#standalone-app-template)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Directory Structure](#directory-structure)
-  - [Additional Documentation](#additional-documentation)
-  - [Examples](#examples)
-  - [Configuration Options](#configuration-options)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Contact](#contact)
-
-## Installation
-
-Step-by-step instructions on how to install and configure the project. Include dependencies and software requirements, if applicable.
-
-## Usage
-- Need Partner Account at Portal
-- Need created app;
-- Need change redirect url to the port of run your frontend
-- [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
-
-## Directory Structure
-
-Description of the project's directory structure, highlighting the purpose of each important directory.
-
-## Additional Documentation
-
-Mention if there is additional documentation available and provide links to those resources.
-
-## Examples
-
-Usage examples of the project or typical use cases.
-
-## Configuration Options
-
-Description of the available configuration options and how to use them. Provide examples of custom configurations, if applicable.
-
-## Contributing
-
-Explanation on how others can contribute to the project. Provide instructions on setting up a development environment and submitting pull requests.
-
-## License
-
-Declare the project's license.
-
-## Contact
-
-Contact information for users to reach out in case of questions, issues, or feedback.
+### 11th - Now tests app
+Now, your app is ready to be used.
