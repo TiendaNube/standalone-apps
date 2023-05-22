@@ -14,7 +14,7 @@ export default defineConfig({
   },
   define: {
     global: {},
-    "process.env": dotenv.config({ path: "../../.env.local" }).parsed,
+    "process.env": dotenv.config({ path: "../../.env" }).parsed,
   },
   resolve: {
     alias: {

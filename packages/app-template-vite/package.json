@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch '../../.env.local' --exec vite",
+    "dev": "nodemon --watch '../../.env' --exec vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 dotenv.config({
-  path: "../../.env.local",
+  path: "../../.env",
 });
 import routes from "./routes";
 import cors from "cors";
