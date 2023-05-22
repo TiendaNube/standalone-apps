@@ -153,7 +153,7 @@ const SimpleListExamplePage: React.FC = () => {
 
   return (
     <Page maxWidth="1200px">
-      <Page.Header title="Listado simple" buttonStack={buttonStack}>
+      <Page.Header title="Lista simples" buttonStack={buttonStack}>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
             <Input.Search placeholder="Buscar" />

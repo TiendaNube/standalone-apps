@@ -163,7 +163,7 @@ const ProductListExamplePage: React.FC = () => {
 
   return (
     <Page maxWidth="1200px">
-      <Page.Header title="Listado de productos" buttonStack={buttonStack}>
+      <Page.Header title="Lista de produtos" buttonStack={buttonStack}>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
             <Input.Search placeholder="Buscar" />
@@ -172,7 +172,7 @@ const ProductListExamplePage: React.FC = () => {
             </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
-            <Text>150 productos</Text>
+            <Text>150 produtos</Text>
             <Chip text="Filtro aplicado" removable />
           </Box>
         </Box>

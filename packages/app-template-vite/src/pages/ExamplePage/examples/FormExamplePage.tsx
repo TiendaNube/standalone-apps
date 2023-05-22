@@ -38,7 +38,7 @@ const FormExamplePage: React.FC = () => {
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="4">
                   <FormField.Input
-                    label="Label para un input simple"
+                    label="Label para un input simples"
                     placeholder="Ejemplo: Nombre de un producto"
                   />
                   <FormField.Textarea
