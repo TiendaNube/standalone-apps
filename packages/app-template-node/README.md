@@ -1,68 +1,160 @@
-# StoreProductControl API
+# Store Product Control API
 
-This is a powerful tool that enables app authentication and provides functionalities to efficiently manage products within an installed Nuvemshop/Tiendanube store. This API allows developers to securely authenticate their applications and perform operations such as inserting new 5 products randomly, deleting existing products, and retrieving the total count of products in the store. With seamless integration and comprehensive product management capabilities, this API streamlines the process of handling and maintaining product data, empowering developers to build robust and scalable applications for Nuvemshop/Tiendanube-powered e-commerce solutions.
+This is a powerful tool that enables app authentication and provides functionalities to efficiently manage products within an installed Nuvemshop/Tiendanube store. Its purpose is to serve as an example and facilitate understanding of how to authenticate and access the Nuvemshop/Tiendanube APIs, specifically the Product API. This API allows developers to authenticate their applications and store the credentials within the config.json file. It enables operations such as randomly inserting 5 new products, deleting existing products, and retrieving the total count of products in the store. With seamless integration and comprehensive product management capabilities, this API exemplifies the process of handling and maintaining product data, empowering developers to understand its functioning and lay the foundation for building robust and scalable applications for Nuvemshop/Tiendanube e-commerce solutions.
 
 ## Table of Contents
-
-- [StoreProductControl API](#storeproductcontrol-api)
+- [Store Product Control API](#store-product-control-api)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Endpoints](#endpoints)
+    - [1. Authentication Endpoint](#1-authentication-endpoint)
+    - [2. Product Endpoints](#2-product-endpoints)
   - [Authentication](#authentication)
-  - [Request Parameters](#request-parameters)
-  - [Responses and Status Codes](#responses-and-status-codes)
-  - [Usage Examples](#usage-examples)
+    - [Authentication API](#authentication-api)
+    - [Products API](#products-api)
   - [Limitations and Considerations](#limitations-and-considerations)
-  - [Errors and Exception Handling](#errors-and-exception-handling)
-  - [Headers and Authentication Examples](#headers-and-authentication-examples)
   - [References and Additional Resources](#references-and-additional-resources)
-  - [License](#license)
-  - [Contact](#contact)
 
 ## Introduction
 
-A brief overview of the API, including its purpose, features, and the problems it solves.
+Welcome to the Nuvemshop Product Management API! This powerful tool provides a comprehensive solution for app authentication and efficient management of products within an installed Nuvemshop store. The main objective of this API is to serve as an example and facilitate understanding of how to authenticate and access the Nuvemshop APIs, specifically focusing on product-related functionalities.
+
+With this API, developers can authenticate their applications and securely store the credentials within the config.json file. It enables a wide range of operations, including the random insertion of 5 new products, deletion of existing products, and retrieval of the total count of products in the store. Leveraging seamless integration and robust product management capabilities, this API exemplifies the process of handling and maintaining product data.
+
+By using the Nuvemshop Product Management API, developers gain insights into the inner workings of Nuvemshop/Tiendanube e-commerce solutions. This understanding serves as a foundation for building robust and scalable applications, empowering developers to create powerful e-commerce solutions tailored to the Nuvemshop platform.
+
+Explore the features, endpoints, and usage examples provided in this README to harness the full potential of the Nuvemshop Product Management API and unlock new possibilities for managing products in Nuvemshop-powered stores.
+
 
 ## Endpoints
 
-List of available endpoints in the API along with their URLs and descriptions. Clearly explain what each endpoint does and what parameters are required for the request. Include example requests and responses to help developers understand the data structure.
+The API provides the following endpoints:
+
+### 1. Authentication Endpoint
+
+- **GET /auth**
+  - Description: Retrieves app access credentials.
+  - Parameters:
+    - None
+  - Example Response:
+    ```json
+    {
+      "access_token": "db70f8b523274bdd9b0df15d998fb4978ca74750AEDOH",
+      "token_type": "bearer",
+      "scope": "write_products",
+      "user_id": 00001123
+    }
+    ```
+### 2. Product Endpoints
+
+- **GET /products**
+  - Description: Retrieves a list of all products
+  - Parameters:
+    - None
+  - Example Response:
+    - An array of product objects
+    ```json
+    [
+      {
+          "id": 169311292,
+          "name": {
+              "es": "Intelligent Steel Chair"
+          },
+          "variants": [
+              {
+                  "id": 640712121,
+                  "image_id": 475446544,
+                  "product_id": 169311292,
+                  "position": 1,
+                  "price": "4361.62",
+                  "compare_at_price": "4361.62",
+                  "promotional_price": null,
+                  "stock_management": true,
+                  "stock": 8,
+                  "weight": "9.000",
+                  "width": "0.00",
+                  "height": "0.00",
+                  "depth": "0.00",
+                  "sku": null,
+                  "values": [],
+                  "barcode": null,
+                  "mpn": null,
+                  "age_group": null,
+                  "gender": null,
+                  "created_at": "2023-05-15T13:33:29+0000",
+                  "updated_at": "2023-05-15T13:33:33+0000",
+                  "inventory_levels": [
+                      {
+                          "id": 224306756,
+                          "variant_id": 640712121,
+                          "location_id": "01GX7R3QEFTXVV95NQY4R9HKYB",
+                          "stock": 8
+                      }
+                  ]
+              }
+          ],
+          "images": [
+              {
+                  "id": 475446544,
+                  "product_id": 169311292,
+                  "src": "https://d2r9epyceweg5n.cloudfront.net/stores/003/031/781/products/abstractlock99937-c2aaff2c5b271d86a416841576099461-1024-1024.",
+                  "position": 1,
+                  "alt": [],
+                  "created_at": "2023-05-15T13:33:33+0000",
+                  "updated_at": "2023-05-15T13:33:33+0000"
+              }
+          ]
+      }
+    ]
+    ```
+
+- **POST /products**
+  - Description: Creates 5 new products randomly
+  - Parameters:
+    - None
+
+  - Example body:
+    - The request body is created by the file (src/product/utils/generateProduct.function.ts) that randomly generates the product
+    ```json
+
+  - Example Response:
+    - An array with the created product IDs
+    ```json
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+    ```
+
+- **DELETE /products/{id}**
+  - Description: Retrieves the details of a specific product.
+  - Parameters:
+    - `id` (integer, required): The ID of the product.
+  - Example Response:
+    ```json
+    1234
+    ```
 
 ## Authentication
 
-Explanation of how to authenticate requests to the API, whether it's through API keys, access tokens, or any other authentication method. Provide detailed instructions on how to obtain the necessary credentials and how to include them in requests.
+### Authentication API
+  - To authenticate the app, you need to modify its redirect URL in the Partners Portal to the API URL and install it in a store. This will ensure that when the authentication process is triggered, the app will be redirected to the designated URL, including the necessary 'code' query string. The 'code' parameter is essential for constructing the body of the POST request to the `https://www.tiendanube.com/apps/authorize/token` authentication API. Upon successful authentication, the API will respond with an object that should be securely stored within the 'credentials' property of the config.json file.
 
-## Request Parameters
-
-Documentation of all the request parameters accepted by the API endpoints. Include information about the expected data type, whether they are required or optional, and a brief description of each parameter.
-
-## Responses and Status Codes
-
-Description of the expected responses from the API and the corresponding HTTP status codes. Explain the format of the response data, whether it's JSON, XML, or any other format, and provide example responses for different scenarios.
-
-## Usage Examples
-
-Provide usage examples of the API in different programming languages. This may include code snippets demonstrating how to make requests and process the API responses.
+### Products API
+- To access the Product API, you need to include the `Authentication: bearer access_token` header in the request. The provided access_token will be compared against the access_token stored within the 'credentials' property in the config.json file to verify authorization for accessing the API.
 
 ## Limitations and Considerations
 
-Clarify any specific limitations of the API, such as rate limits, maximum request size, or any other restrictions. Additionally, if there are any special requirements to use the API correctly, such as minimum library versions or technical prerequisites, mention them here.
-
-## Errors and Exception Handling
-
-List the possible errors that the API may return and their descriptions. Explain how developers can handle these errors and provide guidance on interpreting error messages for debugging.
-
-## Headers and Authentication Examples
-
-If the API requires custom headers or specific authentication, provide examples of how to include them in requests.
+- It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
+- If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
+- For the Product API to work, the app must have 'write_products' permission.
+- If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
 
 ## References and Additional Resources
 
-If there are additional resources available, such as detailed technical documentation, integration guides, or other helpful references, mention them and provide links to those resources.
+[Nuvemshop/Tiendanube API - Authentication](https://tiendanube.github.io/api-documentation/authentication)
 
-## License
-
-Declare the API's license, informing users about permissions and usage restrictions.
-
-## Contact
-
-Provide contact information for developers to reach out with questions, issues, or feedback.
+[Nuvemshop/Tiendanube API - Product](https://tiendanube.github.io/api-documentation/resources/product)
