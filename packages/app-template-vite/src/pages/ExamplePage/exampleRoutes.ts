@@ -1,37 +1,37 @@
 export const exampleRoutes = [
   {
-    title: "Pantalla de ajustes",
-    name: "pantalla-de-ajustes",
+    title: "Página de ajustes",
+    name: "pagina-de-ajustes",
     slug: "/examples/settings",
   },
   {
-    title: "Modal de confirmación",
-    name: "modal-de-confirmacion",
+    title: "Modal de confirmação",
+    name: "modal-de-confirmacao",
     slug: "/examples/confirmation-modal",
   },
   {
-    title: "Formulario",
+    title: "Formulário",
     name: "formulario",
     slug: "/examples/form",
   },
   {
-    title: "Plantilla de página",
-    name: "plantilla-de-pagina",
+    title: "Modelo de página",
+    name: "modelo-de-pagina",
     slug: "/examples/page-template",
   },
   {
-    title: "Pantalla de Login",
-    name: "pantalla-de-login",
+    title: "Página de Login",
+    name: "pagina-de-login",
     slug: "/examples/login",
   },
   {
-    title: "Listado simple",
-    name: "listado-simple",
+    title: "Listagem simples",
+    name: "listagem-simples",
     slug: "/examples/simple-list",
   },
   {
-    title: "Listado de productos",
-    name: "listado-de-productos",
+    title: "Listagem de produtos",
+    name: "listagem-de-produtos",
     slug: "/examples/product-list",
   },
 ];

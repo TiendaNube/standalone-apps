@@ -109,10 +109,10 @@ const HomePage: React.FC = () => {
           <Layout columns="1">
             <Layout.Section>
               <Card>
-                <Card.Header title="¡Felicitaciones por crear tu app!" />
+                <Card.Header title="Parabéns por criar seu aplicativo!" />
                 <Card.Body>
                   <Text>
-                    Esta app de ejemplo incluye nuestro&nbsp;
+                    Este apicativo de exemplo inclui nosso&nbsp;
                     <Link
                       as="a"
                       href="https://nimbus.tiendanube.com/"
@@ -122,33 +122,30 @@ const HomePage: React.FC = () => {
                     >
                       design system Nimbus
                     </Link>
-                    &nbsp;y la integración a la&nbsp;
+                    &nbsp;e a integração com a&nbsp;
                     <Link appearance="primary" textDecoration="none">
-                      API de Tiendanube
+                      API da Tiendanube/Nuvemshop
                     </Link>
-                    &nbsp;para facilitar el desarrollo de nuevas aplicaciones
-                    para nuestro ecosistema.
+                    &nbsp;para facilitar o desenvolvimento de novos aplicativos para nosso ecosistema.
                   </Text>
                 </Card.Body>
                 <Card.Footer>
                   <Link>
-                    Conocé más sobre cómo crear tu app
+                    Conheça mais sobre como criar seu aplicativo
                     <Icon color="currentColor" source={<ExternalLinkIcon />} />
                   </Link>
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Header title="Contador de productos de Tienda demo" />
+                <Card.Header title="Contador de produtos da Loja" />
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4" mb="2">
                     <Text>
-                      Los productos de ejemplo se crean con un nombre y precio
-                      aleatorios, a modo de prueba. Podés modificarlos o
-                      eliminarlos en cualquier momento.
+                      Os produtos de exemplo são criados com o nome e preço aleatórios, a modo de prueba. Pode modificá-los e eliminá-los há qualquer momento.
                     </Text>
                     <Box display="flex" flexDirection="column" gap="2">
                       <Text color="neutral-textDisabled">
-                        Total de productos
+                        Total de produtos
                       </Text>
                       {renderTotal}
                     </Box>
@@ -161,7 +158,7 @@ const HomePage: React.FC = () => {
                     disabled={onSubmit.isLoading}
                   >
                     <Icon color="currentColor" source={<PlusCircleIcon />} />
-                    Crear 5 productos
+                    Criar 5 produtos
                     {onSubmit.isLoading && (
                       <Spinner color="currentColor" size="small" />
                     )}

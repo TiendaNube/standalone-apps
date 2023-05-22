@@ -40,7 +40,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <>
       <Button appearance="transparent">
         <Icon color="currentColor" source={<QuestionCircleIcon />} />
-        Ayuda para desarrolladores
+        Ajuda para desenvolvedores
       </Button>
       <IconButton
         source={currentThemeIcon}
@@ -65,7 +65,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </RouterLink>
         ))}
         <NavTabs.Item
-          ariaLabel="Menú principal"
+          ariaLabel="Menu principal"
           icon={<MenuIcon size="medium" />}
           onClick={handleOpenMobileMenu}
         />
@@ -84,7 +84,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           isExample(router.pathname) && (
             <Button as={RouterLink} to="/examples" appearance="transparent">
               <Icon source={<ChevronLeftIcon />} color="currentColor" />
-              Volver
+              Voltar
             </Button>
           )
         }

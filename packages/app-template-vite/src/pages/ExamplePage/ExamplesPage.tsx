@@ -9,8 +9,8 @@ const ExamplesPage: React.FC = () => {
   return (
     <Page maxWidth="800px">
       <Page.Header
-        title="Galería de ejemplos"
-        subtitle="¿Necesitás ayuda para construir tu app? Usá estos ejemplos de diferentes tipologías de diseño usando Nimbus para construir más rápido y seguro."
+        title="Galeria de exemplos"
+        subtitle="Precisa de ajuda para criar seu aplicativo? Use estes exemplos de diferentes Tipologias de design usando Nimbus para construir mais rápido e seguro."
       />
       <Page.Body>
         <Layout columns="1">
