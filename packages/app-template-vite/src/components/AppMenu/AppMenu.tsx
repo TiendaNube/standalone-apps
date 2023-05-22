@@ -85,7 +85,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
           )}
         </Menu.Section>
       </Menu.Body>
-      <Menu.Footer label="Configuración" startIcon={CogIcon} />
+      <Menu.Footer label="Configuração" startIcon={CogIcon} />
     </Menu>
   );
 };
