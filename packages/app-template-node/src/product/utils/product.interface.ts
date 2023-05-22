@@ -4,7 +4,7 @@ export default interface IProduct {
   variants: [ {
     price: string;
     stock_management: boolean;
-    estoque: string;
+    stock: string;
     weight: string;
     cost: string;
   }];
