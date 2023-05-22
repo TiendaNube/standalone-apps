@@ -6,6 +6,7 @@ This is a powerful tool that enables app authentication and provides functionali
 - [Store Product Control API](#store-product-control-api)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
+  - [Folder Structure](#folder-structure)
   - [Endpoints](#endpoints)
     - [1. Authentication Endpoint](#1-authentication-endpoint)
     - [2. Product Endpoints](#2-product-endpoints)
@@ -24,6 +25,35 @@ With this API, developers can authenticate their applications and securely store
 By using the Nuvemshop Product Management API, developers gain insights into the inner workings of Nuvemshop/Tiendanube e-commerce solutions. This understanding serves as a foundation for building robust and scalable applications, empowering developers to create powerful e-commerce solutions tailored to the Nuvemshop platform.
 
 Explore the features, endpoints, and usage examples provided in this README to harness the full potential of the Nuvemshop Product Management API and unlock new possibilities for managing products in Nuvemshop-powered stores.
+
+## Folder Structure
+
+The backend project is divided into two main folders: "authentication" and "product". Each folder contains a "controllers" and a "services" subfolder.
+
+- **authentication**
+  - **controllers**
+    - authenticationController.ts
+  - **services**
+    - authenticationService.ts
+
+- **product**
+  - **controllers**
+    - productController.ts
+  - **services**
+    - deleteProductsService.ts
+    - getTotalProductsService.ts
+    - insertFiveProductsService.ts
+    - listAllProductsService.ts
+
+The `controllers` folder contains files responsible for handling the incoming requests to the API. For example, the "authenticationController.ts" file within the `authentication/controllers` folder handles authentication-related requests.
+
+The `services` folder contains files that implement the business logic of the API. These files, such as `authenticationService.ts` and `*ProductService.ts`, contain functions and methods that perform the necessary operations, such as user authentication or product data manipulation.
+
+The `routes.ts` file defines the API routes by mapping the URLs to their corresponding controllers. For example, it can define that the route `/auth` should be handled by the "authenticationController.ts".
+
+Finally, the `index.ts` file serves as the main entry point of the application. It is where the server is started and where routers and other configurations are set up.
+
+This folder structure helps maintain a clear separation of responsibilities and keeps the source code organized, making it easier to understand and work with different parts of the API.
 
 
 ## Endpoints
