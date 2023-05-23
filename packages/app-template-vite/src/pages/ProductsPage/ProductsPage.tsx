@@ -9,6 +9,7 @@ import {
   Thumbnail,
   Text,
   Spinner,
+  Pagination,
 } from "@nimbus-ds/components";
 import { ProductProps } from "@/types";
 import { ResponsiveComponent } from "@/components";
@@ -247,64 +248,69 @@ const ProductsPage: React.FC = () => {
   );
 
   const desktopContent = (
-    <DataTable
-      header={tableHeader ?? null}
-      footer={tableFooter}
-      bulkActions={hasBulkActions}
-    >
-      {displayedRows &&
-        displayedRows.map((row) => {
-          const { id } = row;
-          return (
-            <DataTable.Row
-              key={id}
-              backgroundColor={
-                selectedProducts.has(row.id)
-                  ? {
-                      rest: "primary-surface",
-                      hover: "primary-surfaceHighlight",
-                    }
-                  : {
-                      rest: "neutral-background",
-                      hover: "neutral-surface",
-                    }
-              }
-              checkbox={{
-                name: `check-${id}`,
-                checked: selectedProducts.has(row.id),
-                onChange: () => handleRowClick(id),
-              }}
-            >
-              <Table.Cell>
-                <Box display="flex" gap="2" alignItems="center">
-                  <Thumbnail
-                    src={row.images[0].src}
-                    width="36px"
-                    alt={row.name.pt}
-                  />
-                  {row.name.pt}
-                </Box>
-              </Table.Cell>
-              <Table.Cell>
-                <Box
-                  display="flex"
-                  gap="2"
-                  alignItems="center"
-                  justifyContent="center"
+    <>
+      <Table
+      >
+        <Table.Head>
+          <Table.Cell>
+            Nome
+          </Table.Cell>
+          <Table.Cell>
+            <Box display="flex" gap="2" alignItems="center" width="100%" justifyContent="center">
+              <Text>Excluir</Text>
+            </Box>
+          </Table.Cell>
+        </Table.Head>
+        <Table.Body>
+          {displayedRows &&
+            displayedRows.map((row) => {
+              const { id } = row;
+              return (
+                <Table.Row
+                key={id}
                 >
-                  <IconButton
-                    onClick={() => onDelete.mutate(row.id)}
-                    source={<TrashIcon />}
-                    size="2rem"
-                  />
-                </Box>
-              </Table.Cell>
-            </DataTable.Row>
-          );
-        })}
-    </DataTable>
+                  <Table.Cell>
+                    <Box display="flex" gap="2" alignItems="center">
+                      <Thumbnail
+                        src={row.images[0].src}
+                        width="36px"
+                        alt={row.name.pt}
+                      />
+                      {row.name.pt}
+                    </Box>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Box
+                      display="flex"
+                      gap="2"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <IconButton
+                        onClick={() => onDelete.mutate(row.id)}
+                        source={<TrashIcon />}
+                        size="2rem"
+                      />
+                    </Box>
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
+        </Table.Body>
+      </Table>
+      <Box display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
+        <Pagination
+          activePage={currentPage}
+          onPageChange={handlePageChange}
+          pageCount={(totalRows && Math.ceil(totalRows / pageSize)) as number}
+        >
+        </Pagination>
+      </Box>
+    </>
   );
-
+  const hasProducts = useMemo(() => {
+    return products?.content.length ?? null
+  }, [products?.content.length])
   return (
     <>
       {IS_LOADING && <Loading />}
@@ -315,10 +321,15 @@ const ProductsPage: React.FC = () => {
           <Page.Body px={{ xs: "none", md: "6" }}>
             <Layout columns="1">
               <Layout.Section>
-                <ResponsiveComponent
-                  mobileContent={mobileContent}
-                  desktopContent={desktopContent}
-                />
+                <>
+                  {hasProducts && <ResponsiveComponent
+                    mobileContent={mobileContent}
+                    desktopContent={desktopContent}
+                  />}
+                  {!!!hasProducts &&
+                    <Text>Não há produtos para serem exibidos</Text>
+                  }
+                </>
               </Layout.Section>
             </Layout>
           </Page.Body>
