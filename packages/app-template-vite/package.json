@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@nimbus-ds/components": "^4.1.0",
+    "@nimbus-ds/components": "^4.3.0",
     "@nimbus-ds/icons": "^1.1.0",
     "@nimbus-ds/patterns": "^1.1.1",
     "@nimbus-ds/styles": "^8.0.0",
     "@nimbus-ds/tokens": "^7.0.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
@@ -26,6 +27,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "nodemon": "^2.0.22",
     "path": "^0.12.7",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"

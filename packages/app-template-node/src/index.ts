@@ -1,10 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
-import dotenv from "dotenv"; 
-dotenv.config();
+import dotenv from "dotenv";
+dotenv.config({
+  path: "../../.env",
+});
 import routes from "./routes";
 import cors from "cors";
 import errorMiddleware from "./utils/errorMiddleware.function";
-
 const port = process.env.PORT || 7200;
 const app = express();
 

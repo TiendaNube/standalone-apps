@@ -5,10 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "install": "concurrently \"cd packages/app-template-node && yarn\" \"cd packages/app-template-vite && yarn\"",
-    "dev": "concurrently \"cd packages/app-template-node && yarn dev\" \"cd packages/app-template-vite && yarn dev\""
+    "install": "yarn workspace app-template-node install && yarn workspace app-template-vite install",
+    "dev": "yarn workspace app-template-node dev & yarn workspace app-template-vite dev"
   },
-  "dependencies": {
-    "concurrently": "^8.0.1"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

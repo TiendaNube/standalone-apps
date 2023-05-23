@@ -6,61 +6,56 @@ This template includes a starter project for building standalone apps using:
  - React for the frontend, with Vite as a framework
  - Node.js for backend, with Typescript
 
-## Partners Portal to create app
-### First Step
-  - If you don't have an account, create one on the Partner Portal. If you already have an account, login to your account.
+## Flowchart for using the app template.
+[App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410)
 
-### Second Step
-  - If you don't have an app, create one
+## Steps to use app
+### 1th - Create Account
+- If you don't have an account, create one on the Partners Portal. If you already have an account, login to your account.
 
-### Third Step
-  - Then you can follow the steps below
+### 2th - Create app
+- If you don't have an app created on the Partners Portal, create one.
 
-## Steps to config project
-### 1th step
-  - Clone this repository
+### 3th - Clone this repository
+- Clone this repository:
   ```bash
   $ git clone git@github.com:TiendaNube/nimbus-app-template-react.git
   ```
-### 2th step
-  - Go to the folder where the repository was cloned and open the terminal.
+- Open the project in your code editor (e.g., Visual Studio Code, Eclipse, ...)
 
-### 3th step
-  - To install all the dependencies for both `app-template-vite` and `app-template-node` package subdirectories.
+### 4th - Install dependencies
+- In the terminal, install the project dependencies using the following command:
   ```bash
   $ yarn install
   ```
 
-### 4th step
-  - To configure the necessary variables for `app-template-node` package subdirectory.
-  ```bash
-  $ cd packages/app-template-node
-  ```
-  - Then rename `.env-example` file to `.env` and return to the Partners Portal on the details page of the created app to copy the values of the App Id and Client Secret and configure:
-    - PORT= Port of your application will be run
-    - CLIENT_ID= App id;
-    - CLIENT_SECRET= Client Secret
-    - USER_EMAIL= The email of your partner account
-    - APP_NAME= Name of app
+### 5th - Rename .env-example to .env
+- Configure the environment variables by renaming the .env-example file to .env.
 
-###  5th step
-  - To configure the necessary variables for `app-template-vite` package subdirectory.
-  ```bash
-  $ cd ../app-template-vite
-  ```
-  - Then go to `.env` file and make sure that the port is the same as the backend's PORT:
-    - VITE_APP_TEMPLATE_API=http://localhost:<backend's PORT> 
+### 6th - Get credentials at Partner Portal
+Go back to the Partners Portal on the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id) and copy the values of the `App Id` and `Client Secret`.
 
+### 7th - Set environment variables
+- Go back to your code editor and paste the credentials copied in the previous step into the .env file:
+  - PORT=3400 (Port where the backend will run)
+  - CLIENT_ID= App id
+  - CLIENT_SECRET= Client Secret
+  - USER_EMAIL= Your Partners Portal account email
+  - APP_NAME= Your app name
+  - VITE_APP_TEMPLATE_API= http://localhost:3400
 
-### 6th step
-  - To start the development server:
-  ```bash
-  $ cd ../..
-  ```
-  - Then run `dev` will start both the `app-template-vite` and `app-template-node`:
+### 8th - Run applications
+- To start both `app-template-vite` and `app-template-node`:
   ```bash
   $ yarn dev
   ```
-### 7th step
 
-Happy editing!
+### 9th - Change redirect URL at Partner Portal
+- After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:8000`.
+
+### 10th - Access store and install app
+- Do you log in at your demo store or not
+- After that install the app add at URL (/admin/apps/:app-id/authorize) and confirm the installation.
+
+### 11th - Now tests app
+- Now, your app is ready to be used.
