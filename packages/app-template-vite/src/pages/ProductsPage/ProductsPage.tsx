@@ -124,10 +124,6 @@ const ProductsPage: React.FC = () => {
       ? `Mostrando ${firstRow}-${lastRow} productos de ${totalRows}`
       : "";
 
-  const handleRemoveProduct = (id: number) => {
-    onDelete.mutate(id);
-  };
-
   const tableHeader = (
     <DataTable.Header
       checkbox={{
@@ -197,64 +193,62 @@ const ProductsPage: React.FC = () => {
   );
 
   const mobileContent = (
-    <>
-      <DataList>
-        {hasBulkActions}
-        {displayedRows &&
-          displayedRows.map((row) => {
-            const { id } = row;
+    <DataList>
+      {hasBulkActions}
+      {displayedRows &&
+        displayedRows.map((row) => {
+          const { id } = row;
 
-            return (
-              <DataList.Row
-                key={id}
-                backgroundColor={
-                  selectedProducts.has(row.id)
-                    ? "primary-surface"
-                    : "neutral-background"
-                }
-                flexDirection="row"
-                width="100%"
-                gap="2"
-              >
-                <Box display="flex" gap="2" flex="1 1 auto">
-                  <Thumbnail
-                    key={row.images[0].id}
-                    src={row.images[0].src}
-                    width="54px"
-                    alt={row.name.pt}
-                  />
+          return (
+            <DataList.Row
+              key={id}
+              backgroundColor={
+                selectedProducts.has(row.id)
+                  ? "primary-surface"
+                  : "neutral-background"
+              }
+              flexDirection="row"
+              width="100%"
+              gap="2"
+            >
+              <Box display="flex" gap="2" flex="1 1 auto">
+                <Thumbnail
+                  key={row.images[0].id}
+                  src={row.images[0].src}
+                  width="54px"
+                  alt={row.name.pt}
+                />
 
-                  <Box
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center"
-                    justifyContent="center"
-                  >
-                    <Text>{row.name.pt}</Text>
-                  </Box>
-                </Box>
                 <Box
                   display="flex"
-                  gap="2"
+                  flexDirection="column"
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <IconButton
-                    onClick={() => onDelete.mutate(row.id)}
-                    source={<TrashIcon />}
-                    size="2rem"
-                  />
+                  <Text>{row.name.pt}</Text>
                 </Box>
-              </DataList.Row>
-            );
-          })}
-      </DataList>
-    </>
+              </Box>
+              <Box
+                display="flex"
+                gap="2"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <IconButton
+                  onClick={() => onDelete.mutate(row.id)}
+                  source={<TrashIcon />}
+                  size="2rem"
+                />
+              </Box>
+            </DataList.Row>
+          );
+        })}
+    </DataList>
   );
 
   const desktopContent = (
     <DataTable
-      header={tableHeader}
+      header={tableHeader ?? null}
       footer={tableFooter}
       bulkActions={hasBulkActions}
     >
@@ -313,23 +307,23 @@ const ProductsPage: React.FC = () => {
 
   return (
     <>
-      <Page maxWidth="1200px">
-        <Page.Header title="Productos de Tienda Demo" />
-        {IS_LOADING && <Loading />}
+      {IS_LOADING && <Loading />}
+      {!IS_LOADING && (
+        <Page maxWidth="1200px">
+          <Page.Header title="Productos de Tienda Demo" />
 
-        <Page.Body px={{ xs: "none", md: "6" }}>
-          <Layout columns="1">
-            <Layout.Section>
-              {!IS_LOADING && (
+          <Page.Body px={{ xs: "none", md: "6" }}>
+            <Layout columns="1">
+              <Layout.Section>
                 <ResponsiveComponent
                   mobileContent={mobileContent}
                   desktopContent={desktopContent}
                 />
-              )}
-            </Layout.Section>
-          </Layout>
-        </Page.Body>
-      </Page>
+              </Layout.Section>
+            </Layout>
+          </Page.Body>
+        </Page>
+      )}
     </>
   );
 };

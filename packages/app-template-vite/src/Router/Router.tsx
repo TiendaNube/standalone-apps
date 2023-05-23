@@ -1,12 +1,10 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useMemo } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BaseLayout } from "@/components";
-// import { Home } from "@/pages";
-// import HomePage from "@/pages/HomePage/HomePage";
-// import { Home } from "@/pages";
-// import { ErrorPage, HomePage, Loading } from "@/pages";
+import { AuthenticationContent } from "@/types";
 
 const Home = React.lazy(() => import("@/pages/HomePage"));
+const TutorialPage = React.lazy(() => import("@/pages/TutorialPage"));
 const ExamplesPage = React.lazy(() => import("@/pages/ExamplePage"));
 const ProductsPage = React.lazy(() => import("@/pages/ProductsPage"));
 const ConfirmationModalExamplePage = React.lazy(
@@ -33,35 +31,63 @@ const SimpleListExamplePage = React.lazy(
 const Loading = React.lazy(() => import("@/pages/LoadingPage"));
 
 const Router: React.FC = () => {
+  const query = new URLSearchParams(window.location.search);
+  const code = query.get("code");
+  const storage = localStorage.getItem("authentication");
+  const authentication = storage
+    ? (JSON.parse(storage as string) as AuthenticationContent)
+    : null;
+
+  const ENABLE_PRIVATE_ROUTES = useMemo(
+    () => authentication?.access_token && !code,
+    [authentication?.access_token, code]
+  );
+  console.log(" !code", !code);
+  console.log(
+    "authentication?.access_token && !code",
+    authentication?.access_token
+  );
+  console.log("ENABLE_PRIVATE_ROUTES", ENABLE_PRIVATE_ROUTES);
+
   return (
     <Suspense fallback={<Loading />}>
-      <BaseLayout>
+      {!ENABLE_PRIVATE_ROUTES && (
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/examples" element={<ExamplesPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route
-            path="/examples/confirmation-modal"
-            element={<ConfirmationModalExamplePage />}
-          />
-          <Route path="/examples/form" element={<FormExamplePage />} />
-          <Route path="/examples/login" element={<LoginExamplePage />} />
-          <Route
-            path="/examples/page-template"
-            element={<PageTemplateExamplePage />}
-          />
-          <Route
-            path="/examples/product-list"
-            element={<ProductListExamplePage />}
-          />
-          <Route path="/examples/settings" element={<SettingsExamplePage />} />
-          <Route
-            path="/examples/simple-list"
-            element={<SimpleListExamplePage />}
-          />
-          <Route path="*" element={<div>errooor</div>} />
+          <Route path="/" element={<TutorialPage />} />
         </Routes>
-      </BaseLayout>
+      )}
+      {ENABLE_PRIVATE_ROUTES && (
+        <BaseLayout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/examples" element={<ExamplesPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route
+              path="/examples/confirmation-modal"
+              element={<ConfirmationModalExamplePage />}
+            />
+            <Route path="/examples/form" element={<FormExamplePage />} />
+            <Route path="/examples/login" element={<LoginExamplePage />} />
+            <Route
+              path="/examples/page-template"
+              element={<PageTemplateExamplePage />}
+            />
+            <Route
+              path="/examples/product-list"
+              element={<ProductListExamplePage />}
+            />
+            <Route
+              path="/examples/settings"
+              element={<SettingsExamplePage />}
+            />
+            <Route
+              path="/examples/simple-list"
+              element={<SimpleListExamplePage />}
+            />
+            <Route path="*" element={<div>errooor</div>} />
+          </Routes>
+        </BaseLayout>
+      )}
     </Suspense>
   );
 };
