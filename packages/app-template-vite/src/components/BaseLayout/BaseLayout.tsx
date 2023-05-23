@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link as RouterLink } from "react-router-dom";
-import { routes } from "../../lib";
 import { useDarkMode, ResponsiveComponent, AppMenu } from "..";
 import { handleActive, isExample } from "../../utils";
 
@@ -13,6 +12,8 @@ import {
   QuestionCircleIcon,
   SunIcon,
 } from "@nimbus-ds/icons";
+import { appRoutes } from "./routes";
+import { IPage } from "@/types";
 
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -53,7 +54,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <Box pb="16">
       {children}
       <NavTabs>
-        {routes?.appRoutes.map((route) => (
+        {appRoutes.map((route) => (
           <RouterLink to={route.slug} key={route.slug}>
             <NavTabs.Item
               ariaLabel={route.name}
@@ -70,13 +71,13 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         />
       </NavTabs>
       <Sidebar maxWidth="280px" open={openMenu}>
-        <AppMenu />
+        <AppMenu routes={appRoutes} />
       </Sidebar>
     </Box>
   );
 
   const desktopContent = (
-    <AppShell menu={<AppMenu />}>
+    <AppShell menu={<AppMenu routes={appRoutes} />}>
       <AppShell.Header
         pr={{ xs: "4", md: "6" }}
         leftSlot={

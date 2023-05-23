@@ -1,10 +1,9 @@
 import React from "react";
 
-import { ExampleCard } from "../components";
-import { routes } from "../lib";
-
 import { Box } from "@nimbus-ds/components";
 import { Page, Layout } from "@nimbus-ds/patterns";
+import { ExampleCard } from "@/components";
+import { exampleRoutes } from "./exampleRoutes";
 
 const ExamplesPage: React.FC = () => {
   return (
@@ -17,8 +16,12 @@ const ExamplesPage: React.FC = () => {
         <Layout columns="1">
           <Layout.Section>
             <Box display="flex" flexWrap="wrap" gap="4">
-              {routes?.exampleRoutes.map((route) => (
-                <ExampleCard key={route.slug} title={route.title} href={route.slug} />
+              {exampleRoutes.map((route) => (
+                <ExampleCard
+                  key={route.slug}
+                  title={route.title}
+                  href={route.slug}
+                />
               ))}
             </Box>
           </Layout.Section>

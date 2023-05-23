@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ResponsiveComponent } from "../../components";
+import { ResponsiveComponent } from "../../../components";
 
 import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import {
@@ -82,24 +82,19 @@ const SimpleListExamplePage: React.FC = () => {
   const mobileContent = (
     <>
       <Box px="4">
-        <Link as="button" onClick={handleEditMode}>{editMode ? "Cancelar" : "Editar"}</Link>
+        <Link as="button" onClick={handleEditMode}>
+          {editMode ? "Cancelar" : "Editar"}
+        </Link>
       </Box>
       <DataList>
         {Array.from({ length: 20 }, (_, index) => (
-          <DataList.Row
-            key={index}
-            flexDirection="row"
-            gap="2"
-          >
-            {editMode && (
-              <Checkbox
-                name={`check-${index}`}
-                checked={false}
-              />
-            )}
+          <DataList.Row key={index} flexDirection="row" gap="2">
+            {editMode && <Checkbox name={`check-${index}`} checked={false} />}
             <Box display="flex" flexDirection="column" flex="1 1 auto">
               <Box display="flex" justifyContent="space-between" mb="2">
-                <Text color="primary-interactive">Nombre del dato principal</Text>
+                <Text color="primary-interactive">
+                  Nombre del dato principal
+                </Text>
               </Box>
               <Box display="flex" justifyContent="space-between">
                 <Text>Nombre del dato 1</Text>
@@ -109,12 +104,14 @@ const SimpleListExamplePage: React.FC = () => {
                 <Text>Nombre del dato 3</Text>
                 <Text>Nombre del dato 4</Text>
               </Box>
-              <Box display="flex" justifyContent="space-between" alignItems="center" mt="2">
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                mt="2"
+              >
                 <Tag>Nombre del estado</Tag>
-                <IconButton
-                  source={<EllipsisIcon />}
-                  size="2rem"
-                />
+                <IconButton source={<EllipsisIcon />} size="2rem" />
               </Box>
             </Box>
           </DataList.Row>
@@ -124,10 +121,7 @@ const SimpleListExamplePage: React.FC = () => {
   );
 
   const desktopContent = (
-    <DataTable
-      header={tableHeader}
-      footer={tableFooter}
-    >
+    <DataTable header={tableHeader} footer={tableFooter}>
       {Array.from({ length: 20 }, (_, index) => (
         <DataTable.Row
           key={index}
@@ -150,10 +144,7 @@ const SimpleListExamplePage: React.FC = () => {
             <Tag>Nombre del estado</Tag>
           </Table.Cell>
           <Table.Cell>
-            <IconButton
-              source={<EllipsisIcon />}
-              size="2rem"
-            />
+            <IconButton source={<EllipsisIcon />} size="2rem" />
           </Table.Cell>
         </DataTable.Row>
       ))}
@@ -162,14 +153,13 @@ const SimpleListExamplePage: React.FC = () => {
 
   return (
     <Page maxWidth="1200px">
-      <Page.Header
-        title="Listado simple"
-        buttonStack={buttonStack}
-      >
+      <Page.Header title="Listado simple" buttonStack={buttonStack}>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
             <Input.Search placeholder="Buscar" />
-            <Button><Icon color="currentColor" source={<SlidersIcon />} /></Button>
+            <Button>
+              <Icon color="currentColor" source={<SlidersIcon />} />
+            </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
             <Text>150 ventas</Text>
@@ -187,6 +177,6 @@ const SimpleListExamplePage: React.FC = () => {
       </Page.Body>
     </Page>
   );
-}
+};
 
 export default SimpleListExamplePage;

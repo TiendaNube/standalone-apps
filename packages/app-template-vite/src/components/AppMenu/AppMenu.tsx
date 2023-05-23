@@ -1,15 +1,15 @@
 import React from "react";
 import { useLocation, Link as RouterLink } from "react-router-dom";
-import { routes } from "../../lib";
-import { handleActive, isExample } from "../../utils";
 
 import { Box, Thumbnail, Icon, Link, Text } from "@nimbus-ds/components";
 import { ExternalLinkIcon, CogIcon } from "@nimbus-ds/icons";
 import { Menu } from "@nimbus-ds/patterns";
 
-const AppMenu: React.FC = () => {
-  const router = useLocation();
+import { handleActive, isExample } from "../../utils";
+import { IPage } from "@/types";
 
+const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
+  const router = useLocation();
   return (
     <Menu>
       <Menu.Header>
@@ -24,9 +24,10 @@ const AppMenu: React.FC = () => {
           </Box>
         </Box>
       </Menu.Header>
+
       <Menu.Body>
         <Menu.Section>
-          {routes?.appRoutes.map((route) =>
+          {routes?.map((route) =>
             route.title !== "Galería de ejemplos" ? (
               <Menu.Button
                 as={RouterLink}
@@ -68,7 +69,7 @@ const AppMenu: React.FC = () => {
                     pb="1"
                     pr="1"
                   >
-                    {routes?.exampleRoutes.map((subroute) => (
+                    {routes?.map((subroute) => (
                       <Menu.Button
                         as={RouterLink}
                         to={subroute.slug}

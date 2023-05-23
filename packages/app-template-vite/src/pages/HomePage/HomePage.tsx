@@ -1,4 +1,5 @@
-import React from "react";
+import React, { ReactNode, useMemo } from "react";
+import { useMutation, useQuery } from "react-query";
 import {
   Card,
   Icon,
@@ -7,18 +8,76 @@ import {
   Button,
   Link,
   Text,
+  Toast,
+  Spinner,
+  useToast,
 } from "@nimbus-ds/components";
 import { ExternalLinkIcon, PlusCircleIcon } from "@nimbus-ds/icons";
 import { Page, Layout } from "@nimbus-ds/patterns";
-import { useAuthentication } from "@/hooks";
-import { useProductContext } from "@/components";
-import Loading from "./LoadingPage";
+import { useAuthentication, useFetch } from "@/hooks";
+import Loading from "../LoadingPage/LoadingPage";
 
 const HomePage: React.FC = () => {
-  const { ACCESS_TOKEN, IS_LOADING } = useAuthentication();
-  const { products, addProducts } = useProductContext();
-  const productsQty = products.length;
-  const add5Products = () => addProducts(5);
+  const { ACCESS_TOKEN, LOADING_AUTHENTICATION } = useAuthentication();
+  const { request } = useFetch();
+  const { addToast } = useToast();
+
+  const {
+    data: productsQuantity,
+    isLoading: loadingProducts,
+    refetch: refetchProducts,
+  } = useQuery(
+    ["products"],
+    () =>
+      request<number>({
+        url: "/products/total",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authentication: `bearer ${ACCESS_TOKEN}`,
+        },
+      }),
+    {
+      enabled: !!ACCESS_TOKEN,
+      retry: false,
+    }
+  );
+
+  const onSubmit = useMutation(
+    () =>
+      request({
+        url: "/products",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authentication: `bearer ${ACCESS_TOKEN}`,
+        },
+      }),
+    {
+      onSuccess: () => {
+        addToast({
+          type: "success",
+          text: "Produtos adicionados com sucesso!",
+          duration: 4000,
+          id: "",
+        });
+        refetchProducts();
+      },
+      onError: () => {
+        addToast({
+          type: "danger",
+          text: "Erro ao adicionar produtos",
+          duration: 4000,
+          id: "",
+        });
+      },
+    }
+  );
+
+  const IS_LOADING = useMemo(
+    () => LOADING_AUTHENTICATION || loadingProducts || onSubmit.isLoading,
+    [LOADING_AUTHENTICATION, loadingProducts, onSubmit.isLoading]
+  );
 
   return (
     <>
@@ -74,16 +133,28 @@ const HomePage: React.FC = () => {
                         <Text color="neutral-textDisabled">
                           Total de productos
                         </Text>
-                        <Title as="h6" fontSize="h1" color="primary-textLow">
-                          {productsQty}
-                        </Title>
+
+                        {productsQuantity && productsQuantity?.content > 0 ? (
+                          <Title as="h6" fontSize="h1" color="primary-textLow">
+                            {productsQuantity?.content}
+                          </Title>
+                        ) : (
+                          <Spinner />
+                        )}
                       </Box>
                     </Box>
                   </Card.Body>
                   <Card.Footer>
-                    <Button appearance="primary" onClick={add5Products}>
+                    <Button
+                      appearance="primary"
+                      onClick={() => onSubmit.mutate()}
+                      disabled={IS_LOADING}
+                    >
                       <Icon color="currentColor" source={<PlusCircleIcon />} />
                       Crear 5 productos
+                      {IS_LOADING && (
+                        <Spinner color="currentColor" size="small" />
+                      )}
                     </Button>
                   </Card.Footer>
                 </Card>
