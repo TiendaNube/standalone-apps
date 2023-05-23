@@ -38,7 +38,7 @@ class ListAllProductsService
 
   private async getAllProductsId(storeId: number, headers: IHeaders 
   ){
-    const url = `${process.env.TIENDANUBE_API}${storeId}/products?fields=id,images,name,variants`;
+    const url = `${process.env.TIENDANUBE_API}${storeId}/products?fields=id,images,name`;
 
     return axios.get(url, {
       headers,
