@@ -90,15 +90,12 @@ const HomePage: React.FC = () => {
   const renderTotal = useMemo(() => {
     if (loadingQuantity) {
       return <Spinner />;
-    } else {
-      if (productsQuantity) {
-        return (
-          <Title as="h6" fontSize="h1">
-            {productsQuantity}
-          </Title>
-        );
-      }
-    }
+    }         
+    return (
+        <Title as="h6" fontSize="h1">
+          {productsQuantity as string} 
+        </Title>
+      );
   }, [loadingQuantity, productsQuantity]);
 
   return (
