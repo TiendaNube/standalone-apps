@@ -5,7 +5,7 @@ import Loading from "../LoadingPage/LoadingPage";
 
 const TutorialPage: React.FC = () => {
   const { LOADING_AUTHENTICATION } = useAuthentication();
-  const UPDATE_APP_PAGES_URL = `https://partners.nuvemshop.com.br/applications/update/${process.env.CLIENT_ID}`
+  const UPDATE_APP_PAGES_URL = `https://partners.nuvemshop.com.br/applications/update/${process.env.CLIENT_ID}`;
   return (
     <>
       {LOADING_AUTHENTICATION && <Loading />}

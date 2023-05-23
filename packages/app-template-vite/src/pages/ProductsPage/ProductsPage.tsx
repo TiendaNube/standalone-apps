@@ -249,14 +249,17 @@ const ProductsPage: React.FC = () => {
 
   const desktopContent = (
     <>
-      <Table
-      >
+      <Table>
         <Table.Head>
+          <Table.Cell>Nome</Table.Cell>
           <Table.Cell>
-            Nome
-          </Table.Cell>
-          <Table.Cell>
-            <Box display="flex" gap="2" alignItems="center" width="100%" justifyContent="center">
+            <Box
+              display="flex"
+              gap="2"
+              alignItems="center"
+              width="100%"
+              justifyContent="center"
+            >
               <Text>Excluir</Text>
             </Box>
           </Table.Cell>
@@ -266,9 +269,7 @@ const ProductsPage: React.FC = () => {
             displayedRows.map((row) => {
               const { id } = row;
               return (
-                <Table.Row
-                key={id}
-                >
+                <Table.Row key={id}>
                   <Table.Cell>
                     <Box display="flex" gap="2" alignItems="center">
                       <Thumbnail
@@ -303,14 +304,13 @@ const ProductsPage: React.FC = () => {
           activePage={currentPage}
           onPageChange={handlePageChange}
           pageCount={(totalRows && Math.ceil(totalRows / pageSize)) as number}
-        >
-        </Pagination>
+        ></Pagination>
       </Box>
     </>
   );
   const hasProducts = useMemo(() => {
-    return products?.content.length ?? null
-  }, [products?.content.length])
+    return !!products?.content?.length ?? null;
+  }, [products?.content?.length]);
   return (
     <>
       {IS_LOADING && <Loading />}
@@ -322,13 +322,15 @@ const ProductsPage: React.FC = () => {
             <Layout columns="1">
               <Layout.Section>
                 <>
-                  {hasProducts && <ResponsiveComponent
-                    mobileContent={mobileContent}
-                    desktopContent={desktopContent}
-                  />}
-                  {!!!hasProducts &&
+                  {hasProducts && (
+                    <ResponsiveComponent
+                      mobileContent={mobileContent}
+                      desktopContent={desktopContent}
+                    />
+                  )}
+                  {!!!hasProducts && (
                     <Text>Não há produtos para serem exibidos</Text>
-                  }
+                  )}
                 </>
               </Layout.Section>
             </Layout>

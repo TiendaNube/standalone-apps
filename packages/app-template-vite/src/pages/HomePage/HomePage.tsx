@@ -20,7 +20,9 @@ import { IApiResponse } from "@/hooks/useFetch/useFetch.types";
 const HomePage: React.FC = () => {
   const { request } = useFetch();
   const { addToast } = useToast();
-  const [productsQuantity, setProductQuantity] = useState<number | string>("-");
+  const [productsQuantity, setProductQuantity] = useState<
+    number | string | undefined
+  >(undefined);
   const storage = localStorage.getItem("authentication");
   const authentication = storage
     ? (JSON.parse(storage as string) as AuthenticationContent)
@@ -89,13 +91,13 @@ const HomePage: React.FC = () => {
 
   const renderTotal = useMemo(() => {
     if (loadingQuantity) {
-      return <Spinner />;
-    }         
+      return <Spinner size="medium" />;
+    }
     return (
-        <Title as="h6" fontSize="h1">
-          {productsQuantity as string} 
-        </Title>
-      );
+      <Title as="h6" fontSize="h1">
+        {productsQuantity as string}
+      </Title>
+    );
   }, [loadingQuantity, productsQuantity]);
 
   return (
@@ -123,7 +125,8 @@ const HomePage: React.FC = () => {
                     <Link appearance="primary" textDecoration="none">
                       API da Tiendanube/Nuvemshop
                     </Link>
-                    &nbsp;para facilitar o desenvolvimento de novos aplicativos para nosso ecosistema.
+                    &nbsp;para facilitar o desenvolvimento de novos aplicativos
+                    para nosso ecosistema.
                   </Text>
                 </Card.Body>
                 <Card.Footer>
@@ -138,7 +141,9 @@ const HomePage: React.FC = () => {
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4" mb="2">
                     <Text>
-                      Os produtos de exemplo são criados com o nome e preço aleatórios, a modo de prueba. Pode modificá-los e eliminá-los há qualquer momento.
+                      Os produtos de exemplo são criados com o nome e preço
+                      aleatórios, a modo de prueba. Pode modificá-los e
+                      eliminá-los há qualquer momento.
                     </Text>
                     <Box display="flex" flexDirection="column" gap="2">
                       <Text color="neutral-textDisabled">
