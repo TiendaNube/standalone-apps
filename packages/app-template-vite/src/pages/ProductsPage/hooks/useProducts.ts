@@ -1,10 +1,10 @@
 
 import { useMutation, useQuery } from "react-query";
 import { useFetch } from "@/hooks";
-import { AuthenticationContent } from "@/hooks/useAuthentication/useAuthentication.types";
-import { ProductProps } from "@/types";
+import { AuthenticationContent, ProductProps } from "@/types";
 import { useMemo } from "react";
 import { useToast } from "@nimbus-ds/components";
+import { IApiResponse } from "@/hooks/useFetch/useFetch.types";
 
 const useProduct = () => {
   const { request } = useFetch();
@@ -27,7 +27,16 @@ const useProduct = () => {
       }),
     {
       enabled: !!authentication?.access_token,
+      refetchOnWindowFocus: false,
       retry: false,
+      onError: (error:IApiResponse<unknown>) => {
+        addToast({
+          type: "danger",
+          text: error.message,
+          duration: 4000,
+          id: "",
+        });
+      },
     }
   );
 
@@ -51,10 +60,10 @@ const useProduct = () => {
         });
         refetchProducts();
       },
-      onError: () => {
+      onError: (error:IApiResponse<unknown>) => {
         addToast({
           type: "danger",
-          text: "Erro ao deletar produto",
+          text: error.message,
           duration: 4000,
           id: "",
         });

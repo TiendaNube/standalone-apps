@@ -3,19 +3,14 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { useFetch } from "@/hooks";
-import { AuthenticationContent } from "./useAuthentication.types";
 import { IApiResponse } from "../useFetch/useFetch.types";
 import { useToast } from "@nimbus-ds/components";
+import { AuthenticationContent } from "@/types";
 
 
 const useAuthentication = () => {
-  const navigate = useNavigate();
   const query = new URLSearchParams(window.location.search);
   const code = query.get("code");
-  const storage = localStorage.getItem("authentication");
-  const authentication = storage
-    ? (JSON.parse(storage as string) as AuthenticationContent)
-    : null;
 
   const { request } = useFetch();
   const { addToast } = useToast();
@@ -31,15 +26,15 @@ const useAuthentication = () => {
       retry: false,
       onSuccess:(data) => {
         localStorage.setItem("authentication",JSON.stringify(data.content))
-        navigate("/");
+        window.location.href= "/"
       },
-      onError: (error:string)=> {
-        addToast({
-          type: "danger",
-          text:error,
-          duration: 4000,
-          id: "",
-        });
+      onError: (error:IApiResponse<unknown>)=> {
+          addToast({
+            type: "danger",
+            text:error?.message,
+            duration: 4000,
+            id: "",
+          });
       },
     }
   );
@@ -47,11 +42,7 @@ const useAuthentication = () => {
 
   const LOADING_AUTHENTICATION = useMemo(()=> loadingToken,[loadingToken]);
 
-
-  const ACCESS_TOKEN = useMemo(()=>authentication?.access_token,[authentication?.access_token])
-
   return {
-    ACCESS_TOKEN,
     LOADING_AUTHENTICATION,
   };
 };
