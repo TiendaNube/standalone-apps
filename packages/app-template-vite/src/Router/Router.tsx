@@ -1,31 +1,34 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BaseLayout } from "@/components";
-import { ErrorPage } from "@/pages";
+// import { Home } from "@/pages";
+// import HomePage from "@/pages/HomePage/HomePage";
+// import { Home } from "@/pages";
+// import { ErrorPage, HomePage, Loading } from "@/pages";
 
 const Home = React.lazy(() => import("@/pages/HomePage"));
-const ExamplesPage = React.lazy(() => import("@/pages/ExamplesPage"));
+const ExamplesPage = React.lazy(() => import("@/pages/ExamplePage"));
 const ProductsPage = React.lazy(() => import("@/pages/ProductsPage"));
 const ConfirmationModalExamplePage = React.lazy(
-  () => import("@/pages/examples/ConfirmationModalExamplePage")
+  () => import("@/pages/ExamplePage/examples/ConfirmationModalExamplePage")
 );
 const FormExamplePage = React.lazy(
-  () => import("@/pages/examples/FormExamplePage")
+  () => import("@/pages/ExamplePage/examples/FormExamplePage")
 );
 const LoginExamplePage = React.lazy(
-  () => import("@/pages/examples/LoginExamplePage")
+  () => import("@/pages/ExamplePage/examples/LoginExamplePage")
 );
 const PageTemplateExamplePage = React.lazy(
-  () => import("@/pages/examples/PageTemplateExamplePage")
+  () => import("@/pages/ExamplePage/examples/PageTemplateExamplePage")
 );
 const SettingsExamplePage = React.lazy(
-  () => import("@/pages/examples/SettingsExamplePage")
+  () => import("@/pages/ExamplePage/examples/SettingsExamplePage")
 );
 const ProductListExamplePage = React.lazy(
-  () => import("@/pages/examples/ProductListExamplePage")
+  () => import("@/pages/ExamplePage/examples/ProductListExamplePage")
 );
 const SimpleListExamplePage = React.lazy(
-  () => import("@/pages/examples/SimpleListExamplePage")
+  () => import("@/pages/ExamplePage/examples/SimpleListExamplePage")
 );
 const Loading = React.lazy(() => import("@/pages/LoadingPage"));
 
@@ -56,7 +59,7 @@ const Router: React.FC = () => {
             path="/examples/simple-list"
             element={<SimpleListExamplePage />}
           />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<div>errooor</div>} />
         </Routes>
       </BaseLayout>
     </Suspense>

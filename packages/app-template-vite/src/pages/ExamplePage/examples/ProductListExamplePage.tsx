@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ResponsiveComponent } from "../../components";
+import { ResponsiveComponent } from "../../../components";
 
 import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import {
@@ -84,22 +84,19 @@ const ProductListExamplePage: React.FC = () => {
   const mobileContent = (
     <>
       <Box px="4">
-        <Link as="button" onClick={handleEditMode}>{editMode ? "Cancelar" : "Editar"}</Link>
+        <Link as="button" onClick={handleEditMode}>
+          {editMode ? "Cancelar" : "Editar"}
+        </Link>
       </Box>
       <DataList>
         {Array.from({ length: 20 }, (_, index) => (
-          <DataList.Row
-            key={index}
-            flexDirection="row"
-            gap="2"
-          >
-            {editMode && (
-              <Checkbox
-                name={`check-${index}`}
-                checked={false}
-              />
-            )}
-            <Thumbnail aspectRatio="1/1" width="64px" alt="Nombre del producto" />
+          <DataList.Row key={index} flexDirection="row" gap="2">
+            {editMode && <Checkbox name={`check-${index}`} checked={false} />}
+            <Thumbnail
+              aspectRatio="1/1"
+              width="64px"
+              alt="Nombre del producto"
+            />
             <Box display="flex" flexDirection="column" gap="1">
               <Text color="primary-interactive">Nombre del producto</Text>
               <Tag appearance="warning">
@@ -115,10 +112,7 @@ const ProductListExamplePage: React.FC = () => {
   );
 
   const desktopContent = (
-    <DataTable
-      header={tableHeader}
-      footer={tableFooter}
-    >
+    <DataTable header={tableHeader} footer={tableFooter}>
       {Array.from({ length: 20 }, (_, index) => (
         <DataTable.Row
           key={index}
@@ -133,7 +127,11 @@ const ProductListExamplePage: React.FC = () => {
         >
           <Table.Cell>
             <Box display="flex" gap="2">
-              <Thumbnail aspectRatio="1/1" width="64px" alt="Nombre del producto" />
+              <Thumbnail
+                aspectRatio="1/1"
+                width="64px"
+                alt="Nombre del producto"
+              />
               <Box display="flex" flexDirection="column" gap="1">
                 <Text color="primary-interactive">Nombre del producto</Text>
                 <Tag appearance="warning">Tag de producto</Tag>
@@ -154,14 +152,8 @@ const ProductListExamplePage: React.FC = () => {
           </Table.Cell>
           <Table.Cell>
             <Box display="flex" gap="2">
-              <IconButton
-                source={<EllipsisIcon />}
-                size="2rem"
-              />
-              <IconButton
-                source={<EllipsisIcon />}
-                size="2rem"
-              />
+              <IconButton source={<EllipsisIcon />} size="2rem" />
+              <IconButton source={<EllipsisIcon />} size="2rem" />
             </Box>
           </Table.Cell>
         </DataTable.Row>
@@ -171,14 +163,13 @@ const ProductListExamplePage: React.FC = () => {
 
   return (
     <Page maxWidth="1200px">
-      <Page.Header
-        title="Listado de productos"
-        buttonStack={buttonStack}
-      >
+      <Page.Header title="Listado de productos" buttonStack={buttonStack}>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
             <Input.Search placeholder="Buscar" />
-            <Button><Icon color="currentColor" source={<SlidersIcon />} /></Button>
+            <Button>
+              <Icon color="currentColor" source={<SlidersIcon />} />
+            </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
             <Text>150 productos</Text>
@@ -196,6 +187,6 @@ const ProductListExamplePage: React.FC = () => {
       </Page.Body>
     </Page>
   );
-}
+};
 
 export default ProductListExamplePage;

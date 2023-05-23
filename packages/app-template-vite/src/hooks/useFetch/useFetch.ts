@@ -10,7 +10,7 @@ const useFetch = () => {
       try {
         axiosResponse = await axios.request(params);
         return {
-          content: axiosResponse?.data,
+          content: axiosResponse?.data as T,
           statusCode: axiosResponse?.status,
         };
       } catch (error: any) {

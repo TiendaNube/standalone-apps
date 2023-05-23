@@ -49,7 +49,7 @@ class AuthenticationService {
     } catch (error: any) {
       return {
         statusCode: StatusCode.INTERNAL_SERVER_ERROR,
-        data: "Unknown error",
+        data: "Retrieve the CLIENT_ID and CLIENT_SECRET from the Partners Portal, replace them in the .env file, and reinstall the app at store",
       }
     }
   }
