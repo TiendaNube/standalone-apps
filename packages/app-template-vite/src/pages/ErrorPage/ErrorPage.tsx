@@ -6,13 +6,6 @@ const ErrorPage: React.FC = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  console.log("state.status ", state.status);
-
-  // const noAccessToken = () => {
-  //   if (state.status === 400) {
-  //     return "Volte ao partners portal e instale o seu app";
-  //   }
-  // };
   return (
     <Box
       position="absolute"
