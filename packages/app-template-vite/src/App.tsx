@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { DarkModeProvider } from "./components";
 import Loading from "./pages/LoadingPage";
 
-import Router from "./Router";
+import Router from "./router";
 
 function App() {
   const queryClient = new QueryClient({
