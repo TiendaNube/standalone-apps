@@ -15,22 +15,23 @@ This template includes a starter project for building standalone apps using:
 
 ### Third Step
   - Then you can follow the steps below
-## Clone this repository
-  ```bash
-  $ git clone git@github.com:TiendaNube/nimbus-app-template-react.git
-  ```
 
 ## Steps to config project
 ### 1th step
+  - Clone this repository
+  ```bash
+  $ git clone git@github.com:TiendaNube/nimbus-app-template-react.git
+  ```
+### 2th step
   - Go to the folder where the repository was cloned and open the terminal.
 
-### 2th step
+### 3th step
   - To install all the dependencies for both `app-template-vite` and `app-template-node` package subdirectories.
   ```bash
   $ yarn install
   ```
 
-### 3th step
+### 4th step
   - To configure the necessary variables for `app-template-node` package subdirectory.
   ```bash
   $ cd packages/app-template-node
@@ -42,7 +43,7 @@ This template includes a starter project for building standalone apps using:
     - USER_EMAIL= The email of your partner account
     - APP_NAME= Name of app
 
-###  4th step
+###  5th step
   - To configure the necessary variables for `app-template-vite` package subdirectory.
   ```bash
   $ cd ../app-template-vite
@@ -51,7 +52,7 @@ This template includes a starter project for building standalone apps using:
     - VITE_APP_TEMPLATE_API=http://localhost:<backend's PORT> 
 
 
-### 5th step
+### 6th step
   - To start the development server:
   ```bash
   $ cd ../..
@@ -60,5 +61,6 @@ This template includes a starter project for building standalone apps using:
   ```bash
   $ yarn dev
   ```
+### 7th step
 
 Happy editing!
