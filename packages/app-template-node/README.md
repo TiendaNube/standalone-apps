@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Welcome to the Nuvemshop Product Management API! This API serves as an example and provides a solution for app authentication and efficient product management within a Nuvemshop store.
+This API serves as an example and provides a solution for app authentication and efficient product management within a Nuvemshop/Tiendanube store.
 
-With this API, developers can authenticate their applications and securely store credentials in the config.json file. It enables various operations, such as inserting 5 new products randomly, deleting existing products, and retrieving the total product count. This API exemplifies seamless integration and robust product management capabilities.
+With this API, developers can authenticate their applications and securely store credentials in the `config.json` file. It enables various operations, such as inserting 5 new products randomly, deleting existing products, and retrieving the total product count. This API exemplifies seamless integration and robust product management capabilities.
 
-By using the Nuvemshop Product Management API, developers gain insights into Nuvemshop/Tiendanube e-commerce solutions, empowering them to build scalable applications tailored to the Nuvemshop platform.
+By using this Product Management API, developers gain insights into Nuvemshop/Tiendanube e-commerce solutions, empowering them to build scalable custom applications for the platform.
 
-Explore the provided features, endpoints, and usage examples in this README to unlock the full potential of the Nuvemshop Product Management API for effective product management in Nuvemshop-powered stores.
+Explore the provided features, endpoints, and usage examples in this README to unlock the full potential of the Product Management API for effective product management in Nuvemshop/Tiendanube stores.
 
 
 ## Prerequisites
