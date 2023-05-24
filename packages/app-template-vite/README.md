@@ -1,7 +1,7 @@
 # Nimbus App Template > Vite
 
 ## Introduction
-This front-end project was developed using Vite and TypeScript and includes our pre-installed Design System. Its purpose is to provide a practical template for creating a web application in the partner portal, targeting store owners.
+This front-end project was developed using Vite and TypeScript and includes our pre-installed Design System. Its purpose is to provide a practical template for creating a web application in the Partners Portal, targeting store owners.
 
 The example application not only demonstrates how to call Nuvemshop/Tiendanube APIs but also automates the authentication process using the information provided in the `.env` file at the project's root.
 
