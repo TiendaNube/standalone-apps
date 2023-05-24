@@ -91,7 +91,7 @@ const SettingsExamplePage: React.FC = () => {
                   p="4"
                   mt="4"
                 >
-                  <Text>Contenido do colapsable</Text>
+                  <Text>Conteúdo do colapsable</Text>
                 </Box>
               )}
             </Card>
