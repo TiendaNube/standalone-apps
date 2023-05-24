@@ -10,7 +10,7 @@ This template provides a starter project for building standalone apps using the 
 ## App Template Flow:
 - To help you better understand the process, refer to the following [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410).
 
-## Steps to use the App Template
+## How to use the App Template
 ### 1. Create a partner's account
 - If you don't have a partner's account, create a new account on the Partners Portal. If you already have an account, log in to your existing account.
 
