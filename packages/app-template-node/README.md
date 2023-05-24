@@ -1,6 +1,15 @@
 # Nimbus App Template > Node - Store Product Control API
 
-This is a powerful tool that enables app authentication and provides functionalities to efficiently manage products within an installed Nuvemshop/Tiendanube store. Its purpose is to serve as an example and facilitate understanding of how to authenticate and access the Nuvemshop/Tiendanube APIs, specifically the Product API. This API allows developers to authenticate their applications and store the credentials within the config.json file. It enables operations such as randomly inserting 5 new products, deleting existing products, and retrieving the total count of products in the store. With seamless integration and comprehensive product management capabilities, this API exemplifies the process of handling and maintaining product data, empowering developers to understand its functioning and lay the foundation for building robust and scalable applications for Nuvemshop/Tiendanube e-commerce solutions.
+## Introduction
+
+Welcome to the Nuvemshop Product Management API! This API serves as an example and provides a solution for app authentication and efficient product management within a Nuvemshop store.
+
+With this API, developers can authenticate their applications and securely store credentials in the config.json file. It enables various operations, such as inserting 5 new products randomly, deleting existing products, and retrieving the total product count. This API exemplifies seamless integration and robust product management capabilities.
+
+By using the Nuvemshop Product Management API, developers gain insights into Nuvemshop/Tiendanube e-commerce solutions, empowering them to build scalable applications tailored to the Nuvemshop platform.
+
+Explore the provided features, endpoints, and usage examples in this README to unlock the full potential of the Nuvemshop Product Management API for effective product management in Nuvemshop-powered stores.
+
 
 ## Prerequisites
 
@@ -9,22 +18,9 @@ Before getting started, make sure you have the following dependencies installed 
 - Node.js (version 14 or higher)
 - NPM (Node Package Manager) or Yarn (Yarn Package Manager)
 
-## Table of Contents
-- [Store Product Control API](#store-product-control-api)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Introduction](#introduction)
-  - [Folder Structure](#folder-structure)
-  - [Endpoints](#endpoints)
-    - [1. Authentication Endpoint](#1-authentication-endpoint)
-    - [2. Product Endpoints](#2-product-endpoints)
-  - [Authentication](#authentication)
-    - [Authentication API](#authentication-api)
-    - [Products API](#products-api)
-  - [Limitations and Considerations](#limitations-and-considerations)
-  - [References and Additional Resources](#references-and-additional-resources)
-
 ## Installation
+
+To start the application, follow the steps below:
 
 1. In the terminal, install the project dependencies using the following command:
   ```bash
@@ -49,17 +45,8 @@ Before getting started, make sure you have the following dependencies installed 
 
 6. Now, your app is already to used.
 
-## Introduction
 
-Welcome to the Nuvemshop Product Management API! This API serves as an example and provides a solution for app authentication and efficient product management within a Nuvemshop store.
-
-With this API, developers can authenticate their applications and securely store credentials in the config.json file. It enables various operations, such as inserting 5 new products randomly, deleting existing products, and retrieving the total product count. This API exemplifies seamless integration and robust product management capabilities.
-
-By using the Nuvemshop Product Management API, developers gain insights into Nuvemshop/Tiendanube e-commerce solutions, empowering them to build scalable applications tailored to the Nuvemshop platform.
-
-Explore the provided features, endpoints, and usage examples in this README to unlock the full potential of the Nuvemshop Product Management API for effective product management in Nuvemshop-powered stores.
-
-## Folder Structure
+## Project Structure
 
 The backend project is divided into two main folders: "authentication" and "product". Each folder contains a "controllers" and a "services" subfolder.
 
@@ -177,14 +164,12 @@ The API provides the following endpoints:
 - To access the Product API, you need to include the `Authentication: bearer access_token` header in the request. The provided access_token will be compared against the access_token stored within the 'credentials' property in the config.json file to verify authorization for accessing the API.
 
 ## Limitations and Considerations
-
 - It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
 - If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
 - For the Product API to work, the app must have 'write_products' permission.
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
 
 ## References and Additional Resources
-
-[Nuvemshop/Tiendanube API - Authentication](https://tiendanube.github.io/api-documentation/authentication)
-
-[Nuvemshop/Tiendanube API - Product](https://tiendanube.github.io/api-documentation/resources/product)
+- [Nuvemshop/Tiendanube API - Authentication](https://tiendanube.github.io/api-documentation/authentication)
+- [Nuvemshop/Tiendanube API - Product](https://tiendanube.github.io/api-documentation/resources/product)
+- If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
