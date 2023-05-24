@@ -28,7 +28,7 @@ const TutorialPage: React.FC = () => {
             flexDirection="column"
             justifyContent="flex-start"
           >
-            <List as="ul">
+            <List as="ol">
               <List.Item>
                 Acesse{" "}
                 <Link
