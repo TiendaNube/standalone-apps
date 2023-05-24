@@ -1,5 +1,6 @@
 # Nimbus App Template
 
+## Introduction
 This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It functions as a monorepo, as it includes all the necessary code to start and maintain the frontend and backend of the application.
 
 This template provides a starter project for building standalone apps using the follwing technologies:
