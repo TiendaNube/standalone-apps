@@ -27,9 +27,9 @@ import {
 const PageTemplateExamplePage: React.FC = () => {
   const popoverContent = (
     <Box display="flex" flexDirection="column" width="100%">
-      <MenuButton label="Acción secundaria" />
-      <MenuButton label="Acción secundaria" />
-      <MenuButton label="Acción secundaria" />
+      <MenuButton label="Ação secundária" />
+      <MenuButton label="Ação secundária" />
+      <MenuButton label="Ação secundária" />
     </Box>
   );
 
@@ -39,17 +39,17 @@ const PageTemplateExamplePage: React.FC = () => {
       <IconButton source={<ChevronRightIcon />} size="2rem" />
       <Popover content={popoverContent} arrow={false} padding="small">
         <Button>
-          Menú contextual
+          Menu contextual
           <Icon source={<ChevronDownIcon />} />
         </Button>
       </Popover>
       <Button>
-        Acción secundaria
+        Ação secundária
         <Icon source={<DownloadIcon />} />
       </Button>
       <Button appearance="primary">
         <Icon color="neutral-background" source={<PlusCircleIcon />} />
-        Acción primaria
+        Ação primária
       </Button>
     </>
   );
@@ -57,16 +57,16 @@ const PageTemplateExamplePage: React.FC = () => {
   return (
     <Page maxWidth="1200px">
       <Page.Header
-        title="Plantilla de página"
-        subtitle="Subtítulo de la página"
+        title="Modelo de página"
+        subtitle="Subtítulo da página"
         buttonStack={buttonStack}
       >
         <Box display="flex" gap="2">
-          <Tag appearance="primary">Tag de ejemplo</Tag>
-          <Tag>Tag de ejemplo</Tag>
+          <Tag appearance="primary">Tag de exemplo</Tag>
+          <Tag>Tag de exemplo</Tag>
         </Box>
-        <Alert title="Alert de ejemplo">
-          Este es un alert de ejemplo en el header de la página
+        <Alert title="Alerta de exemplo">
+          Este é um alerta de exemplo no cabeçalho da página
         </Alert>
         <Box display="flex" flexDirection="column" gap="2">
           <Box display="flex" gap="1">
@@ -76,7 +76,7 @@ const PageTemplateExamplePage: React.FC = () => {
             </Button>
           </Box>
           <Box display="flex" gap="2" alignItems="center">
-            <Text>150 ventas</Text>
+            <Text>150 vendas</Text>
             <Chip text="Filtro aplicado" removable />
           </Box>
         </Box>
@@ -94,7 +94,7 @@ const PageTemplateExamplePage: React.FC = () => {
             borderWidth="1px"
             borderRadius=".5rem"
           >
-            <Text>Reemplazame con tu contenido</Text>
+            <Text>Substitua-me pelo seu conteúdo</Text>
           </Box>
           <HelpLink>
             <Link

@@ -28,7 +28,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
       <Menu.Body>
         <Menu.Section>
           {routes?.map((route) =>
-            route.title !== "Galería de ejemplos" ? (
+            route.title !== "Galeria de exemplos" ? (
               <Menu.Button
                 as={RouterLink}
                 to={route.slug}
@@ -85,7 +85,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
           )}
         </Menu.Section>
       </Menu.Body>
-      <Menu.Footer label="Configuración" startIcon={CogIcon} />
+      <Menu.Footer label="Configuração" startIcon={CogIcon} />
     </Menu>
   );
 };

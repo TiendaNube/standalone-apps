@@ -9,6 +9,7 @@ import {
   Thumbnail,
   Text,
   Spinner,
+  Pagination,
 } from "@nimbus-ds/components";
 import { ProductProps } from "@/types";
 import { ResponsiveComponent } from "@/components";
@@ -121,7 +122,7 @@ const ProductsPage: React.FC = () => {
   const lastRow = totalRows && Math.min(currentPage * pageSize, totalRows);
   const tableCount =
     lastRow && lastRow > 0
-      ? `Mostrando ${firstRow}-${lastRow} productos de ${totalRows}`
+      ? `Mostrando ${firstRow}-${lastRow} produtos de ${totalRows}`
       : "";
 
   const tableHeader = (
@@ -135,7 +136,7 @@ const ProductsPage: React.FC = () => {
     >
       <Table.Cell width="100%">
         <Box display="flex" gap="2" alignItems="center">
-          Producto
+          Produto
           <IconButton
             source={
               sortDirection === "ascending" ? (
@@ -149,7 +150,7 @@ const ProductsPage: React.FC = () => {
           />
         </Box>
       </Table.Cell>
-      <Table.Cell width="120px">Acciones</Table.Cell>
+      <Table.Cell width="120px">Ações</Table.Cell>
     </DataTable.Header>
   );
 
@@ -177,7 +178,7 @@ const ProductsPage: React.FC = () => {
         indeterminate: headerIndeterminateStatus,
       }}
       label={`${selectedProducts.size} ${
-        selectedProducts.size === 1 ? "seleccionado" : "seleccionados"
+        selectedProducts.size === 1 ? "selecionado" : "selecionados"
       }`}
       action={
         <Box display="flex" gap="1">
@@ -185,7 +186,7 @@ const ProductsPage: React.FC = () => {
             appearance="danger"
             onClick={(e: any) => removeSelectedProducts(e)}
           >
-            Eliminar
+            Deletar
           </Button>
         </Box>
       }
@@ -247,78 +248,90 @@ const ProductsPage: React.FC = () => {
   );
 
   const desktopContent = (
-    <DataTable
-      header={tableHeader ?? null}
-      footer={tableFooter}
-      bulkActions={hasBulkActions}
-    >
-      {displayedRows &&
-        displayedRows.map((row) => {
-          const { id } = row;
-          return (
-            <DataTable.Row
-              key={id}
-              backgroundColor={
-                selectedProducts.has(row.id)
-                  ? {
-                      rest: "primary-surface",
-                      hover: "primary-surfaceHighlight",
-                    }
-                  : {
-                      rest: "neutral-background",
-                      hover: "neutral-surface",
-                    }
-              }
-              checkbox={{
-                name: `check-${id}`,
-                checked: selectedProducts.has(row.id),
-                onChange: () => handleRowClick(id),
-              }}
+    <>
+      <Table>
+        <Table.Head>
+          <Table.Cell>Nome</Table.Cell>
+          <Table.Cell>
+            <Box
+              display="flex"
+              gap="2"
+              alignItems="center"
+              width="100%"
+              justifyContent="center"
             >
-              <Table.Cell>
-                <Box display="flex" gap="2" alignItems="center">
-                  <Thumbnail
-                    src={row.images[0].src}
-                    width="36px"
-                    alt={row.name.pt}
-                  />
-                  {row.name.pt}
-                </Box>
-              </Table.Cell>
-              <Table.Cell>
-                <Box
-                  display="flex"
-                  gap="2"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <IconButton
-                    onClick={() => onDelete.mutate(row.id)}
-                    source={<TrashIcon />}
-                    size="2rem"
-                  />
-                </Box>
-              </Table.Cell>
-            </DataTable.Row>
-          );
-        })}
-    </DataTable>
+              <Text>Excluir</Text>
+            </Box>
+          </Table.Cell>
+        </Table.Head>
+        <Table.Body>
+          {displayedRows &&
+            displayedRows.map((row) => {
+              const { id } = row;
+              return (
+                <Table.Row key={id}>
+                  <Table.Cell>
+                    <Box display="flex" gap="2" alignItems="center">
+                      <Thumbnail
+                        src={row.images[0].src}
+                        width="36px"
+                        alt={row.name.pt}
+                      />
+                      {row.name.pt}
+                    </Box>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Box
+                      display="flex"
+                      gap="2"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <IconButton
+                        onClick={() => onDelete.mutate(row.id)}
+                        source={<TrashIcon />}
+                        size="2rem"
+                      />
+                    </Box>
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
+        </Table.Body>
+      </Table>
+      <Box display={"flex"} alignItems={"flex-end"} justifyContent={"flex-end"}>
+        <Pagination
+          activePage={currentPage}
+          onPageChange={handlePageChange}
+          pageCount={(totalRows && Math.ceil(totalRows / pageSize)) as number}
+        ></Pagination>
+      </Box>
+    </>
   );
-
+  const hasProducts = useMemo(() => {
+    return !!products?.content?.length ?? null;
+  }, [products?.content?.length]);
   return (
     <>
       {IS_LOADING && <Loading />}
       {!IS_LOADING && (
         <Page maxWidth="1200px">
-          <Page.Header title="Productos de Tienda Demo" />
+          <Page.Header title="Produtos da Loja" />
 
           <Page.Body px={{ xs: "none", md: "6" }}>
             <Layout columns="1">
               <Layout.Section>
-                <ResponsiveComponent
-                  mobileContent={mobileContent}
-                  desktopContent={desktopContent}
-                />
+                <>
+                  {hasProducts && (
+                    <ResponsiveComponent
+                      mobileContent={mobileContent}
+                      desktopContent={desktopContent}
+                    />
+                  )}
+                  {!!!hasProducts && (
+                    <Text>Não há produtos para serem exibidos</Text>
+                  )}
+                </>
               </Layout.Section>
             </Layout>
           </Page.Body>

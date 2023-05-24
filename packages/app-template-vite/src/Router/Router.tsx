@@ -42,12 +42,6 @@ const Router: React.FC = () => {
     () => authentication?.access_token && !code,
     [authentication?.access_token, code]
   );
-  console.log(" !code", !code);
-  console.log(
-    "authentication?.access_token && !code",
-    authentication?.access_token
-  );
-  console.log("ENABLE_PRIVATE_ROUTES", ENABLE_PRIVATE_ROUTES);
 
   return (
     <Suspense fallback={<Loading />}>

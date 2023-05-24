@@ -5,6 +5,7 @@ import Loading from "../LoadingPage/LoadingPage";
 
 const TutorialPage: React.FC = () => {
   const { LOADING_AUTHENTICATION } = useAuthentication();
+  const UPDATE_APP_PAGES_URL = `https://partners.nuvemshop.com.br/applications/update/${process.env.CLIENT_ID}`;
   return (
     <>
       {LOADING_AUTHENTICATION && <Loading />}
@@ -14,6 +15,7 @@ const TutorialPage: React.FC = () => {
         display="flex"
         alignItems="center"
         flexDirection="column"
+        backgroundColor={"neutral-background"}
       >
         <Box width="1400px">
           <Box marginTop="8">
@@ -31,7 +33,7 @@ const TutorialPage: React.FC = () => {
                 Acesse a página de{" "}
                 <Link
                   as="a"
-                  href="https://partners.nuvemshop.com.br/applications/update/3363"
+                  href={UPDATE_APP_PAGES_URL}
                   target="blank"
                   appearance="primary"
                 >
@@ -42,14 +44,13 @@ const TutorialPage: React.FC = () => {
               <List.Item>
                 Altere o campo URL de redirecionamento após instalação para o
                 endereço{" "}
-                {/* <Text as="span" fontWeight="bold">{`http:localhost:${
-                import.meta.env.VITE_FRONTEND_PORT
-              }`}</Text> */}
+                <Text as="span" fontWeight="bold">{`http://localhost:8000
+              `}</Text>
               </List.Item>
               <List.Item>
                 Adicione ao{" "}
                 <Text as="span" fontWeight="bold">
-                  /admin/apps/3363/authorize
+                  {`/admin/apps/${process.env.CLIENT_ID}/authorize`}
                 </Text>{" "}
                 ao fim da url da loja onde vai ser instalado o app
               </List.Item>

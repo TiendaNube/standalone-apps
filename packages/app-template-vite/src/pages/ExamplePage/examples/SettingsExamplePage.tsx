@@ -26,7 +26,7 @@ const SettingsExamplePage: React.FC = () => {
 
   return (
     <Page maxWidth="800px">
-      <Page.Header title="Pantalla de ajustes" />
+      <Page.Header title="Página de ajustes" />
       <Page.Body>
         <Layout columns="1">
           <Layout.Section>
@@ -91,7 +91,7 @@ const SettingsExamplePage: React.FC = () => {
                   p="4"
                   mt="4"
                 >
-                  <Text>Contenido del colapsable</Text>
+                  <Text>Contenido do colapsable</Text>
                 </Box>
               )}
             </Card>
@@ -102,27 +102,27 @@ const SettingsExamplePage: React.FC = () => {
                 alignItems="center"
                 p="4"
               >
-                <Title as="h3">Ajustes adicionales</Title>
-                <Tag appearance="success">Estado de la card</Tag>
+                <Title as="h3">Ajustes adicionais</Title>
+                <Tag appearance="success">Estado do card</Tag>
               </Box>
               <InteractiveList>
                 <InteractiveList.ButtonItem
                   title="Título"
                   iconButton={{ onClick: () => {} }}
                 >
-                  <Text fontSize="caption">Descripción</Text>
+                  <Text fontSize="caption">Descrição</Text>
                 </InteractiveList.ButtonItem>
                 <InteractiveList.ButtonItem
                   title="Título"
                   iconButton={{ onClick: () => {} }}
                 >
-                  <Text fontSize="caption">Descripción</Text>
+                  <Text fontSize="caption">Descrição</Text>
                 </InteractiveList.ButtonItem>
                 <InteractiveList.ButtonItem
                   title="Título"
                   iconButton={{ onClick: () => {} }}
                 >
-                  <Text fontSize="caption">Descripción</Text>
+                  <Text fontSize="caption">Descrição</Text>
                 </InteractiveList.ButtonItem>
               </InteractiveList>
             </Card>
@@ -133,7 +133,7 @@ const SettingsExamplePage: React.FC = () => {
                 alignItems="center"
                 mb="4"
               >
-                <Title as="h3">Card header con acción</Title>
+                <Title as="h3">Card header com ação</Title>
                 <IconButton source={<ExternalLinkIcon />} size="2rem" />
               </Box>
               <Card.Body>
@@ -146,7 +146,7 @@ const SettingsExamplePage: React.FC = () => {
             </Card>
             <Box display="flex" justifyContent="flex-end" gap="2">
               <Button>Cancelar</Button>
-              <Button appearance="primary">Guardar</Button>
+              <Button appearance="primary">Salvar</Button>
             </Box>
           </Layout.Section>
         </Layout>
