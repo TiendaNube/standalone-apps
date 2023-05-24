@@ -19,14 +19,14 @@ This template includes a starter project for building standalone apps using:
 ### 3th - Clone this repository
 - Clone this repository:
   ```bash
-  $ git clone git@github.com:TiendaNube/nimbus-app-template-react.git
+  git clone git@github.com:TiendaNube/nimbus-app-template-react.git
   ```
 - Open the project in your code editor (e.g., Visual Studio Code, Eclipse, ...)
 
 ### 4th - Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
-  $ yarn install
+  yarn install
   ```
 
 ### 5th - Rename .env-example to .env
@@ -47,7 +47,7 @@ Go back to the Partners Portal on the details page of your app (https://partners
 ### 8th - Run applications
 - To start both `app-template-vite` and `app-template-node`:
   ```bash
-  $ yarn dev
+  yarn dev
   ```
 
 ### 9th - Change redirect URL at Partner Portal
