@@ -1,6 +1,7 @@
-# Partners App Template
+# Nimbus App Template > Vite
 
-Welcome to the Partners App Template! This front-end project was developed using Vite and TypeScript and includes our pre-installed design system. Its purpose is to provide a practical template for creating a web application focused on the partner portal.
+## Introduction
+This front-end project was developed using Vite and TypeScript and includes our pre-installed design system. Its purpose is to provide a practical template for creating a web application focused on the partner portal.
 
 This example application not only demonstrates how to call Tiendanube APIs but also automates the authentication process using the information provided in the `.env` file at the root of the project. This allows you to focus on implementing the specific functionalities of your application without worrying about the complexity of other processes.
 
@@ -54,3 +55,8 @@ Feel free to explore and adapt the project structure according to your applicati
 - For the Product API to work, the app must have the 'write_products' permission.
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
 - We recommend running the `yarn dev` command in the project's root folder. Otherwise, if both projects are not running simultaneously, a connection error may occur.
+
+## References and Additional Resources
+[Nimbus Design System - Documentation](https://nimbus.tiendanube.com/documentation/overview/getting-started)
+
+If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
