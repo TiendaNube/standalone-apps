@@ -7,7 +7,7 @@ This template provides a starter project for building standalone apps using the 
  - [Node.js for backend, with Typescript](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-node/README.md)
 
 ## Flowchart for using the app template:
-To help you better understand the process, refer to the following [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410).
+- To help you better understand the process, refer to the following [App Template Flow](https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410).
 
 ## Steps to use the App Template
 ### 1. Create a partner's account
