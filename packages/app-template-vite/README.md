@@ -57,6 +57,5 @@ Feel free to explore and adapt the project structure according to your applicati
 - We recommend running the `yarn dev` command in the project's root folder. Otherwise, if both projects are not running simultaneously, a connection error may occur.
 
 ## References and Additional Resources
-[Nimbus Design System - Documentation](https://nimbus.tiendanube.com/documentation/overview/getting-started)
-
-If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
+- [Nimbus Design System - Documentation](https://nimbus.tiendanube.com/documentation/overview/getting-started)
+- If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
