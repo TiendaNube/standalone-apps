@@ -1,14 +1,15 @@
 # Nimbus App Template > Vite
 
 ## Introduction
-This front-end project was developed using Vite and TypeScript and includes our pre-installed design system. Its purpose is to provide a practical template for creating a web application focused on the partner portal.
+This front-end project was developed using Vite and TypeScript and includes our pre-installed Design System. Its purpose is to provide a practical template for creating a web application in the partner portal, targeting store owners.
 
-This example application not only demonstrates how to call Tiendanube APIs but also automates the authentication process using the information provided in the `.env` file at the root of the project. This allows you to focus on implementing the specific functionalities of your application without worrying about the complexity of other processes.
+The example application not only demonstrates how to call Nuvemshop/Tiendanube APIs but also automates the authentication process using the information provided in the `.env` file at the project's root.
+
+This allows you to focus on implementing the specific functionalities of your application without worrying about the complexity of other processes.
 
 ## Prerequisites
 
 Before getting started, make sure you have the following dependencies installed in your development environment:
-
 - Node.js (version 14 or higher)
 - NPM (Node Package Manager) or Yarn (Yarn Package Manager)
 
@@ -29,7 +30,7 @@ After completing the installation, you can run the application with the followin
 yarn dev
 ```
 
-This will start the development server, and you can access the application in your browser at `http://localhost:8000`.
+This will initiate the development server, allowing you to access the application in your browser at `http://localhost:8000`.
 
 ## Project Structure
 
@@ -51,8 +52,8 @@ Feel free to explore and adapt the project structure according to your applicati
 ## Limitations and Considerations
 
 - It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
-- If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
-- For the Product API to work, the app must have the 'write_products' permission.
+- If you don't update the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
+- For the Product API to work, the app must have the `write_products` permission.
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
 - We recommend running the `yarn dev` command in the project's root folder. Otherwise, if both projects are not running simultaneously, a connection error may occur.
 
