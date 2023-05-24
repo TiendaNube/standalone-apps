@@ -1,6 +1,13 @@
-# Store Product Control API
+# Nimbus App Template > Node - Store Product Control API
 
 This is a powerful tool that enables app authentication and provides functionalities to efficiently manage products within an installed Nuvemshop/Tiendanube store. Its purpose is to serve as an example and facilitate understanding of how to authenticate and access the Nuvemshop/Tiendanube APIs, specifically the Product API. This API allows developers to authenticate their applications and store the credentials within the config.json file. It enables operations such as randomly inserting 5 new products, deleting existing products, and retrieving the total count of products in the store. With seamless integration and comprehensive product management capabilities, this API exemplifies the process of handling and maintaining product data, empowering developers to understand its functioning and lay the foundation for building robust and scalable applications for Nuvemshop/Tiendanube e-commerce solutions.
+
+## Prerequisites
+
+Before getting started, make sure you have the following dependencies installed in your development environment:
+
+- Node.js (version 14 or higher)
+- NPM (Node Package Manager) or Yarn (Yarn Package Manager)
 
 ## Table of Contents
 - [Store Product Control API](#store-product-control-api)
