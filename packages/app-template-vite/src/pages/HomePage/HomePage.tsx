@@ -103,7 +103,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Page maxWidth="800px">
-        <Page.Header title="Demo app" />
+        <Page.Header title={process.env.APP_NAME || "App Template"} />
         <Page.Body>
           <Layout columns="1">
             <Layout.Section>
@@ -142,7 +142,7 @@ const HomePage: React.FC = () => {
                   <Box display="flex" flexDirection="column" gap="4" mb="2">
                     <Text>
                       Os produtos de exemplo são criados com o nome e preço
-                      aleatórios, a modo de prueba. Pode modificá-los e
+                      aleatórios, como exemplo. Podendo modificá-los e
                       eliminá-los há qualquer momento.
                     </Text>
                     <Box display="flex" flexDirection="column" gap="2">
