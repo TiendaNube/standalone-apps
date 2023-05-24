@@ -1,7 +1,7 @@
 # Nimbus App Template
 
 ## Introduction
-This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop API. It functions as a monorepo, as it includes all the necessary code to start and maintain the frontend and backend of the application.
+This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop/Tiendanube API. It functions as a monorepo, as it includes all the necessary code to start and maintain the front-end and back-end of the application.
 
 This template provides a starter project for building standalone apps using the follwing technologies:
  - [React for the frontend, with Vite as a framework](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-vite/README.md)
