@@ -28,34 +28,32 @@ This template includes a starter project for building standalone apps using:
   ```bash
   yarn install
   ```
-
-### 5th - Rename .env-example to .env
-- Configure the environment variables by renaming the .env-example file to .env.
-
-### 6th - Get credentials at Partner Portal
+### 5th - Get credentials at Partner Portal
 Go back to the Partners Portal on the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id) and copy the values of the `App Id` and `Client Secret`.
 
-### 7th - Set environment variables
-- Go back to your code editor and paste the credentials copied in the previous step into the .env file:
-  - PORT=3400 (Port where the backend will run)
-  - CLIENT_ID= App id
-  - CLIENT_SECRET= Client Secret
-  - USER_EMAIL= Your Partners Portal account email
-  - APP_NAME= Your app name
-  - VITE_APP_TEMPLATE_API= http://localhost:3400
+### 6th - Rename .env-example to .env and set environment variables
+- Go back to your code editor:
+  - Rename the .env-example file to .env.
+  - Paste the credentials copied in the previous step into the .env file:
+    - PORT=3400 (Port where the backend will run)
+    - CLIENT_ID= App id
+    - CLIENT_SECRET= Client Secret
+    - USER_EMAIL= Your Partners Portal account email
+    - APP_NAME= Your app name
+    - VITE_APP_TEMPLATE_API= http://localhost:3400
 
-### 8th - Run applications
+### 7th - Run applications
 - To start both `app-template-vite` and `app-template-node`:
   ```bash
   yarn dev
   ```
 
-### 9th - Change redirect URL at Partner Portal
+### 8th - Change redirect URL at Partner Portal
 - After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:8000`.
 
-### 10th - Access store and install app
+### 9th - Access store and install app
 - Do you log in at your demo store or not
 - After that install the app add at URL (/admin/apps/:app-id/authorize) and confirm the installation.
 
-### 11th - Now tests app
+### 10th - Now tests app
 - Now, your app is ready to be used.
