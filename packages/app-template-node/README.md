@@ -80,7 +80,7 @@ This folder structure helps maintain a clear separation of responsibilities and 
 
 The API provides the following endpoints:
 
-### 1. Authentication Endpoint
+### Authentication Endpoint
 
 - **GET /auth**
   - Description: Retrieves app access credentials.
@@ -95,7 +95,7 @@ The API provides the following endpoints:
       "user_id": 00001123
     }
     ```
-### 2. Product Endpoints
+### Product Endpoints
 
 - **GET /products**
   - Description: Retrieves a list of all products
