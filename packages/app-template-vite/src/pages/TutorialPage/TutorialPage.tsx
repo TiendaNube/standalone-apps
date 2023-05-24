@@ -30,39 +30,38 @@ const TutorialPage: React.FC = () => {
           >
             <List as="ul">
               <List.Item>
-                Acesse a página de{" "}
+                Acesse{" "}
                 <Link
                   as="a"
                   href={UPDATE_APP_PAGES_URL}
                   target="blank"
                   appearance="primary"
                 >
-                  ediçao de dados
+                  Dados básicos
                 </Link>{" "}
-                do seu app no portal de parceiros
+                em detalhes do aplicativo, no portal de parceiros.
               </List.Item>
               <List.Item>
-                Altere o campo URL de redirecionamento após instalação para o
-                endereço{" "}
+                No campo URL de redirecionamento, copie e cole o endereço{" "}
                 <Text as="span" fontWeight="bold">{`http://localhost:8000
               `}</Text>
               </List.Item>
               <List.Item>
-                Adicione ao{" "}
+                Copie este final da URL{" "}
                 <Text as="span" fontWeight="bold">
                   {`/admin/apps/${process.env.CLIENT_ID}/authorize`}
                 </Text>{" "}
-                ao fim da url da loja onde vai ser instalado o app
+                e cole no final da URL da loja que você vai instalar o aplicativo
               </List.Item>
               <List.Item>
                 Clique no botão{" "}
                 <Text as="span" fontWeight="bold">
-                  instalar aplicativo
+                  Aceitar e começar a usar{""}
                 </Text>
+                <Text>para instalar o aplicativo</Text>
               </List.Item>
               <List.Item>
-                Ao ser redirecionado para o app template, iremos fazer a
-                requisição que irá finalizar o processo de autenticação
+                Após o redirecionamento para Template de aplicativo, a requisição será executada e o processo de autenticação estará concluído
               </List.Item>
             </List>
           </Box>
