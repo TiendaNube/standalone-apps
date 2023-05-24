@@ -27,6 +27,10 @@ This template provides a starter project for building standalone apps using the 
 ### 4. Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
+  yarn
+  ```
+- After that:
+  ```bash
   yarn install
   ```
 ### 5. Get credentials from the Partners Portal
