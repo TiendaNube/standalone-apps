@@ -47,11 +47,11 @@ Before getting started, make sure you have the following dependencies installed 
   - Rename the `.env-example` file to `.env`.
   - Paste the credentials copied in the previous step into the `.env` file:
     - PORT=3400 (Port where the backend will run)
-    - CLIENT_ID= App id
-    - CLIENT_SECRET= Client Secret
-    - USER_EMAIL= Your Partners Portal account email
-    - APP_NAME= Your app name
-    - VITE_APP_TEMPLATE_API= http://localhost:3400
+    - CLIENT_ID="App ID"
+    - CLIENT_SECRET="Client Secret"
+    - USER_EMAIL="Your Partners Portal account email"
+    - APP_NAME="Your app name"
+    - VITE_APP_TEMPLATE_API="http://localhost:3400
 
 ### 7. Run applications
 - To start both `app-template-vite` and `app-template-node`, run the following command:
