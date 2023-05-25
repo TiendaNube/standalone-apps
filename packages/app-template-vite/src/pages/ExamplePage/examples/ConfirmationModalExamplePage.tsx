@@ -78,7 +78,7 @@ const ConfirmationModalExamplePage: React.FC = () => {
               <Button><Icon color="currentColor" source={<SearchIcon />} /></Button>
             </Box>
             <Box display="flex" gap="2" alignItems="center">
-              <Text>150 órdenes</Text>
+              <Text>150 ordens</Text>
               <Chip text="Filtro aplicado" removable />
             </Box>
           </Box>

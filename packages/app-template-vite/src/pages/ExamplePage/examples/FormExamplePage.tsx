@@ -267,20 +267,20 @@ const FormExamplePage: React.FC = () => {
                       id="select-1"
                       name="select-1"
                     >
-                      <Select.Option label="Opción 1" value="opcion-1" />
-                      <Select.Option label="Opción 2" value="opcion-2" />
-                      <Select.Option label="Opción 3" value="opcion-3" />
-                      <Select.Option label="Opción 4" value="opcion-4" />
+                      <Select.Option label="Opção 1" value="opcion-1" />
+                      <Select.Option label="Opção 2" value="opcion-2" />
+                      <Select.Option label="Opção 3" value="opcion-3" />
+                      <Select.Option label="Opção 4" value="opcion-4" />
                     </FormField.Select>
                     <FormField.Select
                       label="Múltipla escolha 2"
                       id="select-2"
                       name="select-2"
                     >
-                      <Select.Option label="Opción 1" value="opcion-1" />
-                      <Select.Option label="Opción 2" value="opcion-2" />
-                      <Select.Option label="Opción 3" value="opcion-3" />
-                      <Select.Option label="Opción 4" value="opcion-4" />
+                      <Select.Option label="Opção 1" value="opcion-1" />
+                      <Select.Option label="Opção 2" value="opcion-2" />
+                      <Select.Option label="Opção 3" value="opcion-3" />
+                      <Select.Option label="Opção 4" value="opcion-4" />
                     </FormField.Select>
                   </Box>
                 </Box>

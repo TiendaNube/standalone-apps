@@ -2,12 +2,14 @@
   "name": "standalone-app-template",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/app-template-node",
+    "packages/app-template-vite"
   ],
   "scripts": {
-    "install": "yarn workspace app-template-node install && yarn workspace app-template-vite install",
-    "dev": "yarn workspace app-template-node dev & yarn workspace app-template-vite dev"
+    "dev": "concurrently \"yarn workspace app-template-node dev\" \"yarn workspace app-template-vite dev\""
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
 }

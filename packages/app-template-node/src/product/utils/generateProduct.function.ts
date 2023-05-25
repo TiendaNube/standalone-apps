@@ -13,14 +13,5 @@ export default function generateProduct(): IProduct {
         pt: faker.commerce.productName(),
         es: faker.commerce.productName(),
       },
-      variants: [
-        {
-          price: faker.finance.amount(100, 10000, 2),
-          stock_management: true,
-          stock: faker.random.numeric(),
-          weight: faker.random.numeric(),
-          cost: faker.finance.amount(1, 100, 2),
-        },
-      ],
     };
 };

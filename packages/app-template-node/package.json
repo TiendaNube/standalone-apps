@@ -4,7 +4,7 @@
   "description": "An example of a Node.js application that authenticates the app in a store and accesses the Tiendanube product API",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch 'src/**/*.ts' --watch 'config.json' --watch '../../.env'",
+    "dev": "nodemon --watch 'src/**/*.ts' --watch '../../.env'",
     "database": "json-server --port 5000 --watch config.json"
   },
   "dependencies": {

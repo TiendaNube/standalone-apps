@@ -16,11 +16,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
         <Box display="flex" gap="2" alignItems="center">
           <Thumbnail width="40px" alt="App logo" />
           <Box display="flex" flexDirection="column">
-            <Text>Demo app</Text>
-            <Link appearance="primary" textDecoration="none">
-              tiendademo.com
-              <Icon color="currentColor" source={<ExternalLinkIcon />} />
-            </Link>
+            <Text>{`${process.env.APP_NAME || "App Template"}`}</Text>
           </Box>
         </Box>
       </Menu.Header>
