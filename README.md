@@ -4,8 +4,8 @@
 This is a template for creating apps for Nuvemshop/Tiendanube ecosystem using Nimbus Design System and the Nuvemshop/Tiendanube API. It functions as a monorepo, as it includes all the necessary code to start and maintain the front-end and back-end of the application.
 
 This template provides a starter project for building standalone apps using the follwing technologies:
- - [React for the frontend, with Vite as a framework](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-vite/README.md)
- - [Node.js for backend, with Typescript](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-node/README.md)
+ - [React for the frontend, with Vite as a framework](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-vite/README.md){:target="_blank"}
+ - [Node.js for backend, with Typescript](https://github.com/TiendaNube/nimbus-app-template-react/blob/main/packages/app-template-node/README.md){:target="_blank"}
 
 ## Prerequisites
 Before getting started, make sure you have the following dependencies installed in your development environment:
@@ -18,7 +18,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 ## How to use the App Template
 ### 1. Create a partner's account
-- If you don't have a partner's account, create a new account on the Partners Portal. If you already have an account, log in to your existing account.
+- Please visit [Partners Portal - BR](https://partners.nuvemshop.com.br){:target="_blank"} or [Partners Portal](https://partners.tiendanube.com){:target="_blank"}, access  to create an account in case you haven't done so already.
 
 ### 2. Create an app
 - If you haven't created an app on the Partners Portal yet, create one.
@@ -40,7 +40,7 @@ Before getting started, make sure you have the following dependencies installed 
   yarn install
   ```
 ### 5. Get credentials from the Partners Portal
-- Go back to the Partners Portal and navigate to the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id).
+- Go back to the Partners Portal and navigate to the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id){:target="_blank"}.
 - Copy the values of the `App Id` and `Client Secret`.
 
 ### 6. Rename .env-example to .env and set environment variables
@@ -61,7 +61,7 @@ Before getting started, make sure you have the following dependencies installed 
   ```
 
 ### 8. Change redirect URL at the Partners Portal
-- After starting the application, go back to the Partner Portal and navigate to the basic data editing page (https://partners.nuvemshop.com.br/applications/update/:app-id).
+- After starting the application, go back to the Partner Portal and navigate to the basic data editing page (https://partners.nuvemshop.com.br/applications/update/:app-id){:target="_blank"}.
 - Change the `Redirect URL before installation` to `http://localhost:8000`.
 
 ### 9. Access the store and install the app
