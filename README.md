@@ -26,7 +26,7 @@ This template includes a starter project for building standalone apps using:
 ### 4th - Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
-  yarn install
+  yarn
   ```
 ### 5th - Get credentials at Partner Portal
 Go back to the Partners Portal on the details page of your app (https://partners.nuvemshop.com.br/applications/details/:app-id) and copy the values of the `App Id` and `Client Secret`.
