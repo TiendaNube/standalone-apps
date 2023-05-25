@@ -11,7 +11,7 @@ This allows you to focus on implementing the specific functionalities of your ap
 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 - Node.js (version 14 or higher)
-- NPM (Node Package Manager) or Yarn (Yarn Package Manager)
+- This project runs with <a href="https://classic.yarnpkg.com/lang/en/" target="_blank">yarn classic</a> (v1)
 
 ## Installation
 
