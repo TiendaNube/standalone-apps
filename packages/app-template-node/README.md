@@ -166,7 +166,9 @@ The API provides the following endpoints:
 ## Limitations and Considerations
 - It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
 - If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
-- For the Product API to work, the app must have 'write_products' permission.
+- For the Product API to work, the app must have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/9c8095f6-d563-4a70-a8ed-c25905ec99d0)
+
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
 
 ## References and Additional Resources
