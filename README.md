@@ -36,10 +36,6 @@ Before getting started, make sure you have the following dependencies installed 
   ```bash
   yarn
   ```
-- After that:
-  ```bash
-  yarn install
-  ```
 ### 5. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the <a href="https://partners.nuvemshop.com.br/applications/details/:app-id" target="_blank">details page</a> of your app.
 - Copy the values of the `App Id` and `Client Secret`.
