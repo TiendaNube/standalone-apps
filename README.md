@@ -25,7 +25,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 
 ### 2. Create an app
-- If you haven't created an app on the Partners Portal yet, create one. (<a href="https://atendimento.nuvemshop.com.br/pt_BR/parceiros-tecnologicos/como-fazer-um-aplicativo-para-a-loja-de-aplicativos-nuvemshop">Learn how to create an app</a>)
+- If you haven't created an app on the Partners Portal yet, create one. (<a href="https://atendimento.nuvemshop.com.br/pt_BR/parceiros-tecnologicos/como-fazer-um-aplicativo-para-a-loja-de-aplicativos-nuvemshop">Learn how to create an app - Portuguese</a> or <a href="https://ayuda.tiendanube.com/socios-tecnologicos/como-creo-una-aplicacion-para-tiendanube">Learn how to create an app - Spanish</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/e66dff16-f1de-4fcd-a467-78b2d82264b0)
 
 
