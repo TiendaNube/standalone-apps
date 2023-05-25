@@ -20,7 +20,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 ## How to use the App Template
 ### 1. Create a partner's account
-- Please visit <a href="https://partners.nuvemshop.com.br" target="_blank">Partners Portal - Portuguese</a> or <a href="https://partners.tiendanube.com" target="_blank">Partners Portal - Spanish</a>, access  to create an account in case you haven't done so already. (<a href="https://atendimento.nuvemshop.com.br/pt_BR/parceiros-tecnologicos/guia-detalhes-do-programa-de-parceiros-tecnologicos">Learn how to create an account</a>)
+- Please visit <a href="https://partners.nuvemshop.com.br" target="_blank">Partners Portal - Portuguese</a> or <a href="https://partners.tiendanube.com" target="_blank">Partners Portal - Spanish</a>, access  to create an account in case you haven't done so already. (<a href="https://atendimento.nuvemshop.com.br/pt_BR/parceiros-tecnologicos/guia-detalhes-do-programa-de-parceiros-tecnologicos">Learn how to create an account - Portuguese</a> or <a href="https://ayuda.tiendanube.com/es_ES/socios-tecnologicos/en-que-consiste-el-programa-de-socios-tecnologicos-de-tiendanube">Learn how to create an account - Spanish</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/30c9ebdb-3758-4e14-8096-47c6a6140517)
 
 
