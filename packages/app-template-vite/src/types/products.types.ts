@@ -3,9 +3,10 @@ import { faker } from "@faker-js/faker";
 export interface ProductProps {
   id: number;
   name: {
-    pt: string;
+    pt?: string;
+    es?: string;
   };
-  variants: IVariant[];
+  variants?: IVariant[];
   images: IImage[];
 }
 

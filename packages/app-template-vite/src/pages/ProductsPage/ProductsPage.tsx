@@ -99,9 +99,17 @@ const ProductsPage: React.FC = () => {
           : rowB.id - rowA.id;
       }
       if (sortColumn === "name") {
-        return sortDirection === "ascending"
+        if(rowA.name.es && rowB.name.es)
+        {
+          return sortDirection === "ascending"
+          ? rowA.name.es.localeCompare(rowB.name.es)
+          : rowB.name.es.localeCompare(rowA.name.es);
+        } else if(rowA.name.pt && rowB.name.pt)
+        {
+          return sortDirection === "ascending"
           ? rowA.name.pt.localeCompare(rowB.name.pt)
           : rowB.name.pt.localeCompare(rowA.name.pt);
+        }
       }
       return 0;
     };
@@ -217,7 +225,7 @@ const ProductsPage: React.FC = () => {
                   key={row.images[0].id}
                   src={row.images[0].src}
                   width="54px"
-                  alt={row.name.pt}
+                  alt={row.name.pt as string || row.name.es as string}
                 />
 
                 <Box
@@ -226,7 +234,7 @@ const ProductsPage: React.FC = () => {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Text>{row.name.pt}</Text>
+                  <Text>{row.name.pt as string || row.name.es as string}</Text>
                 </Box>
               </Box>
               <Box
@@ -275,9 +283,9 @@ const ProductsPage: React.FC = () => {
                       <Thumbnail
                         src={row.images[0].src}
                         width="36px"
-                        alt={row.name.pt}
+                        alt={row.name.pt as string || row.name.es as string}
                       />
-                      {row.name.pt}
+                      {row.name.pt || row.name.es}
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
