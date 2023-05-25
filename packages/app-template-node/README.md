@@ -164,6 +164,8 @@ The API provides the following endpoints:
 - To access the Product API, you need to include the `Authentication: bearer access_token` header in the request. The provided access_token will be compared against the access_token stored within the 'credentials' property in the config.json file to verify authorization for accessing the API.
 
 ## Limitations and Considerations
+- The `config.json` file simply stores the credentials of a store, and when the installation process is repeated, the old object is replaced by the new one.
+- It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
 - It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
 - If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
 - For the Product API to work, the app must have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
