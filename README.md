@@ -71,7 +71,10 @@ Before getting started, make sure you have the following dependencies installed 
 
 ### 9. Access the store and install the app
 - Log in to your store (if you're not already logged in).
-- Install the app by adding `/admin/apps/:app-id/authorize` to your store's URL and confirm the installation.
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/0cbee613-bfb0-40f1-82c1-df34ceed2e6c)
+- Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/48b6ad4c-b4da-4b3d-ac2f-6c7dc5732d5b)
+
 
 ### 10. Test the app
 - Now, your app is ready to be used.
