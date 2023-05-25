@@ -62,7 +62,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 ### 8. Change redirect URL at the Partners Portal
 - After starting the application, go back to the Partner Portal and navigate to the basic data editing page (https://partners.nuvemshop.com.br/applications/update/:app-id).
-- Change the `Redirect URL after installation` to `http://localhost:8000`.
+- Change the `Redirect URL before installation` to `http://localhost:8000`.
 
 ### 9. Access the store and install the app
 - Log in to your store (if you're not already logged in).
