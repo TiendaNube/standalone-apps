@@ -37,8 +37,10 @@ Before getting started, make sure you have the following dependencies installed 
   yarn
   ```
 ### 5. Get credentials from the Partners Portal
-- Go back to the Partners Portal and navigate to the <a href="https://partners.nuvemshop.com.br/applications/details/:app-id" target="_blank">details page</a> of your app.
-- Copy the values of the `App Id` and `Client Secret`.
+- Go back to the Partners Portal and navigate to the details page of your app.
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/1b383cb7-5b0d-4fe7-9303-6311df268f38)
+- Then, copy the `App Id` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
+
 
 ### 6. Rename .env-example to .env and set environment variables
 - Go back to your code editor:
