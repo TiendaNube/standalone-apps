@@ -62,8 +62,9 @@ Before getting started, make sure you have the following dependencies installed 
   ```
 
 ### 8. Change redirect URL at the Partners Portal
-- After starting the application, go back to the Partner Portal and navigate to the basic <a href="https://partners.nuvemshop.com.br/applications/update/:app-id" target="_blank">data edit page</a>.
-- Change the `Redirect URL before installation` to `http://localhost:8000`.
+- After install app at store, go back to the Partner Portal and navigate to the applications update page.
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b8e35f20-bb52-4067-9b79-3757b77a0d9c)
+- Change the `Redirect URL` to `http://localhost:8000`.
 
 ### 9. Access the store and install the app
 - Log in to your store (if you're not already logged in).
