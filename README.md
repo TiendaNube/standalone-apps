@@ -56,7 +56,7 @@ Before getting started, make sure you have the following dependencies installed 
     - CLIENT_SECRET="Client Secret"
     - USER_EMAIL="Your Partners Portal account email"
     - APP_NAME="Your app name"
-    - VITE_APP_TEMPLATE_API="http://localhost:3400
+    - VITE_APP_TEMPLATE_API="http://localhost:3400"
 
 ### 7. Run applications
 - To start both `app-template-vite` and `app-template-node`, run the following command:
