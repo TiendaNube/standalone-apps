@@ -26,6 +26,8 @@ Before getting started, make sure you have the following dependencies installed 
 
 ### 2. Create an app
 - If you haven't created an app on the Partners Portal yet, create one.
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/e66dff16-f1de-4fcd-a467-78b2d82264b0)
+
 
 ### 3. Clone this repository
 - Clone this repository:
