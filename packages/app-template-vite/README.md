@@ -19,7 +19,7 @@ To start the application, follow the steps below:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory using the terminal.
-3. Run the command `yarn add` to install the necessary dependencies.
+3. Run the command `yarn` to install the necessary dependencies.
 4. Rename the `.env.example` file to `.env` and fill in the authentication information provided by the partner portal.
 
 ## Running the Application
