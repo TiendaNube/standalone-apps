@@ -1,6 +1,5 @@
 {
   "name": "standalone-app-template",
-  "private": true,
   "workspaces": [
     "packages/app-template-node",
     "packages/app-template-vite"
