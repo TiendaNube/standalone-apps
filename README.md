@@ -13,7 +13,8 @@ Before getting started, make sure you have the following dependencies installed 
 - Node.js (version 14 or higher)
 - This project runs with <a href="https://classic.yarnpkg.com/lang/en/" target="_blank">yarn classic</a> (v1)
 - The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/9c8095f6-d563-4a70-a8ed-c25905ec99d0)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
+
 
 ## App Template Flow
 - To help you better understand the process, refer to the following <a href="https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410" target="_blank">App Template Flow</a>.
