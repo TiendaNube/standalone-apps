@@ -27,7 +27,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 ### 2. Create an app
 - If you haven't created an app on the Partners Portal yet, create one. (<a href="https://atendimento.nuvemshop.com.br/pt_BR/parceiros-tecnologicos/como-fazer-um-aplicativo-para-a-loja-de-aplicativos-nuvemshop">Learn how to create an app - Portuguese</a> or <a href="https://ayuda.tiendanube.com/socios-tecnologicos/como-creo-una-aplicacion-para-tiendanube">Learn how to create an app - Spanish</a>)
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/e66dff16-f1de-4fcd-a467-78b2d82264b0)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/36b6a6d8-e74c-4521-b452-f7f6aa034c96)
 
 
 ### 3. Clone this repository
@@ -44,7 +44,7 @@ Before getting started, make sure you have the following dependencies installed 
   ```
 ### 5. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/1b383cb7-5b0d-4fe7-9303-6311df268f38)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
 - Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
 
 
@@ -67,14 +67,14 @@ Before getting started, make sure you have the following dependencies installed 
 
 ### 8. Change redirect URL at the Partners Portal
 - After install app at store, go back to the Partner Portal and navigate to the update page of your app
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b8e35f20-bb52-4067-9b79-3757b77a0d9c)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
 - Change the `Redirect URL` to `http://localhost:8000`.
 
 ### 9. Access the store and install the app
 - Log in to your store (if you're not already logged in).
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/0cbee613-bfb0-40f1-82c1-df34ceed2e6c)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
 - Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/48b6ad4c-b4da-4b3d-ac2f-6c7dc5732d5b)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
 
 
 ### 10. Test the app
