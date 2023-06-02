@@ -11,7 +11,7 @@ This template provides a starter project for building standalone apps using the 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 
 - Node.js (version 14 or higher)
-- This project runs with <a href="https://classic.yarnpkg.com/lang/en/" target="_blank">yarn classic</a> (v1)
+- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn v2+</a> (v2+)
 - The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
 
