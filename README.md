@@ -40,7 +40,7 @@ Before getting started, make sure you have the following dependencies installed 
 ### 4. Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
-  yarn
+  yarn install
   ```
 ### 5. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.

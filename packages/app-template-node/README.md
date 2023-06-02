@@ -24,7 +24,7 @@ To start the application, follow the steps below:
 
 1. In the terminal, install the project dependencies using the following command:
   ```bash
-    $ yarn
+    yarn install
   ```
 
 2. Configure the environment variables by renaming the `.env-example` file to `.env` at root.
@@ -36,7 +36,7 @@ To start the application, follow the steps below:
 
 3. Run application using the following command:
   ```bash
-    $ yarn dev
+    yarn dev
   ```
 
 4. After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:3400`.

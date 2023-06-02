@@ -57,7 +57,7 @@ Feel free to explore and adapt the project structure according to your applicati
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/9c8095f6-d563-4a70-a8ed-c25905ec99d0)
 
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
-- We recommend running the `yarn dev` command in the project's root folder. Otherwise, if both projects are not running simultaneously, a connection error may occur.
+- We recommend running the `yarn install dev` command in the project's root folder. Otherwise, if both projects are not running simultaneously, a connection error may occur.
 
 ## References and Additional Resources
 - [Nimbus Design System - Documentation](https://nimbus.tiendanube.com/documentation/overview/getting-started)
