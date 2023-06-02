@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "concurrently \"yarn workspace app-template-node dev\" \"yarn workspace app-template-vite dev\""
   },
-  "dependencies": {},
   "devDependencies": {
     "concurrently": "^8.0.1"
   }
