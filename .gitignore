@@ -10,6 +10,7 @@ node_modules
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+.yarnrc.*
 
 # if you are NOT using Zero-installs, then:
 # comment the following lines
