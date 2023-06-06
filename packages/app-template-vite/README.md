@@ -11,7 +11,7 @@ This allows you to focus on implementing the specific functionalities of your ap
 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 - Node.js (version 14 or higher)
-- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn v2+</a> (v2+)
+- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)
 
 ## Installation
 
@@ -19,8 +19,13 @@ To start the application, follow the steps below:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory using the terminal.
-3. Run the command `yarn` to install the necessary dependencies.
-4. Rename the `.env.example` file to `.env` and fill in the authentication information provided by the partner portal.
+3. Check yarn version
+  ```bash
+  yarn --version
+  ```
+  ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
+4. Run the command `yarn` to install the necessary dependencies.
+5. Rename the `.env.example` file to `.env` and fill in the authentication information provided by the partner portal.
 
 ## Running the Application
 

@@ -22,28 +22,34 @@ Before getting started, make sure you have the following dependencies installed 
 
 To start the application, follow the steps below:
 
-1. In the terminal, install the project dependencies using the following command:
+1. In the terminal, check yarn version using the following command:
+  ```bash
+  yarn --version
+  ```
+  ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
+
+2. In the terminal, install the project dependencies using the following command:
   ```bash
     yarn install
   ```
 
-2. Configure the environment variables by renaming the `.env-example` file to `.env` at root.
+3. Configure the environment variables by renaming the `.env-example` file to `.env` at root.
   - PORT=3400 (Port where the backend will run)
   - CLIENT_ID= App id
   - CLIENT_SECRET= the app Client Secret
   - USER_EMAIL= Your Partners Portal account email
   - APP_NAME= Your app name
 
-3. Run application using the following command:
+4. Run application using the following command:
   ```bash
     yarn dev
   ```
 
-4. After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:3400`.
+5. After starting the application, go back to the Partners Portal on the page (https://partners.nuvemshop.com.br/applications/update/:app-id) and change the 'Redirect URL after installation' to `http://localhost:3400`.
 
-5. After the redirect URL has been changed, install the app in a store using the URL (:store-url/admin/apps/:app-id/authorize) and confirm the installation.
+6. After the redirect URL has been changed, install the app in a store using the URL (:store-url/admin/apps/:app-id/authorize) and confirm the installation.
 
-6. Now, your app is already to used.
+7. Now, your app is already to used.
 
 
 ## Project Structure
