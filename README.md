@@ -37,18 +37,25 @@ Before getting started, make sure you have the following dependencies installed 
   ```
 - Open the project in your code editor (e.g., Visual Studio Code, Eclipse, etc.).
 
-### 4. Install dependencies
+
+### 4. Check yarn version
+- In the terminal, check yarn version using the following command:
+  ```bash
+  yarn --version
+  ```
+
+### . Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
   yarn install
   ```
-### 5. Get credentials from the Partners Portal
+### . Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
 - Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
 
 
-### 6. Rename .env-example to .env and set environment variables
+### . Rename .env-example to .env and set environment variables
 - Go back to your code editor:
   - Rename the `.env-example` file to `.env`.
   - Paste the credentials copied in the previous step into the `.env` file:
@@ -59,25 +66,25 @@ Before getting started, make sure you have the following dependencies installed 
     - APP_NAME="Your app name"
     - VITE_APP_TEMPLATE_API="http://localhost:3400"
 
-### 7. Run applications
+### . Run applications
 - To start both `app-template-vite` and `app-template-node`, run the following command:
   ```bash
   yarn dev
   ```
 
-### 8. Change redirect URL at the Partners Portal
+### . Change redirect URL at the Partners Portal
 - After install app at store, go back to the Partner Portal and navigate to the update page of your app
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
 - Change the `Redirect URL` to `http://localhost:8000`.
 
-### 9. Access the store and install the app
+### . Access the store and install the app
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
 - Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
 
 
-### 10. Test the app
+### . Test the app
 - Now, your app is ready to be used.
 
 If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
