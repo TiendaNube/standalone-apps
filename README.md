@@ -11,7 +11,7 @@ This template provides a starter project for building standalone apps using the 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 
 - Node.js (version 14 or higher)
-- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn v2+</a> (v2+)
+- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)
 - The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
 
@@ -43,19 +43,31 @@ Before getting started, make sure you have the following dependencies installed 
   ```bash
   yarn --version
   ```
+  ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
 
-### . Install dependencies
+
+### 5. Install dependencies
 - In the terminal, install the project dependencies using the following command:
   ```bash
   yarn install
   ```
-### . Get credentials from the Partners Portal
+### 5. Install dependencies at node project
+- Go to the `packages/app-template-node` file and in the terminal, install the project dependencies using the following command:
+  ```bash
+  yarn install
+  ```
+### 6. Install dependencies at vite project
+- Go to the `packages/app-template-vite` file and in the terminal, install the project dependencies using the following command:
+  ```bash
+  yarn install
+  ```
+### 7. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
 - Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
 
 
-### . Rename .env-example to .env and set environment variables
+### 8. Rename .env-example to .env and set environment variables
 - Go back to your code editor:
   - Rename the `.env-example` file to `.env`.
   - Paste the credentials copied in the previous step into the `.env` file:
@@ -66,25 +78,26 @@ Before getting started, make sure you have the following dependencies installed 
     - APP_NAME="Your app name"
     - VITE_APP_TEMPLATE_API="http://localhost:3400"
 
-### . Run applications
-- To start both `app-template-vite` and `app-template-node`, run the following command:
+### 9. Run applications
+- At the root of the project to start both `app-template-vite` and `app-template-node`, run the following command:
   ```bash
   yarn dev
   ```
+  ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b8f55eb1-f487-4111-af8a-5be24ed7619a)
 
-### . Change redirect URL at the Partners Portal
+### 10. Change redirect URL at the Partners Portal
 - After install app at store, go back to the Partner Portal and navigate to the update page of your app
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
 - Change the `Redirect URL` to `http://localhost:8000`.
 
-### . Access the store and install the app
+### 11. Access the store and install the app
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
 - Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
 
 
-### . Test the app
+### 12. Test the app
 - Now, your app is ready to be used.
 
 If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
