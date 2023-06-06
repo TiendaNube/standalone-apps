@@ -23,7 +23,8 @@ To start the application, follow the steps below:
   ```bash
   yarn --version
   ```
-  ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
+
 4. Run the command `yarn` to install the necessary dependencies.
 5. Rename the `.env.example` file to `.env` and fill in the authentication information provided by the partner portal.
 
