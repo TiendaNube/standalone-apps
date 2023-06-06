@@ -15,9 +15,16 @@ Before getting started, make sure you have the following dependencies installed 
 - The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
 
-
 ## App Template Flow
 - To help you better understand the process, refer to the following <a href="https://miro.com/app/board/uXjVMGmp9Zs=/?share_link_id=535177540410" target="_blank">App Template Flow</a>.
+
+## Limitations and Considerations
+- If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
+- Webehooks have not been implemented.
+- The `packages/app-template-node/config.json` file simply stores the credentials of a store, and when the installation process is repeated, the old object is replaced by the new one.
+- If you don't change the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
+- For the Product API to work, the app must have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
+![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/9c8095f6-d563-4a70-a8ed-c25905ec99d0)
 
 ## How to use the App Template
 ### 1. Create a partner's account
