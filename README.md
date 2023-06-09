@@ -117,6 +117,8 @@ Before getting started, make sure you have the following dependencies installed 
 
 
 ### 12. Test the app
-- Now, your app is ready to be used.
+- Now, your app is ready to use by following the steps below:
+  - Create 5 products;
+  - View the list of store products;
 
 If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
