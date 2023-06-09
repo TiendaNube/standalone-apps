@@ -43,12 +43,14 @@ Before getting started, make sure you have the following dependencies installed 
 - Open the project in your code editor (e.g., Visual Studio Code, Eclipse, etc.).
 
 
-### 4. Check yarn version `(Essential for the project to work)`
+### `4. Check yarn version`
 - This project will only work with **yarn modern**, specifically `3.6.0 or higher`.
 - In the terminal, check yarn version using the following command:
   ```bash
   yarn --version
   ```
+- The image below represents the version of Yarn that should be the same or higher on your machine:
+
   ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
 
 
@@ -70,8 +72,7 @@ Before getting started, make sure you have the following dependencies installed 
 ### 7. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
-- Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
-  - **The`App ID` will be necessary to install at the store**
+- Then, copy the `App ID` and `Client Secret`, which are the **authorization keys, in order to install your app on the stores**.
 
 
 ### 8. Rename .env-example to .env and set environment variables
