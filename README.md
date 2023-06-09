@@ -11,9 +11,8 @@ This template provides a starter project for building standalone apps using the 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 
 - Node.js (version 14 or higher)
-- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)
-- The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
+- **This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)**
+- The created application always has permission to `Write products`. However, if the permission is changed on the Partner Portal, it is necessary to set `Write products` in order for the template to work. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 
 ## Limitations and Considerations
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
@@ -39,12 +38,13 @@ Before getting started, make sure you have the following dependencies installed 
 ### 3. Clone this repository
 - Clone this repository:
   ```bash
-  git clone git@github.com:TiendaNube/nimbus-app-template-react.git
+  git clone https://github.com/TiendaNube/nimbus-app-template-react.git
   ```
 - Open the project in your code editor (e.g., Visual Studio Code, Eclipse, etc.).
 
 
-### 4. Check yarn version
+### 4. Check yarn version `(Essential for the project to work)`
+- This project will only work with **yarn modern**, specifically `3.6.0 or higher`.
 - In the terminal, check yarn version using the following command:
   ```bash
   yarn --version
@@ -53,7 +53,7 @@ Before getting started, make sure you have the following dependencies installed 
 
 
 ### 5. Install dependencies
-- In the terminal, install the project dependencies using the following command:
+- Go to the root file and in the terminal, install the project dependencies using the following command:
   ```bash
   yarn install
   ```
@@ -71,6 +71,7 @@ Before getting started, make sure you have the following dependencies installed 
 - Go back to the Partners Portal and navigate to the details page of your app.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
 - Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
+  - **The`App ID` will be necessary to install at the store**
 
 
 ### 8. Rename .env-example to .env and set environment variables
@@ -99,8 +100,16 @@ Before getting started, make sure you have the following dependencies installed 
 ### 11. Access the store and install the app
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
-- Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
+- To install the app, add admin/apps/:app-id/authorize to your store URL and confirm the installation. Here are the steps to follow:
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
+  - Append `admin/apps/:app-id/authorize` to the URL, replacing **:app-id** with the App Id of your app:
+    - Can be obtained from the `.env` file. Look for the file named .env and locate the value assigned to the variable CLIENT_ID inside that file;
+    - Can be obtained from Partners Portal:
+      - Navigate to the details page of your app.
+      ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
+      - Then, copy the `App ID`
+  - Press Enter or go to the modified URL;
+  - Follow the prompts to confirm the installation of the app;
 
 
 ### 12. Test the app
