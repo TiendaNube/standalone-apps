@@ -106,7 +106,7 @@ Before getting started, make sure you have the following dependencies installed 
 ### 11. Access the store and install the app
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
-- To install the app, add admin/apps/:app-id/authorize to your store URL and confirm the installation. Here are the steps to follow:
+- To install the app, add `admin/apps/:app-id/authorize` to your store URL and confirm the installation. Here are the steps to follow:
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
   - Append `admin/apps/:app-id/authorize` to the URL, replacing **:app-id** with the App Id of your app:
     - Can be obtained from the `.env` file. Look for the file named .env and locate the value assigned to the variable CLIENT_ID inside that file;
