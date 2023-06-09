@@ -107,20 +107,21 @@ Before getting started, make sure you have the following dependencies installed 
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
 - To install the app, add `admin/apps/:app-id/authorize` to your store URL and confirm the installation. Here are the steps to follow:
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
   - Append `admin/apps/:app-id/authorize` to the URL, replacing **:app-id** with the App Id of your app:
     - Can be obtained from the `.env` file. Look for the file named .env and locate the value assigned to the variable CLIENT_ID inside that file;
     - Can be obtained from Partners Portal:
       - Navigate to the details page of your app.
       ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
       - Then, copy the `App ID`
-  - Press Enter or go to the modified URL;
-  - Follow the prompts to confirm the installation of the app;
+  - With the modified URL, you will see a page similar to the image below:
     ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/40d4dfa7-d98d-4c29-8abe-3b74be2034dc)
+    - Follow the prompts to confirm the installation of the app;
 
 ### 12. Test the app
 - Now, your app is ready to use by following the steps below:
   - Create 5 products;
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92736e6e-982d-45e1-b398-d754c6f02e53)
   - View the list of store products;
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/3aaa0ee1-3aa6-4142-8ad4-35a97e68636d)
 
-If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
+**If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.**
