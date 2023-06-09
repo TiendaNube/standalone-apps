@@ -94,9 +94,12 @@ Before getting started, make sure you have the following dependencies installed 
   ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b8f55eb1-f487-4111-af8a-5be24ed7619a)
 
 ### 10. Change redirect URL at the Partners Portal
-- After install app at store, go back to the Partner Portal and navigate to the update page of your app
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
-- Change the `Redirect URL` to `http://localhost:8000`.
+- After install app at store, go back to the Partner Portal:
+  - Navigate to the details page of your app:
+    - On the `Edit app` section go to **Data Basics** and click on **Edit Data**
+  -  Navigate to the update page of your app:
+    - Change the `Redirect URL` to `http://localhost:8000`.
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
 
 ### 11. Access the store and install the app
 - Log in to your store (if you're not already logged in).
