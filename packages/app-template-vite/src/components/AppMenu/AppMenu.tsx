@@ -24,7 +24,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
       <Menu.Body>
         <Menu.Section>
           {routes?.map((route) =>
-            route.title !== "Galeria de exemplos" ? (
+            route.title !== "Galeria de componentes Nimbus" ? (
               <Menu.Button
                 as={RouterLink}
                 to={route.slug}
