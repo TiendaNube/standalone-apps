@@ -124,4 +124,9 @@ Before getting started, make sure you have the following dependencies installed 
   - View the list of store products;
     ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/3aaa0ee1-3aa6-4142-8ad4-35a97e68636d)
 
-**If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.**
+## Support & Help
+We are here to provide you with the support and assistance you need. If you have any questions or require further assistance, please don’t hesitate to reach out to us. Here are a few ways you can get in touch:
+- **Help Section:** Visit Partners Portal help section for comprehensive resources and guidance.
+- **Issue Tracker:** If you encounter any issues or bugs related to our project, you can create a new issue on our GitHub repository.
+- Visit [this link](https://github.com/TiendaNube/nimbus-app-template-react/issues) to access the issue tracker and provide detailed information about the problem you’re facing.
+- **Contact by Email:** For any additional feedback, inquiries, or specific concerns, feel free to contact us via email. You can reach us at either ecosystem-feedback@nuvemshop.com.br or ecosystem-feedback@tiendanube.com.
