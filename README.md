@@ -11,9 +11,8 @@ This template provides a starter project for building standalone apps using the 
 Before getting started, make sure you have the following dependencies installed in your development environment:
 
 - Node.js (version 14 or higher)
-- This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)
-- The application on the Partner Portal is required to have `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/80f0bf4e-c55e-4288-b64c-eafce5816cb1)
+- **This project runs with <a href="https://yarnpkg.com/getting-started/migration#step-by-step" target="_blank">yarn modern</a> (v3+)**
+- The created application always has permission to `Write products`. However, if the permission is changed on the Partner Portal, it is necessary to set `Write products` in order for the template to work. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 
 ## Limitations and Considerations
 - If you install the app in a demo store, it will only be possible to add a maximum of 10 products.
@@ -39,21 +38,24 @@ Before getting started, make sure you have the following dependencies installed 
 ### 3. Clone this repository
 - Clone this repository:
   ```bash
-  git clone git@github.com:TiendaNube/nimbus-app-template-react.git
+  git clone https://github.com/TiendaNube/nimbus-app-template-react.git
   ```
 - Open the project in your code editor (e.g., Visual Studio Code, Eclipse, etc.).
 
 
-### 4. Check yarn version
+### `4. Check yarn version`
+- This project will only work with **yarn modern**, specifically `3.6.0 or higher`.
 - In the terminal, check yarn version using the following command:
   ```bash
   yarn --version
   ```
+- The image below represents the version of Yarn that should be the same or higher on your machine:
+
   ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92bd3803-d6af-4c95-9997-70d840f4c88b)
 
 
 ### 5. Install dependencies
-- In the terminal, install the project dependencies using the following command:
+- Go to the root file and in the terminal, install the project dependencies using the following command:
   ```bash
   yarn install
   ```
@@ -70,7 +72,7 @@ Before getting started, make sure you have the following dependencies installed 
 ### 7. Get credentials from the Partners Portal
 - Go back to the Partners Portal and navigate to the details page of your app.
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
-- Then, copy the `App ID` and `Client Secret`, which are the authorization keys, in order to install your app on the stores.
+- Then, copy the `App ID` and `Client Secret`, which are the **authorization keys, in order to install your app on the stores**.
 
 
 ### 8. Rename .env-example to .env and set environment variables
@@ -92,18 +94,39 @@ Before getting started, make sure you have the following dependencies installed 
   ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b8f55eb1-f487-4111-af8a-5be24ed7619a)
 
 ### 10. Change redirect URL at the Partners Portal
-- After install app at store, go back to the Partner Portal and navigate to the update page of your app
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
-- Change the `Redirect URL` to `http://localhost:8000`.
+- After install app at store, go back to the Partner Portal:
+  - Navigate to the details page of your app:
+    - On the `Edit app` section go to **Data Basics** and click on **Edit Data**
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/6ebaa3c4-88ce-4a99-b408-31e6a37e5e96)
+  -  Navigate to the update page of your app.
+     - Change the `Redirect URL` to `http://localhost:8000`
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/d687d3d0-ef40-4a3f-ae29-03786d9cc3fd)
+    
 
 ### 11. Access the store and install the app
 - Log in to your store (if you're not already logged in).
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/51fa8cfa-7bee-4a7b-a61d-69d277f0e314)
-- Then install the app by adding `/apps/:app-id/authorize` to your store URL and confirm the installation.
-![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/328ac0b6-2890-4568-9a4d-a3ed367ff39f)
-
+- To install the app, add `admin/apps/:app-id/authorize` to your store URL and confirm the installation. Here are the steps to follow:
+  - Append `admin/apps/:app-id/authorize` to the URL, replacing **:app-id** with the App Id of your app:
+    - Can be obtained from the `.env` file. Look for the file named .env and locate the value assigned to the variable CLIENT_ID inside that file;
+    - Can be obtained from Partners Portal:
+      - Navigate to the details page of your app.
+      ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/b0a9ab0f-8a74-4df1-be30-5b4663375680)
+      - Then, copy the `App ID`
+  - With the modified URL, you will see a page similar to the image below:
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/40d4dfa7-d98d-4c29-8abe-3b74be2034dc)
+    - Follow the prompts to confirm the installation of the app;
 
 ### 12. Test the app
-- Now, your app is ready to be used.
+- Now, your app is ready to use by following the steps below:
+  - Create 5 products;
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/92736e6e-982d-45e1-b398-d754c6f02e53)
+  - View the list of store products;
+    ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/3aaa0ee1-3aa6-4142-8ad4-35a97e68636d)
 
-If you have any questions or need further assistance, please don't hesitate to reach out to us through the Help section of the Partners Portal.
+## Support & Help
+We are here to provide you with the support and assistance you need. If you have any questions or require further assistance, please don’t hesitate to reach out to us. Here are a few ways you can get in touch:
+- **Help Section:** Visit Partners Portal help section for comprehensive resources and guidance.
+- **Issue Tracker:** If you encounter any issues or bugs related to our project, you can create a new issue on our GitHub repository.
+- Visit [this link](https://github.com/TiendaNube/nimbus-app-template-react/issues) to access the issue tracker and provide detailed information about the problem you’re facing.
+- **Contact by Email:** For any additional feedback, inquiries, or specific concerns, feel free to contact us via email. You can reach us at either ecosystem-feedback@nuvemshop.com.br or ecosystem-feedback@tiendanube.com.
