@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useMutation, useQuery } from "react-query";
+import { Trans, useTranslation } from "react-i18next";
+
 import {
   Card,
   Icon,
@@ -100,6 +102,8 @@ const HomePage: React.FC = () => {
     );
   }, [loadingQuantity, productsQuantity]);
 
+  const [t] = useTranslation('translations');
+
   return (
     <>
       <Page maxWidth="800px">
@@ -108,46 +112,42 @@ const HomePage: React.FC = () => {
           <Layout columns="1">
             <Layout.Section>
               <Card>
-                <Card.Header title="Parabéns por criar seu aplicativo!" />
+                <Card.Header title={t('home.first-card.title')} />
                 <Card.Body>
                   <Text>
-                    Este apicativo de exemplo inclui nosso&nbsp;
-                    <Link
-                      as="a"
-                      href="https://nimbus.tiendanube.com/"
-                      target="_blank"
-                      appearance="primary"
-                      textDecoration="none"
-                    >
-                      design system Nimbus
-                    </Link>
-                    &nbsp;e a integração com a&nbsp;
-                    <Link appearance="primary" textDecoration="none">
-                      API da Tiendanube/Nuvemshop
-                    </Link>
-                    &nbsp;para facilitar o desenvolvimento de novos aplicativos
-                    para nosso ecosistema.
+                    <Trans
+                      i18nKey={t('home.first-card.description')}
+                      components={[
+                        <Link
+                          as="a"
+                          href="https://nimbus.tiendanube.com/"
+                          target="_blank"
+                          appearance="primary"
+                          textDecoration="none"
+                          children=""
+                        />,
+                        <Link appearance="primary" textDecoration="none" children="" />
+                      ]}
+                    />
                   </Text>
                 </Card.Body>
                 <Card.Footer>
                   <Link>
-                    Conheça mais sobre como criar seu aplicativo
+                    {t('home.first-card.link')}
                     <Icon color="currentColor" source={<ExternalLinkIcon />} />
                   </Link>
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Header title="Contador de produtos da Loja" />
+                <Card.Header title={t('home.second-card.title')} />
                 <Card.Body>
                   <Box display="flex" flexDirection="column" gap="4" mb="2">
                     <Text>
-                      Os produtos de exemplo são criados com o nome e preço
-                      aleatórios, como exemplo. Podendo modificá-los e
-                      eliminá-los há qualquer momento.
+                      {t('home.second-card.description')}
                     </Text>
                     <Box display="flex" flexDirection="column" gap="2">
                       <Text color="neutral-textDisabled">
-                        Total de produtos
+                        {t('home.second-card.total-product')}
                       </Text>
                       {renderTotal}
                     </Box>
@@ -160,7 +160,7 @@ const HomePage: React.FC = () => {
                     disabled={onSubmit.isLoading}
                   >
                     <Icon color="currentColor" source={<PlusCircleIcon />} />
-                    Criar 5 produtos
+                    {t('home.second-card.create-products')}
                     {onSubmit.isLoading && (
                       <Spinner color="currentColor" size="small" />
                     )}

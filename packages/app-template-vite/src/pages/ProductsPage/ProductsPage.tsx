@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ChevronDownIcon, ChevronUpIcon, TrashIcon } from "@nimbus-ds/icons";
 import { Page, Layout, DataTable, DataList } from "@nimbus-ds/patterns";
 import {
@@ -8,7 +9,6 @@ import {
   Table,
   Thumbnail,
   Text,
-  Spinner,
   Pagination,
 } from "@nimbus-ds/components";
 import { ProductProps } from "@/types";
@@ -33,6 +33,7 @@ const ProductsPage: React.FC = () => {
     "ascending" | "descending"
   >("descending");
   const [sortColumn, setSortColumn] = useState<"id" | "name">("id");
+  const [t] = useTranslation('translations');
 
   useEffect(() => {
     setSelectedProducts(new Set()); // Clear checkedRows whenever products value changes
@@ -186,7 +187,7 @@ const ProductsPage: React.FC = () => {
         indeterminate: headerIndeterminateStatus,
       }}
       label={`${selectedProducts.size} ${
-        selectedProducts.size === 1 ? "selecionado" : "selecionados"
+        selectedProducts.size === 1 ? t('products.selected.single') :  t('products.selected.many')
       }`}
       action={
         <Box display="flex" gap="1">
@@ -194,7 +195,7 @@ const ProductsPage: React.FC = () => {
             appearance="danger"
             onClick={(e: any) => removeSelectedProducts(e)}
           >
-            Deletar
+            {t('products.remove')}
           </Button>
         </Box>
       }
@@ -259,7 +260,7 @@ const ProductsPage: React.FC = () => {
     <>
       <Table>
         <Table.Head>
-          <Table.Cell>Nome</Table.Cell>
+          <Table.Cell>{t('products.name')}</Table.Cell>
           <Table.Cell>
             <Box
               display="flex"
@@ -268,7 +269,7 @@ const ProductsPage: React.FC = () => {
               width="100%"
               justifyContent="center"
             >
-              <Text>Excluir</Text>
+              <Text>{t('products.remove')}</Text>
             </Box>
           </Table.Cell>
         </Table.Head>
@@ -324,7 +325,7 @@ const ProductsPage: React.FC = () => {
       {IS_LOADING && <Loading />}
       {!IS_LOADING && (
         <Page maxWidth="1200px">
-          <Page.Header title="Produtos da Loja" />
+          <Page.Header title={t('products.title')} />
 
           <Page.Body px={{ xs: "none", md: "6" }}>
             <Layout columns="1">
@@ -337,7 +338,7 @@ const ProductsPage: React.FC = () => {
                     />
                   )}
                   {!!!hasProducts && (
-                    <Text>Não há produtos para serem exibidos</Text>
+                    <Text>{t('products.no-content')}</Text>
                   )}
                 </>
               </Layout.Section>

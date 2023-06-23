@@ -1,16 +1,25 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { Box } from "@nimbus-ds/components";
 import { Page, Layout } from "@nimbus-ds/patterns";
 import { ExampleCard } from "@/components";
-import { exampleRoutes } from "./exampleRoutes";
+
+interface IExampleRoutes {
+  title: string,
+  name: string,
+  slug: string
+}
 
 const ExamplesPage: React.FC = () => {
+  const [t] = useTranslation(['translations', 'example-routes']);
+
+  const exampleRoutes = t(`example-routes:routes`, { returnObjects: true }) as Array<IExampleRoutes>;
+
   return (
     <Page maxWidth="800px">
       <Page.Header
-        title="Galeria de exemplos"
-        subtitle="Precisa de ajuda para criar seu aplicativo? Use estes exemplos de diferentes Tipologias de design usando Nimbus para construir mais rápido e seguro."
+        title={t('example.title')}
+        subtitle={t('example.subtitle')}
       />
       <Page.Body>
         <Layout columns="1">
