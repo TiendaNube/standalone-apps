@@ -17,5 +17,16 @@
       "cancel": "Cancelar",
       "remove": "Excluir"
     }
+  },
+  "login": {
+    "title": "Título do login",
+    "email": "Email",
+    "password": "Password",
+    "create-account": "Não tem uma conta? <0>Crie aqui uma</0>",
+    "error-title": "Mensagem de error",
+    "error": "Texto do error",
+    "forgot-password": "Esqueceu sua senha?",
+    "keep-connection": "Manter-se conectado",
+    "button-login": "Log in"
   }
 }
