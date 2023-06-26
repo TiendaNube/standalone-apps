@@ -58,6 +58,7 @@ Feel free to explore and adapt the project structure according to your applicati
 ## Limitations and Considerations
 
 - It is necessary to rename the `.env-example` file to `.env` in `../../.env-example` and configure the environment variables with the requested values; otherwise, it will not work.
+- Make sure you set up the variable `COUNTRY` to apply the translation in project for you current language
 - If you don't update the redirect URL in the Partners Portal to the port where the project is running, it won't be possible to authenticate the app or access the Product API.
 - For the Product API to work, the app must have the `Write products` permission. (<a href="https://tiendanube.github.io/api-documentation/authentication#scopes" target="_blank">Learn more about permissions</a>)
 ![image](https://github.com/TiendaNube/nimbus-app-template-react/assets/68255205/9c8095f6-d563-4a70-a8ed-c25905ec99d0)
