@@ -2,7 +2,7 @@
 	"home": {
 		"first-card": {
 			"title": "Parabéns por criar seu aplicativo!",
-			"description": "Este apicativo de exemplo inclui nosso <0>design system Nimbus</0> e a integração com a <1>API da Tiendanube/Nuvemshop</1> para facilitar o desenvolvimento de novos aplicativos para nosso ecosistema.",
+			"description": "Este aplicativo de exemplo inclui nosso <1>Design System Nimbus</1> e a integração com a <1>API da Tiendanube/Nuvemshop</1> para facilitar o desenvolvimento de novos aplicativos para nosso ecossistema.",
 			"link": "Conheça mais sobre como criar seu aplicativo"
 		},
 		"second-card": {
