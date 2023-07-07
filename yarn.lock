@@ -473,28 +473,28 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@nimbus-ds/components@^4.3.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@nimbus-ds/components/-/components-4.4.0.tgz#1b96aab8ff4f3b67e5906b906a713b9d426db9de"
-  integrity sha512-2Vvx20e1Ql6H0Z3pU1qB07EDgQZeAq0skLWcwcRk8iprecvMtzSzDddjGgyEeEKClrR5ZIo1lmy2SKNmmiOmuQ==
+"@nimbus-ds/components@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@nimbus-ds/components/-/components-5.1.0.tgz#3e2bcb85dfa213ac6a9df51e9f7789bf6902b4f6"
+  integrity sha512-ZbNpA5GRO+FYPKhC181v4qvhiOYi5TMMAc8Mxtveme4xb4BXS9j6lMB/FhB2eK0+gPTM2BODbGQf2kyIuL29+g==
   dependencies:
     "@floating-ui/react" "^0.24.1"
-    "@nimbus-ds/icons" "^1.1.0"
+    "@nimbus-ds/icons" "^1.2.0"
 
-"@nimbus-ds/icons@^1.1.0":
+"@nimbus-ds/icons@^1.1.0", "@nimbus-ds/icons@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@nimbus-ds/icons/-/icons-1.2.0.tgz#343894d0ffa74e42e9fc4070980007e480cf1ab1"
   integrity sha512-eFwFE9X7XwVl4sK/f2QeR5qQVDhU0G1XyEN8gzYRFwbhL27GPPVKMxJCwXFYKSlkSOMEzRiIeNKKsjEXqWY7IA==
 
-"@nimbus-ds/patterns@^1.1.1":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@nimbus-ds/patterns/-/patterns-1.4.2.tgz#ed5e21a71f5b9974792937df522caeb891ea2ba1"
-  integrity sha512-C8W/Mz+JGQmId3h2vW9oB03LLQ05rHgpl54IN95JbLMa/OpI9qygixwPnZPUXAIJRFcNKgv5LfsVV2HiGk7Yug==
+"@nimbus-ds/patterns@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@nimbus-ds/patterns/-/patterns-1.4.3.tgz#ac868c57d40d67a120e73820daa3ed4cf8d79bd4"
+  integrity sha512-NiMLWMDvq5rjKYT5oV1y6cpndIMgWKosdTJiSKP1Rf04hRpaREPZ1miFzErADkxK583DyK60Xe9NaILuBVQwhw==
 
-"@nimbus-ds/styles@^8.0.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@nimbus-ds/styles/-/styles-8.3.0.tgz#f7ff75dbaea1a1c11d01018a1feabbccf3ee71d6"
-  integrity sha512-YAe+mj6owpY55g0wfRnjKOOpviiX/vv6jjh1GRwkEMDq5LLjUDrR4cDiOuCT1kgN4y/9fkr6NY2UKrjn7GTkiA==
+"@nimbus-ds/styles@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@nimbus-ds/styles/-/styles-9.1.0.tgz#cf3284cd8d48a9aacf624b988af7ca7f435202b2"
+  integrity sha512-Z5nNwi7RhK9mYKcNa7wjUMtwiNtaQMc9JdzkPLDfR+uOrtEkNmIKKFWlUC22Lwbg8ts4qzbM+08ercat+haX/w==
 
 "@nimbus-ds/tokens@^7.0.0":
   version "7.0.0"

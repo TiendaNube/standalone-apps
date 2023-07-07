@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@nimbus-ds/components": "^4.3.0",
+    "@nimbus-ds/components": "^5.1.0",
     "@nimbus-ds/icons": "^1.1.0",
-    "@nimbus-ds/patterns": "^1.1.1",
-    "@nimbus-ds/styles": "^8.0.0",
+    "@nimbus-ds/patterns": "^1.4.3",
+    "@nimbus-ds/styles": "^9.1.0",
     "@nimbus-ds/tokens": "^7.0.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.4.0",
