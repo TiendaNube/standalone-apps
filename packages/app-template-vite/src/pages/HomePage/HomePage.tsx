@@ -132,7 +132,7 @@ const HomePage: React.FC = () => {
                   </Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Link>
+                  <Link as="a" target="_blank" href="https://tiendanube.github.io/api-documentation/intro">
                     {t('home.first-card.link')}
                     <Icon color="currentColor" source={<ExternalLinkIcon />} />
                   </Link>
