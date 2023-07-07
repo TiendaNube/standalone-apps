@@ -1,0 +1,14 @@
+{
+	"menu": {
+		"home": "Início",
+		"examples-gallery": "Galeria de exemplos",
+		"store-products": "Produtos da minha loja"
+	},
+	"base-layout": {
+		"help": "Ajuda para desenvolvedores",
+		"back": "Voltar",
+		"aria-label": {
+			"menu": "Menu principal"
+		}
+	}
+}

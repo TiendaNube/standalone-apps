@@ -126,14 +126,21 @@ const HomePage: React.FC = () => {
                           textDecoration="none"
                           children=""
                         />,
-                        <Link appearance="primary" textDecoration="none" children="" />
+                        <Link 
+                          as="a"
+                          href="https://tiendanube.github.io/api-documentation/intro"
+                          target="_blank"
+                          appearance="primary" 
+                          textDecoration="none" 
+                          children=""
+                        />
                       ]}
                     />
                   </Text>
                 </Card.Body>
                 <Card.Footer>
-                  <Link as="a" target="_blank" href="https://tiendanube.github.io/api-documentation/intro">
-                    {t('home.first-card.link')}
+                  <Link as="a" target="_blank" href={t('home.first-card.link.url')}>
+                    {t('home.first-card.link.text')}
                     <Icon color="currentColor" source={<ExternalLinkIcon />} />
                   </Link>
                 </Card.Footer>

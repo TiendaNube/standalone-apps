@@ -12,8 +12,8 @@ i18n
   .use(Backend)
   .init({
     lng: Countries[`${country ?? 'pt-BR'}`],
-    ns: 'common',
-    defaultNS: 'common',
+    ns: 'translations',
+    defaultNS: 'translations',
     load: 'currentOnly',
     fallbackLng: ELocale.BRAZIL,
     supportedLngs: Object.values(ELocale),

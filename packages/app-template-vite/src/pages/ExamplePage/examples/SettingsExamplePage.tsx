@@ -47,7 +47,7 @@ const SettingsExamplePage: React.FC = () => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <Title as="h3">Ajustes instantáneos</Title>
+                <Title as="h3">Ajustes instantâneos</Title>
                 <Toggle name="instant-settings" />
               </Box>
             </Card>
