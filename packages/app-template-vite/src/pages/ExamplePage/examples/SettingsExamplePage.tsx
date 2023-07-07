@@ -56,9 +56,11 @@ const SettingsExamplePage: React.FC = () => {
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="2">
                   <Text>Texto</Text>
-                  <Radio label="Radio 1" name="radio-settings" id="radio-1" />
-                  <Radio label="Radio 2" name="radio-settings" id="radio-2" />
-                  <Radio label="Radio 3" name="radio-settings" id="radio-3" />
+                  <form>
+                    <Radio label="Radio 1" name="radio-settings" id="radio-1" />
+                    <Radio label="Radio 2" name="radio-settings" id="radio-2" />
+                    <Radio label="Radio 3" name="radio-settings" id="radio-3" />
+                  </form>
                 </Box>
               </Card.Body>
             </Card>
@@ -85,8 +87,8 @@ const SettingsExamplePage: React.FC = () => {
                   justifyContent="center"
                   borderColor="primary-interactive"
                   borderStyle="dashed"
-                  borderWidth="1px"
-                  borderRadius=".5rem"
+                  borderWidth="1"
+                  borderRadius="0-5"
                   backgroundColor="primary-surface"
                   p="4"
                   mt="4"
@@ -138,9 +140,11 @@ const SettingsExamplePage: React.FC = () => {
               </Box>
               <Card.Body>
                 <Box display="flex" flexDirection="column" gap="2">
-                  <Radio label="Radio 1" name="radio-settings" id="radio-1" />
-                  <Radio label="Radio 2" name="radio-settings" id="radio-2" />
-                  <Radio label="Radio 3" name="radio-settings" id="radio-3" />
+                  <form>
+                    <Radio label="Radio 1" name="radio-settings" id="radio2-1" />
+                    <Radio label="Radio 2" name="radio-settings" id="radio2-2" />
+                    <Radio label="Radio 3" name="radio-settings" id="radio2-3" />
+                  </form>
                 </Box>
               </Card.Body>
             </Card>
