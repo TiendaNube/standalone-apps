@@ -6,18 +6,18 @@
 			"slug": "/examples/settings"
 		},
 		{
-			"title": "Modal de confirmação",
-			"name": "modal-de-confirmacao",
+			"title": "Modal de confirmación",
+			"name": "modal-de-confirmacion",
 			"slug": "/examples/confirmation-modal"
 		},
 		{
-			"title": "Formulário",
+			"title": "Formulario",
 			"name": "formulario",
 			"slug": "/examples/form"
 		},
 		{
-			"title": "Modelo de página",
-			"name": "modelo-de-pagina",
+			"title": "Template de página",
+			"name": "template-de-pagina",
 			"slug": "/examples/page-template"
 		},
 		{
@@ -26,13 +26,13 @@
 			"slug": "/examples/login"
 		},
 		{
-			"title": "Listagem simples",
-			"name": "listagem-simples",
+			"title": "Listado simple",
+			"name": "listado-simple",
 			"slug": "/examples/simple-list"
 		},
 		{
-			"title": "Listagem de produtos",
-			"name": "listagem-de-produtos",
+			"title": "Listado de productos",
+			"name": "listado-de-productos",
 			"slug": "/examples/product-list"
 		}
 	]
