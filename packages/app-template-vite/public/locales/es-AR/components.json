@@ -1,14 +1,14 @@
 {
 	"menu": {
 		"home": "Inicio",
-		"examples-gallery": "Galeria de exemplos",
-		"store-products": "Produtos da minha loja"
+		"examples-gallery": "Galería de ejemplos",
+		"store-products": "Productos de mi tienda"
 	},
 	"base-layout": {
-		"help": "Ajuda para desenvolvedores",
-		"back": "Voltar",
+		"help": "Ayuda para desarrolladores",
+		"back": "Volver",
 		"aria-label": {
-			"menu": "Menu principal"
+			"menu": "Menú principal"
 		}
 	}
 }
