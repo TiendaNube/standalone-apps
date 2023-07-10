@@ -1,32 +1,32 @@
 {
   "modal-confirmation": {
-    "context-menu": "Menu de contexto",
-    "primary-action": "Ação primária",
-    "secondary-action": "Ação secundária",
-    "title": "Modelo de página",
-    "subtitle": "Subtítulo da página",
-    "tag": "Tag de exemplo",
-    "message": "Este é um alerta de exemplo no cabeçalho da página",
+    "context-menu": "Menú contextual",
+    "primary-action": "Acción primaria",
+    "secondary-action": "Acción secundaria",
+    "title": "Template de página",
+    "subtitle": "Subtítulo de página",
+    "tag": "Tag de ejemplo",
+    "message": "Este es un alert de ejemplo en el header de la página",
     "search": "Buscar",
-    "filter-text": "150 ordens",
+    "filter-text": "150 ventas",
     "filter-chip": "Filtro aplicado",
-    "open-button": "Abrir modal de confirmação",
+    "open-button": "Abrir modal de confirmación",
     "modal": {
-      "title": "Modal de confirmação",
-      "confirmation": "Tem certeza que deseja excluir?",
+      "title": "Modal de confirmación",
+      "confirmation": "¿Estás seguro que querés eliminar?",
       "cancel": "Cancelar",
-      "remove": "Excluir"
+      "remove": "Eliminar"
     }
   },
   "login": {
-    "title": "Título do login",
+    "title": "Título del login",
     "email": "Email",
-    "password": "Password",
-    "create-account": "Não tem uma conta? <0>Crie aqui uma</0>",
-    "error-title": "Mensagem de error",
-    "error": "Texto do error",
-    "forgot-password": "Esqueceu sua senha?",
-    "keep-connection": "Manter-se conectado",
+    "password": "Contraseña",
+    "create-account": "¿Aún no tenés una cuenta? <0>Creá una acá</0>",
+    "error-title": "Mensaje de error",
+    "error": "Texto de error",
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "keep-connection": "Mantenerme conectado",
     "button-login": "Log in"
   }
 }
