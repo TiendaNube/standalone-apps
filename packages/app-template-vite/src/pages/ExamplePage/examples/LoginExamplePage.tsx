@@ -1,9 +1,11 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import { Alert, Box, Button, Card, Checkbox, Input, Link, Text } from "@nimbus-ds/components";
 import { FormField } from "@nimbus-ds/patterns";
 
 const LoginExamplePage: React.FC = () => {
+  const [t] = useTranslation('examples');
   return (
     <Box
       backgroundColor="neutral-surface"
@@ -19,28 +21,29 @@ const LoginExamplePage: React.FC = () => {
     >
       <Box maxWidth="500px" flex="1">
         <Card>
-          <Card.Header title="Título do login" />
+          <Card.Header title={t('login.title')} />
           <Card.Body>
             <Box display="flex" flexDirection="column" gap="4">
               <Text>
-                Não tem uma conta?&nbsp;
-                <Link appearance="primary" textDecoration="none">Crie aqui uma</Link>
+                <Trans i18nKey={t('login.create-account')} components={[
+                  <Link appearance="primary" textDecoration="none" children="" />
+                ]} />
               </Text>
-              <Alert appearance="danger" title="Mensagem de error">
-                Texto do error
+              <Alert appearance="danger" title={t('login.error-title')}>
+              {t('login.error')}
               </Alert>
               <Box display="flex" flexDirection="column" gap="2">
-                <FormField.Input label="Email" />
-                <FormField label="Password">
+                <FormField.Input label={t('login.email')} />
+                <FormField label={t('login.password')}>
                   <Input.Password />
                 </FormField>
-                <Link appearance="primary">Esqueceu sua senha?</Link>
+                <Link appearance="primary">{t('login.forgot-password')}</Link>
               </Box>
-              <Checkbox name="keep-login" label="Manter-se conectado" />
+              <Checkbox name="keep-login" label={t('login.keep-connection')} />
             </Box>
           </Card.Body>
           <Card.Footer>
-            <Button appearance="primary">Log in</Button>
+            <Button appearance="primary">{t('login.button-login')}</Button>
           </Card.Footer>
         </Card>
       </Box>

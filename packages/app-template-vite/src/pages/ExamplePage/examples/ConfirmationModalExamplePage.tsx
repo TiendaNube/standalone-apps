@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { Page, Layout, MenuButton } from "@nimbus-ds/patterns";
 import {
@@ -25,14 +26,15 @@ import {
 
 const ConfirmationModalExamplePage: React.FC = () => {
   const [openModal, setOpenModal] = useState(true);
+  const [t] = useTranslation('examples');
 
   const handleOpenModal = () => setOpenModal(!openModal);
-  
+
   const popoverContent = (
     <Box display="flex" flexDirection="column" width="100%">
-      <MenuButton label="Ação secundária" />
-      <MenuButton label="Ação secundária" />
-      <MenuButton label="Ação secundária" />
+      <MenuButton label={t('modal-confirmation.secondary-action')} />
+      <MenuButton label={t('modal-confirmation.secondary-action')} />
+      <MenuButton label={t('modal-confirmation.secondary-action')} />
     </Box>
   );
 
@@ -42,17 +44,17 @@ const ConfirmationModalExamplePage: React.FC = () => {
       <IconButton source={<ChevronRightIcon />} size="2rem" />
       <Popover content={popoverContent} arrow={false} padding="small">
         <Button>
-          Menu de contexto
+        {t('modal-confirmation.context-menu')}
           <Icon source={<ChevronDownIcon />} />
         </Button>
       </Popover>
       <Button>
-        Ação secundária
+      {t('modal-confirmation.secondary-action')}
         <Icon source={<DownloadIcon />} />
       </Button>
       <Button appearance="primary">
         <Icon color="neutral-background" source={<PlusCircleIcon />} />
-        Ação primária
+        {t('modal-confirmation.primary-action')}
       </Button>
     </>
   );
@@ -61,25 +63,25 @@ const ConfirmationModalExamplePage: React.FC = () => {
     <>
       <Page maxWidth="1200px">
         <Page.Header
-          title="Modelo de página"
-          subtitle="Subtítulo da página"
+          title={t('modal-confirmation.title')}
+          subtitle={t('modal-confirmation.subtitle')}
           buttonStack={buttonStack}
         >
           <Box display="flex" gap="2">
-            <Tag appearance="primary">Tag de exemplo</Tag>
-            <Tag>Tag de exemplo</Tag>
+            <Tag appearance="primary">{t('modal-confirmation.tag')}</Tag>
+            <Tag>{t('modal-confirmation.tag')}</Tag>
           </Box>
           <Alert title="Alerta de exemplo">
-            Este é um alerta de exemplo no cabeçalho da página
+          {t('modal-confirmation.message')}
           </Alert>
           <Box display="flex" flexDirection="column" gap="2">
             <Box display="flex" gap="1">
-              <Input.Search placeholder="Buscar" />
+              <Input.Search placeholder={t('modal-confirmation.search')} />
               <Button><Icon color="currentColor" source={<SearchIcon />} /></Button>
             </Box>
             <Box display="flex" gap="2" alignItems="center">
-              <Text>150 ordens</Text>
-              <Chip text="Filtro aplicado" removable />
+              <Text>{t('modal-confirmation.filter-text')}</Text>
+              <Chip text={t('modal-confirmation.filter-chip')} removable />
             </Box>
           </Box>
         </Page.Header>
@@ -96,19 +98,19 @@ const ConfirmationModalExamplePage: React.FC = () => {
               borderWidth="1px"
               borderRadius=".5rem"
             >
-              <Button appearance="danger" onClick={handleOpenModal}>Abrir modal de confirmação</Button>
+              <Button appearance="danger" onClick={handleOpenModal}>{t('modal-confirmation.open-button')}</Button>
             </Box>
           </Layout>
         </Page.Body>
       </Page>
       <Modal open={openModal} onDismiss={handleOpenModal}>
-        <Modal.Header title="Modal de confirmação" />
+        <Modal.Header title={t('modal-confirmation.modal.title')} />
         <Modal.Body padding="none">
-          <Text>Tem certeza que deseja excluir?</Text>
+          <Text>{t('modal-confirmation.modal.confirmation')}</Text>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleOpenModal}>Cancelar</Button>
-          <Button appearance="danger">Excluir</Button>
+          <Button onClick={handleOpenModal}>{t('modal-confirmation.modal.cancel')}</Button>
+          <Button appearance="danger">{t('modal-confirmation.modal.remove')}</Button>
         </Modal.Footer>
       </Modal>
     </>

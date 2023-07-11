@@ -1,0 +1,32 @@
+{
+  "modal-confirmation": {
+    "context-menu": "Menu de contexto",
+    "primary-action": "Ação primária",
+    "secondary-action": "Ação secundária",
+    "title": "Modelo de página",
+    "subtitle": "Subtítulo da página",
+    "tag": "Tag de exemplo",
+    "message": "Este é um alerta de exemplo no cabeçalho da página",
+    "search": "Buscar",
+    "filter-text": "150 ordens",
+    "filter-chip": "Filtro aplicado",
+    "open-button": "Abrir modal de confirmação",
+    "modal": {
+      "title": "Modal de confirmação",
+      "confirmation": "Tem certeza que deseja excluir?",
+      "cancel": "Cancelar",
+      "remove": "Excluir"
+    }
+  },
+  "login": {
+    "title": "Título do login",
+    "email": "Email",
+    "password": "Password",
+    "create-account": "Não tem uma conta? <0>Crie aqui uma</0>",
+    "error-title": "Mensagem de error",
+    "error": "Texto do error",
+    "forgot-password": "Esqueceu sua senha?",
+    "keep-connection": "Manter-se conectado",
+    "button-login": "Log in"
+  }
+}

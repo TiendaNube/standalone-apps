@@ -1,15 +1,17 @@
 import React from "react";
 import { useLocation, Link as RouterLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { Box, Thumbnail, Icon, Link, Text } from "@nimbus-ds/components";
-import { ExternalLinkIcon, CogIcon } from "@nimbus-ds/icons";
+import { Box, Thumbnail, Text } from "@nimbus-ds/components";
+import { CogIcon } from "@nimbus-ds/icons";
 import { Menu } from "@nimbus-ds/patterns";
+import { IPage } from "@/types";
 
 import { handleActive, isExample } from "../../utils";
-import { IPage } from "@/types";
 
 const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
   const router = useLocation();
+  const [t] = useTranslation('components');
   return (
     <Menu>
       <Menu.Header>
@@ -24,14 +26,14 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
       <Menu.Body>
         <Menu.Section>
           {routes?.map((route) =>
-            route.title !== "Galeria de exemplos" ? (
+            route.name !== "examples-gallery" ? (
               <Menu.Button
                 as={RouterLink}
                 to={route.slug}
                 key={route.slug}
                 startIcon={route.icon}
                 active={handleActive(route.slug, router.pathname)}
-                label={route.title}
+                label={t(`menu.${route.title}`)}
               />
             ) : (
               <Box
@@ -47,7 +49,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
                   as={RouterLink}
                   to={route.slug}
                   key={route.slug}
-                  label={route.title}
+                  label={t(`menu.${route.title}`)}
                   startIcon={route.icon}
                   active={isExample(router.pathname)}
                   id="control-examples-accordion"
@@ -70,7 +72,7 @@ const AppMenu: React.FC<{ routes?: IPage[] }> = ({ routes }) => {
                         as={RouterLink}
                         to={subroute.slug}
                         key={subroute.slug}
-                        label={subroute.title}
+                        label={t(`menu.${subroute.title}`)}
                         active={handleActive(subroute.slug, router.pathname)}
                       />
                     ))}

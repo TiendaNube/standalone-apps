@@ -1,0 +1,39 @@
+{
+	"routes": [
+		{
+			"title": "Página de ajustes",
+			"name": "pagina-de-ajustes",
+			"slug": "/examples/settings"
+		},
+		{
+			"title": "Modal de confirmación",
+			"name": "modal-de-confirmacion",
+			"slug": "/examples/confirmation-modal"
+		},
+		{
+			"title": "Formulario",
+			"name": "formulario",
+			"slug": "/examples/form"
+		},
+		{
+			"title": "Template de página",
+			"name": "template-de-pagina",
+			"slug": "/examples/page-template"
+		},
+		{
+			"title": "Página de Login",
+			"name": "pagina-de-login",
+			"slug": "/examples/login"
+		},
+		{
+			"title": "Listado simple",
+			"name": "listado-simple",
+			"slug": "/examples/simple-list"
+		},
+		{
+			"title": "Listado de productos",
+			"name": "listado-de-productos",
+			"slug": "/examples/product-list"
+		}
+	]
+}

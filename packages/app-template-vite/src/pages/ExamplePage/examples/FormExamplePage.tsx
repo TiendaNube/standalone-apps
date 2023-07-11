@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { Page, Layout, FormField, InteractiveList } from "@nimbus-ds/patterns";
 import {
@@ -26,7 +27,9 @@ import {
   PictureIcon,
 } from "@nimbus-ds/icons";
 
+
 const FormExamplePage: React.FC = () => {
+  const [t] = useTranslation('examples');
   return (
     <Page maxWidth="800px">
       <Page.Header title="Formulario" />

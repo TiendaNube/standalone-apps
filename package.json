@@ -4,7 +4,9 @@
     "packages/app-template-node",
     "packages/app-template-vite"
   ],
+  "private": true,
   "scripts": {
+    "prepare": "concurrently \"yarn ./packages/app-template-vite\" \"yarn ./packages/app-template-node\"",
     "dev": "concurrently \"yarn workspace app-template-node dev\" \"yarn workspace app-template-vite dev\""
   },
   "devDependencies": {

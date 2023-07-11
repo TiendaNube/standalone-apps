@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 import { DarkModeProvider } from "./components";
 import Loading from "./pages/LoadingPage";
+import './app/i18n';
 
 import Router from "./router";
 

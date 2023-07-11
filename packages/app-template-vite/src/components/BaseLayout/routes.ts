@@ -5,20 +5,20 @@ import { FC } from "react";
 
 export const appRoutes:IPage[] = [
   {
-    title: "Início",
-    name: "inicio",
+    title: "home",
+    name: "home",
     slug: "/",
     icon: HomeIcon as FC<IconProps>,
   },
   {
-    title: "Galeria de exemplos",
-    name: "galeria-de-exemplos",
+    title: "examples-gallery",
+    name: "examples-gallery",
     slug: "/examples",
     icon: PictureIcon as FC<IconProps>,
   },
   {
-    title: "Produtos da minha loja",
-    name: "produtos-da-minha-loja",
+    title: "store-products",
+    name: "store-products",
     slug: "/products",
     icon: TagIcon as FC<IconProps>,
   },

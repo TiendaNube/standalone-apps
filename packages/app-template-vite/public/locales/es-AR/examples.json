@@ -1,0 +1,32 @@
+{
+  "modal-confirmation": {
+    "context-menu": "Menú contextual",
+    "primary-action": "Acción primaria",
+    "secondary-action": "Acción secundaria",
+    "title": "Template de página",
+    "subtitle": "Subtítulo de página",
+    "tag": "Tag de ejemplo",
+    "message": "Este es un alert de ejemplo en el header de la página",
+    "search": "Buscar",
+    "filter-text": "150 ventas",
+    "filter-chip": "Filtro aplicado",
+    "open-button": "Abrir modal de confirmación",
+    "modal": {
+      "title": "Modal de confirmación",
+      "confirmation": "¿Estás seguro que querés eliminar?",
+      "cancel": "Cancelar",
+      "remove": "Eliminar"
+    }
+  },
+  "login": {
+    "title": "Título del login",
+    "email": "Email",
+    "password": "Contraseña",
+    "create-account": "¿Aún no tenés una cuenta? <0>Creá una acá</0>",
+    "error-title": "Mensaje de error",
+    "error": "Texto de error",
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "keep-connection": "Mantenerme conectado",
+    "button-login": "Log in"
+  }
+}

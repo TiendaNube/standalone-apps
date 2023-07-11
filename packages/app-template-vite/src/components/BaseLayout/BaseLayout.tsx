@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link as RouterLink } from "react-router-dom";
-import { useDarkMode, ResponsiveComponent, AppMenu } from "..";
-import { handleActive, isExample } from "../../utils";
+import { useTranslation } from "react-i18next";
 
 import { AppShell, NavTabs } from "@nimbus-ds/patterns";
 import { Icon, Box, Button, IconButton, Sidebar } from "@nimbus-ds/components";
@@ -13,13 +12,15 @@ import {
   SunIcon,
 } from "@nimbus-ds/icons";
 import { appRoutes } from "./routes";
-import { IPage } from "@/types";
+import { useDarkMode, ResponsiveComponent, AppMenu } from "..";
+import { handleActive, isExample } from "../../utils";
 
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const currentTheme = darkMode ? "dark" : "base";
   const currentThemeIcon = darkMode ? <SunIcon /> : <MoonIcon />;
   const router = useLocation();
+  const [t] = useTranslation('components');
 
   const [active, setActive] = useState(currentTheme === "dark");
 
@@ -40,7 +41,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <>
       <Button appearance="transparent">
         <Icon color="currentColor" source={<QuestionCircleIcon />} />
-        Ajuda para desenvolvedores
+        {t('base-layout.help')}
       </Button>
       <IconButton
         source={currentThemeIcon}
@@ -65,7 +66,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </RouterLink>
         ))}
         <NavTabs.Item
-          ariaLabel="Menu principal"
+          ariaLabel={t('base-layout.aria-label.menu')}
           icon={<MenuIcon size="medium" />}
           onClick={handleOpenMobileMenu}
         />
@@ -84,7 +85,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           isExample(router.pathname) && (
             <Button as={RouterLink} to="/examples" appearance="transparent">
               <Icon source={<ChevronLeftIcon />} color="currentColor" />
-              Voltar
+              {t('base-layout.back')}
             </Button>
           )
         }
