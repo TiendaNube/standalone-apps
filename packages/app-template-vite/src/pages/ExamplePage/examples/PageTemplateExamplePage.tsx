@@ -91,8 +91,8 @@ const PageTemplateExamplePage: React.FC = () => {
             justifyContent="center"
             borderColor="neutral-interactive"
             borderStyle="dashed"
-            borderWidth="1px"
-            borderRadius=".5rem"
+            borderWidth="1"
+            borderRadius="0-5"
           >
             <Text>Substitua-me pelo seu conteúdo</Text>
           </Box>
